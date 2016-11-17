@@ -5,6 +5,7 @@
 class cElipse:cFiguras
 {
 public:
+	float radio1, radio2;
 	int GetClsId();
 	cElipse();
 	~cElipse();

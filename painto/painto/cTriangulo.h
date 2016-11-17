@@ -5,6 +5,7 @@
 class cTriangulo:cFiguras
 {
 public:
+	Point p1, p2, p3;
 	int GetClsId();
 	cTriangulo();
 	~cTriangulo();

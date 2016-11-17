@@ -2,7 +2,7 @@
 #include "cTiraDeLinea.h"
 
 
-int GetClsId()
+int cTiraDeLinea::GetClsId()
 {
 	return ClsId_TiraDeLinea;
 }

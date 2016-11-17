@@ -2,7 +2,7 @@
 #include "cTexto.h"
 
 
-int GetClsId()
+int cTexto::GetClsId()
 {
 	return ClsId_Texto;
 }

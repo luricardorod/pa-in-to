@@ -4,7 +4,7 @@
 
 bool cCapa::hitTest()
 {
-
+	return NULL;
 }
 void cCapa::Insertar()
 {

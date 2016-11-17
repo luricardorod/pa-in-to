@@ -2,7 +2,7 @@
 #include "cCurvaBezier.h"
 
 
-int GetClsId()
+int cCurvaBezier::GetClsId()
 {
 	return ClsId_CurvaBezier;
 }

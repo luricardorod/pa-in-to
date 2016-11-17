@@ -1,11 +1,12 @@
 #pragma once
 #include "cDocumento.h"
 #include "cSeleccionable.h"
+#include "cFiguras.h"
 
 class cCapa:cSeleccionable
 {
 public:
-	//list lista;
+	std::list<cFiguras> Figuras;
 	wchar_t figuraActual;
 	bool bloqueado;
 	bool visible;

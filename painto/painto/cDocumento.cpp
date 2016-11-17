@@ -21,7 +21,7 @@ void cDocumento::Eliminar()
 }
 int cDocumento::GetClsId()
 {
-
+	return 0;
 }
 void cDocumento::Guardar()
 {

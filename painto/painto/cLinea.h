@@ -5,6 +5,7 @@
 class cLinea:cFiguras
 {
 public:
+	Point p1, p2;
 	int GetClsId();
 	cLinea();
 	~cLinea();

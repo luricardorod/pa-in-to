@@ -2,7 +2,7 @@
 #include "cRectanguloRedondeado.h"
 
 
-int GetClsId()
+int cRectanguloRedondeado::GetClsId()
 {
 	return ClsId_RectanguloRedondeado;
 }

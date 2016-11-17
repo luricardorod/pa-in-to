@@ -2,7 +2,7 @@
 #include "cElipse.h"
 
 
-int GetClsId()
+int cElipse::GetClsId()
 {
 	return ClsId_Elipse;
 }

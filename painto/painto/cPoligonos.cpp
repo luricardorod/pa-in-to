@@ -2,7 +2,7 @@
 #include "cPoligonos.h"
 
 
-int GetClsId()
+int cPoligonos::GetClsId()
 {
 	return ClsId_Polignos;
 }

@@ -3,7 +3,7 @@
 
 bool cFiguras::hitTest()
 {
-
+	return false;
 }
 
 cFiguras::cFiguras()

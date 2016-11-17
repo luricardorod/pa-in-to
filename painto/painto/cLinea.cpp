@@ -2,7 +2,7 @@
 #include "cLinea.h"
 
 
-int GetClsId()
+int cLinea::GetClsId()
 {
 	return ClsId_Linea;
 }

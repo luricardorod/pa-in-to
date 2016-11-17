@@ -2,7 +2,7 @@
 #include "cTriangulo.h"
 
 
-int GetClsId()
+int cTriangulo::GetClsId()
 {
 	return ClsId_Triangulo;
 }

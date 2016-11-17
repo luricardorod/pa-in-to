@@ -1,10 +1,13 @@
 #pragma once
 #include "CDibujable.h"
+#include <list>
+#include "cCapa.h"
+
 
 class cDocumento:CDibujable
 {
 public:
-	//list Capas;
+	std::list<cCapa> Capas;
 	long capaActual;
 	void Subir();
 	void Bajar();

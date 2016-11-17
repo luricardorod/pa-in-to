@@ -5,6 +5,7 @@
 class cCurvaBezier:cFiguras
 {
 public:
+	Point pInicio, pFinal, pAnclaje1, pAnclaje2;
 	int GetClsId();
 	cCurvaBezier();
 	~cCurvaBezier();

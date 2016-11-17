@@ -5,6 +5,7 @@
 class cRectanguloRedondeado:public cRectangulo
 {
 public:
+	float radio;
 	int GetClsId();
 	cRectanguloRedondeado();
 	~cRectanguloRedondeado();
