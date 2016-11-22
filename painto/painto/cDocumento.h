@@ -20,4 +20,3 @@ public:
 	cDocumento();
 	~cDocumento();
 };
-
