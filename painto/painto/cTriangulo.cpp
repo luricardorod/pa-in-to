@@ -6,8 +6,14 @@ int cTriangulo::GetClsId()
 {
 	return ClsId_Triangulo;
 }
+void cTriangulo::Dibujar()
+{
+
+}
+
 cTriangulo::cTriangulo()
 {
+
 }
 
 

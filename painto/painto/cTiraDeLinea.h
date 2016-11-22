@@ -6,15 +6,17 @@ class cTiraDeLinea:public cFiguras
 {
 public:
 	vector<Point> listaDePuntos;
-	int GetClsId();
+public:
 	cTiraDeLinea();
 	~cTiraDeLinea();
 
-	void Dibujar();
 	void setColorLinea(Vector3f nuevoColor);
 	Vector3f getColorLinea();
+
 	bool hitTest(Point mouseCoords);
 
 	void Guardar(ofstream &salida);
 	void Cargar(ifstream &entrada);
+	int GetClsId();
+	void Dibujar();
 };

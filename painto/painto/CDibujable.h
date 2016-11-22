@@ -2,6 +2,16 @@
 #include <fstream>
 using namespace std;
 
+struct Vector3f
+{
+	float x; float y; float z;
+};
+
+struct Point
+{
+	float x; float y;
+};
+
 class CDibujable
 {
 public:

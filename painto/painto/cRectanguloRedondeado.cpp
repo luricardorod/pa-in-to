@@ -2,18 +2,39 @@
 #include "cRectanguloRedondeado.h"
 
 
+cRectanguloRedondeado::cRectanguloRedondeado()
+{
+
+}
+
+cRectanguloRedondeado::~cRectanguloRedondeado()
+{
+
+}
+
 int cRectanguloRedondeado::GetClsId()
 {
 	return ClsId_RectanguloRedondeado;
 }
 
-cRectanguloRedondeado::cRectanguloRedondeado()
+void cRectanguloRedondeado::Dibujar()
 {
+
 }
 
-
-cRectanguloRedondeado::~cRectanguloRedondeado()
+void cRectanguloRedondeado::setColorLinea(Vector3f nuevoColor)
 {
+	colorLinea = nuevoColor;
+}
+
+Vector3f cRectanguloRedondeado::getColorLinea()
+{
+	return colorLinea;
+}
+
+bool cRectanguloRedondeado::hitTest(Point mouseCoords)
+{
+	return false;
 }
 
 void cRectanguloRedondeado::Guardar(ofstream &salida)

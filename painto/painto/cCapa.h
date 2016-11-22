@@ -1,7 +1,16 @@
 #pragma once
 #include "cSeleccionable.h"
-#include "cFiguras.h"
 #include <list>
+
+#include "cRectangulo.h"
+#include "cRectanguloRedondeado.h"
+#include "cElipse.h"
+#include "cTriangulo.h"
+#include "cPoligonos.h"
+#include "cCurvaBezier.h"
+#include "cLinea.h"
+#include "cTiraDeLinea.h"
+#include "cTexto.h"
 
 class cCapa:public cSeleccionable
 {

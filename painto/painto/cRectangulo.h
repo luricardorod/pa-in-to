@@ -9,13 +9,13 @@ public:
 	cRectangulo();
 	~cRectangulo();
 
-	void setColorLinea(Vector3f nuevoColor);
-	Vector3f getColorLinea();
+	virtual void setColorLinea(Vector3f nuevoColor);
+	virtual Vector3f getColorLinea();
 
-	bool hitTest(Point mouseCoords);
+	virtual bool hitTest(Point mouseCoords);
 
-	void Guardar(ofstream &salida);
-	void Cargar(ifstream &entrada);
-	int GetClsId();
-	void Dibujar();
+	virtual void Guardar(ofstream &salida);
+	virtual void Cargar(ifstream &entrada);
+	virtual int GetClsId();
+	virtual void Dibujar();
 };

@@ -1,7 +1,7 @@
 #pragma once
 #include "CDibujable.h"
 
-class cSeleccionable:public CDibujable
+class cSeleccionable :public CDibujable
 {
 public:
 	bool visible;
