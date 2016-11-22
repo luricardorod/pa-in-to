@@ -1,14 +1,19 @@
 #pragma once
 #include "cFiguras.h"
-#define ClsId_CurvaBezier 6
 
-class cCurvaBezier:cFiguras
+class cCurvaBezier:public cFiguras
 {
 public:
 	Point pInicio, pFinal, pAnclaje1, pAnclaje2;
 	int GetClsId();
 	cCurvaBezier();
 	~cCurvaBezier();
+
+	void Dibujar();
+	void setColorLinea(Vector3f nuevoColor);
+	Vector3f getColorLinea();
+	bool hitTest(Point mouseCoords);
+
 	void Guardar(ofstream & salida);
 	void Cargar(ifstream & entrada);
 };

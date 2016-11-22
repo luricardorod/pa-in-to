@@ -15,6 +15,21 @@ cTriangulo::~cTriangulo()
 {
 }
 
+void cTriangulo::setColorLinea(Vector3f nuevoColor)
+{
+	colorLinea = nuevoColor;
+}
+
+Vector3f cTriangulo::getColorLinea()
+{
+	return colorLinea;
+}
+
+bool cTriangulo::hitTest(Point mouseCoords)
+{
+	return false;
+}
+
 void cTriangulo::Guardar(ofstream & salida)
 {
 	salida << p1.x << endl;

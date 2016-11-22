@@ -6,13 +6,36 @@ int cPoligonos::GetClsId()
 {
 	return ClsId_Polignos;
 }
+
+void cPoligonos::Dibujar()
+{
+
+}
+
 cPoligonos::cPoligonos()
 {
+
 }
 
 
 cPoligonos::~cPoligonos()
 {
+
+}
+
+void cPoligonos::setColorLinea(Vector3f nuevoColor)
+{
+	colorLinea = nuevoColor;
+}
+
+Vector3f cPoligonos::getColorLinea()
+{
+	return colorLinea;
+}
+
+bool cPoligonos::hitTest(Point mouseCoords)
+{
+	return false;
 }
 
 void cPoligonos::Guardar(ofstream & salida)

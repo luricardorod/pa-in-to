@@ -9,7 +9,22 @@ cRectangulo::cRectangulo()
 cRectangulo::~cRectangulo()
 {
 
-};
+}
+
+void cRectangulo::setColorLinea(Vector3f nuevoColor)
+{
+	colorLinea = nuevoColor;
+}
+
+Vector3f cRectangulo::getColorLinea()
+{
+	return colorLinea;
+}
+
+bool cRectangulo::hitTest(Point mouseCoords)
+{
+	return (((mouseCoords.x >= p1.x) && (mouseCoords.x <= p2.x)) && ((mouseCoords.y >= p1.y) && (mouseCoords.y <= p4.x)));
+}
 
 void cRectangulo::Guardar(ofstream &salida)
 {

@@ -1,15 +1,20 @@
 #pragma once
 #include "cFiguras.h"
-#define ClsId_Polignos 5
 #include <vector>
 
-class cPoligonos:cFiguras
+class cPoligonos :public cFiguras
 {
 public:
 	std::vector<Point> listaPuntos;
 	int GetClsId();
+	void Dibujar();
 	cPoligonos();
 	~cPoligonos();
+
+	void setColorLinea(Vector3f nuevoColor);
+	Vector3f getColorLinea();
+	bool hitTest(Point mouseCoords);
+
 	void Guardar(ofstream & salida);
 	void Cargar(ifstream & entrada);
 };

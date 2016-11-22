@@ -1,14 +1,19 @@
 #pragma once
 #include "cFiguras.h"
-#define ClsId_Linea 7
 
-class cLinea:cFiguras
+class cLinea:public cFiguras
 {
 public:
 	Point p1, p2;
 	int GetClsId();
 	cLinea();
 	~cLinea();
+
+	void Dibujar();
+	void setColorLinea(Vector3f nuevoColor);
+	Vector3f getColorLinea();
+	bool hitTest(Point mouseCoords);
+
 	void Guardar(ofstream & salida);
 	void Cargar(ifstream & entrada);
 };

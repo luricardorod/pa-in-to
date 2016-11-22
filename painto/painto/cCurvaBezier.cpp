@@ -14,6 +14,26 @@ cCurvaBezier::~cCurvaBezier()
 {
 }
 
+void cCurvaBezier::Dibujar()
+{
+
+}
+
+void cCurvaBezier::setColorLinea(Vector3f nuevoColor)
+{
+	colorLinea = nuevoColor;
+}
+
+Vector3f cCurvaBezier::getColorLinea()
+{
+	return colorLinea;
+}
+
+bool cCurvaBezier::hitTest(Point mouseCoords)
+{
+	return false;
+}
+
 void cCurvaBezier::Guardar(ofstream & salida)
 {
 	salida << pInicio.x << endl;

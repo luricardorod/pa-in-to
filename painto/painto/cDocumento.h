@@ -11,8 +11,8 @@ public:
 	long capaActual;
 	void Subir();
 	void Bajar();
-	void Guardar();
-	void Cargar();
+	void Guardar(ofstream &salida);
+	void Cargar(ifstream &entrada);
 	int GetClsId();
 	void Insertar();
 	void Eliminar();
