@@ -5,7 +5,7 @@
 class cPoligonos :public cFiguras
 {
 public:
-	std::vector<Point> listaPuntos;
+	vector<Point> listaPuntos;
 	int GetClsId();
 	void Dibujar();
 	cPoligonos();
@@ -15,6 +15,6 @@ public:
 	Vector3f getColorLinea();
 	bool hitTest(Point mouseCoords);
 
-	void Guardar(ofstream & salida);
-	void Cargar(ifstream & entrada);
+	void Guardar(ofstream &salida);
+	void Cargar(ifstream &entrada);
 };

@@ -37,18 +37,20 @@ bool cCapa::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cCapa::Guardar(ofstream & salida)
+void cCapa::Guardar(ofstream &salida)
 {
 	salida << Figuras.size() << endl;
-	for (std::list<cFiguras>::iterator it = Figuras.begin(); it != Figuras.end(); ++it)
+	for (list<cFiguras*>::iterator it = Figuras.begin(); it != Figuras.end(); ++it)
 	{
-		salida << (*it).GetClsId() << endl;
-		(*it).Guardar(salida);
+		salida << (*it)->GetClsId() << endl;
+		(*it)->Guardar(salida);
 	}
 }
 
-void cCapa::Cargar(ifstream & entrada)
+void cCapa::Cargar(ifstream &entrada)
 {
+	/*
+	*/
 	int sz;
 	entrada >> sz;
 
@@ -59,37 +61,37 @@ void cCapa::Cargar(ifstream & entrada)
 		switch (shapeNumber)
 		{
 		case ClsId_Rectangulo:
-			Figuras.push_back(cRectangulo());
+			Figuras.push_back(new cRectangulo());
 			break;
 		case ClsId_RectanguloRedondeado:
-			Figuras.push_back(cRectanguloRedondeado());
+			Figuras.push_back(new cRectanguloRedondeado());
 			break;
 		case ClsId_Elipse:
-			Figuras.push_back(cElipse());
+			Figuras.push_back(new cElipse());
 			break;
 		case ClsId_Triangulo:
-			Figuras.push_back(cTriangulo());
+			Figuras.push_back(new cTriangulo());
 			break;
 		case ClsId_Polignos:
-			Figuras.push_back(cPoligonos());
+			Figuras.push_back(new cPoligonos());
 			break;
 		case ClsId_CurvaBezier:
-			Figuras.push_back(cCurvaBezier());
+			Figuras.push_back(new cCurvaBezier());
 			break;
 		case ClsId_Linea:
-			Figuras.push_back(cLinea());
+			Figuras.push_back(new cLinea());
 			break;
 		case ClsId_TiraDeLinea:
-			Figuras.push_back(cTiraDeLinea());
+			Figuras.push_back(new cTiraDeLinea());
 			break;
 		case ClsId_Texto:
-			Figuras.push_back(cTexto());
+			Figuras.push_back(new cTexto());
 			break;
 		default:
 			break;
 		}
 
-		Figuras.back().Cargar(entrada);
+		(Figuras.back())->Cargar(entrada);
 	}
 }
 
@@ -100,5 +102,6 @@ int cCapa::GetClsId()
 
 void cCapa::Dibujar()
 {
-
+	for (list<cFiguras*>::iterator it = Figuras.begin(); it != Figuras.end(); ++it)
+		(*it)->Dibujar();
 }

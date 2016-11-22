@@ -35,7 +35,7 @@ bool cTiraDeLinea::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cTiraDeLinea::Guardar(ofstream & salida)
+void cTiraDeLinea::Guardar(ofstream &salida)
 {
 	salida << listaDePuntos.size() << endl;
 	for (int i = 0; i < listaDePuntos.size(); i++)
@@ -45,7 +45,7 @@ void cTiraDeLinea::Guardar(ofstream & salida)
 	}
 }
 
-void cTiraDeLinea::Cargar(ifstream & entrada)
+void cTiraDeLinea::Cargar(ifstream &entrada)
 {
 	int sz;
 	entrada >> sz;

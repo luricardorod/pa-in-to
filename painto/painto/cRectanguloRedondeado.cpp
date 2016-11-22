@@ -16,7 +16,7 @@ cRectanguloRedondeado::~cRectanguloRedondeado()
 {
 }
 
-void cRectanguloRedondeado::Guardar(ofstream & salida)
+void cRectanguloRedondeado::Guardar(ofstream &salida)
 {
 	salida << p1.x << endl;
 	salida << p1.y << endl;
@@ -33,7 +33,7 @@ void cRectanguloRedondeado::Guardar(ofstream & salida)
 	salida << radio << endl;
 }
 
-void cRectanguloRedondeado::Cargar(ifstream & entrada)
+void cRectanguloRedondeado::Cargar(ifstream &entrada)
 {
 	/*
 	int i = 0;

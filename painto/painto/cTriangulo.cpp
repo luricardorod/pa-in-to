@@ -30,7 +30,7 @@ bool cTriangulo::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cTriangulo::Guardar(ofstream & salida)
+void cTriangulo::Guardar(ofstream &salida)
 {
 	salida << p1.x << endl;
 	salida << p1.y << endl;
@@ -42,7 +42,7 @@ void cTriangulo::Guardar(ofstream & salida)
 	salida << p3.y << endl;
 }
 
-void cTriangulo::Cargar(ifstream & entrada)
+void cTriangulo::Cargar(ifstream &entrada)
 {
 	entrada >> p1.x;
 	entrada >> p1.y;

@@ -1,11 +1,12 @@
 #pragma once
 #include "cSeleccionable.h"
 #include "cFiguras.h"
+#include <list>
 
 class cCapa:public cSeleccionable
 {
 public:
-	list<cFiguras> Figuras;
+	list<cFiguras*> Figuras;
 	wchar_t figuraActual;
 public:
 	cCapa();

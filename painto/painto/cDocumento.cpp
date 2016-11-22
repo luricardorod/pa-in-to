@@ -34,7 +34,7 @@ void cDocumento::Eliminar()
 void cDocumento::Guardar(ofstream &salida)
 {
 	salida << Capas.size() << endl;
-	for (std::list<cCapa>::iterator it = Capas.begin(); it != Capas.end(); ++it)
+	for (list<cCapa>::iterator it = Capas.begin(); it != Capas.end(); ++it)
 	{
 		(*it).Guardar(salida);
 	}
@@ -62,5 +62,6 @@ int cDocumento::GetClsId()
 
 void cDocumento::Dibujar()
 {
-
+	for (list<cCapa>::iterator it = Capas.begin(); it != Capas.end(); ++it)
+		(*it).Dibujar();
 }

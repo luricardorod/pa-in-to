@@ -35,7 +35,7 @@ bool cLinea::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cLinea::Guardar(ofstream & salida)
+void cLinea::Guardar(ofstream &salida)
 {
 	salida << p1.x << endl;
 	salida << p1.y << endl;
@@ -44,7 +44,7 @@ void cLinea::Guardar(ofstream & salida)
 	salida << p2.y << endl;
 }
 
-void cLinea::Cargar(ifstream & entrada)
+void cLinea::Cargar(ifstream &entrada)
 {
 	entrada >> p1.x;
 	entrada >> p1.y;

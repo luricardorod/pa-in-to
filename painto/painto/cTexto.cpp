@@ -35,7 +35,7 @@ bool cTexto::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cTexto::Guardar(ofstream & salida)
+void cTexto::Guardar(ofstream &salida)
 {
 	salida << p1.x << endl;
 	salida << p1.y << endl;
@@ -50,7 +50,7 @@ void cTexto::Guardar(ofstream & salida)
 	salida << p4.y << endl;
 }
 
-void cTexto::Cargar(ifstream & entrada)
+void cTexto::Cargar(ifstream &entrada)
 {
 	entrada >> p1.x;
 	entrada >> p1.y;

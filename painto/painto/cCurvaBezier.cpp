@@ -34,7 +34,7 @@ bool cCurvaBezier::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cCurvaBezier::Guardar(ofstream & salida)
+void cCurvaBezier::Guardar(ofstream &salida)
 {
 	salida << pInicio.x << endl;
 	salida << pInicio.y << endl;
@@ -49,7 +49,7 @@ void cCurvaBezier::Guardar(ofstream & salida)
 	salida << pAnclaje2.y << endl;
 }
 
-void cCurvaBezier::Cargar(ifstream & entrada)
+void cCurvaBezier::Cargar(ifstream &entrada)
 {
 	entrada >> pInicio.x;
 	entrada >> pInicio.y;

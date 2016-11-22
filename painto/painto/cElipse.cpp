@@ -36,13 +36,13 @@ bool cElipse::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cElipse::Guardar(ofstream & salida)
+void cElipse::Guardar(ofstream &salida)
 {
 	salida << radio1 << endl;
 	salida << radio2 << endl;
 }
 
-void cElipse::Cargar(ifstream & entrada)
+void cElipse::Cargar(ifstream &entrada)
 {
 	entrada >> radio1;
 	entrada >> radio2;

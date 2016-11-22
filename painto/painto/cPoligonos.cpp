@@ -38,7 +38,7 @@ bool cPoligonos::hitTest(Point mouseCoords)
 	return false;
 }
 
-void cPoligonos::Guardar(ofstream & salida)
+void cPoligonos::Guardar(ofstream &salida)
 {
 	salida << listaPuntos.size() << endl;
 	for (int i = 0; i < listaPuntos.size(); i++)
@@ -48,7 +48,7 @@ void cPoligonos::Guardar(ofstream & salida)
 	}
 }
 
-void cPoligonos::Cargar(ifstream & entrada)
+void cPoligonos::Cargar(ifstream &entrada)
 {
 	listaPuntos.clear();
 	int sz;

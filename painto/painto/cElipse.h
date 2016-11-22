@@ -12,6 +12,6 @@ public:
 	void setColorLinea(Vector3f nuevoColor);
 	Vector3f getColorLinea();
 	bool hitTest(Point mouseCoords);
-	void Guardar(ofstream & salida);
-	void Cargar(ifstream & entrada);
+	void Guardar(ofstream &salida);
+	void Cargar(ifstream &entrada);
 };
