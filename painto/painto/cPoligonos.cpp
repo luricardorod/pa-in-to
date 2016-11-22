@@ -23,16 +23,6 @@ cPoligonos::~cPoligonos()
 
 }
 
-void cPoligonos::setColorLinea(Vector3f nuevoColor)
-{
-	colorLinea = nuevoColor;
-}
-
-Vector3f cPoligonos::getColorLinea()
-{
-	return colorLinea;
-}
-
 bool cPoligonos::hitTest(Point mouseCoords)
 {
 	return false;

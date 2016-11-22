@@ -4,13 +4,11 @@
 class cTexto:public cFiguras
 {
 public:
+	string texto;
 	Point p1, p2, p3, p4;
 public:
 	cTexto();
 	~cTexto();
-
-	void setColorLinea(Vector3f nuevoColor);
-	Vector3f getColorLinea();
 
 	bool hitTest(Point mouseCoords);
 

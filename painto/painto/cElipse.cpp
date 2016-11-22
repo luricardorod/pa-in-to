@@ -21,16 +21,6 @@ cElipse::~cElipse()
 {
 }
 
-void cElipse::setColorLinea(Vector3f nuevoColor)
-{
-	colorLinea = nuevoColor;
-}
-
-Vector3f cElipse::getColorLinea()
-{
-	return colorLinea;
-}
-
 bool cElipse::hitTest(Point mouseCoords)
 {
 	return false;

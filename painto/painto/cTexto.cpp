@@ -20,16 +20,6 @@ void cTexto::Dibujar()
 
 }
 
-void cTexto::setColorLinea(Vector3f nuevoColor)
-{
-	colorLinea = nuevoColor;
-}
-
-Vector3f cTexto::getColorLinea()
-{
-	return colorLinea;
-}
-
 bool cTexto::hitTest(Point mouseCoords)
 {
 	return false;

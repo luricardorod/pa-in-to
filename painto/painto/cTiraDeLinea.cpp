@@ -20,16 +20,6 @@ void cTiraDeLinea::Dibujar()
 
 }
 
-void cTiraDeLinea::setColorLinea(Vector3f nuevoColor)
-{
-	colorLinea = nuevoColor;
-}
-
-Vector3f cTiraDeLinea::getColorLinea()
-{
-	return colorLinea;
-}
-
 bool cTiraDeLinea::hitTest(Point mouseCoords)
 {
 	return false;
