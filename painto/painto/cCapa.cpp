@@ -2,6 +2,41 @@
 #include "cCapa.h"
 
 
+cCapa::cCapa()
+{
+
+}
+
+cCapa::~cCapa()
+{
+
+}
+
+void cCapa::Insertar()
+{
+
+}
+
+void cCapa::Eliminar()
+{
+
+}
+
+void cCapa::Subir()
+{
+
+}
+
+void cCapa::Bajar()
+{
+
+}
+
+bool cCapa::hitTest(Point mouseCoords)
+{
+	return false;
+}
+
 void cCapa::Guardar(ofstream & salida)
 {
 	salida << Figuras.size() << endl;
@@ -58,34 +93,6 @@ void cCapa::Cargar(ifstream & entrada)
 	}
 }
 
-bool cCapa::hitTest()
-{
-	return NULL;
-}
-void cCapa::Insertar()
-{
-
-}
-
-void cCapa::Eliminar()
-{
-
-}
-
-void cCapa::Subir()
-{
-
-}
-void cCapa::Bajar()
-{
-
-}
-
-bool cCapa::hitTest(Point mouseCoords)
-{
-	return false;
-}
-
 int cCapa::GetClsId()
 {
 	return 0;
@@ -94,14 +101,4 @@ int cCapa::GetClsId()
 void cCapa::Dibujar()
 {
 
-}
-
-cCapa::cCapa()
-{
-
-}
-
-
-cCapa::~cCapa()
-{
 }

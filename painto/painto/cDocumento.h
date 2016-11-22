@@ -1,22 +1,24 @@
 #pragma once
 #include "CDibujable.h"
-#include <list>
 #include "cCapa.h"
+#include <list>
 
-
-class cDocumento:CDibujable
+class cDocumento:public CDibujable
 {
 public:
-	std::list<cCapa> Capas;
+	list<cCapa> Capas;
 	long capaActual;
+public:
+	cDocumento();
+	~cDocumento();
+
 	void Subir();
 	void Bajar();
+	void Insertar();
+	void Eliminar();
+
 	void Guardar(ofstream &salida);
 	void Cargar(ifstream &entrada);
 	int GetClsId();
-	void Insertar();
-	void Eliminar();
 	void Dibujar();
-	cDocumento();
-	~cDocumento();
 };

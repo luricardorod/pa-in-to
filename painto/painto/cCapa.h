@@ -1,27 +1,25 @@
 #pragma once
-#include "cDocumento.h"
 #include "cSeleccionable.h"
 #include "cFiguras.h"
 
 class cCapa:public cSeleccionable
 {
 public:
-	std::list<cFiguras> Figuras;
+	list<cFiguras> Figuras;
 	wchar_t figuraActual;
-	bool bloqueado;
-	bool visible;
-	void Guardar(ofstream &salida);
-	void Cargar(ifstream &entrada);
-	bool hitTest();
+public:
+	cCapa();
+	~cCapa();
+
 	void Insertar();
 	void Eliminar();
 	void Subir();
 	void Bajar();
 
 	bool hitTest(Point mouseCoords);
+
+	void Guardar(ofstream &salida);
+	void Cargar(ifstream &entrada);
 	int GetClsId();
 	void Dibujar();
-
-	cCapa();
-	~cCapa();
 };

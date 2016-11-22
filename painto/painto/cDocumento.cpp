@@ -1,7 +1,32 @@
 #include "stdafx.h"
 #include "cDocumento.h"
 
+cDocumento::cDocumento()
+{
+
+}
+
+cDocumento::~cDocumento()
+{
+
+}
+
+void cDocumento::Subir()
+{
+
+}
+
 void cDocumento::Bajar()
+{
+
+}
+
+void cDocumento::Insertar()
+{
+
+}
+
+void cDocumento::Eliminar()
 {
 
 }
@@ -30,32 +55,12 @@ void cDocumento::Cargar(ifstream &entrada)
 	}
 }
 
-void cDocumento::Dibujar()
-{
-
-}
-void cDocumento::Eliminar()
-{
-
-}
 int cDocumento::GetClsId()
 {
 	return 0;
 }
 
-void cDocumento::Insertar()
+void cDocumento::Dibujar()
 {
 
-}
-void cDocumento::Subir()
-{
-
-}
-cDocumento::cDocumento()
-{
-}
-
-
-cDocumento::~cDocumento()
-{
 }
