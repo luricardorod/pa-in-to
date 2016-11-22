@@ -9,5 +9,6 @@ public:
 	int GetClsId();
 	cLinea();
 	~cLinea();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-

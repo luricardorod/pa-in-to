@@ -9,5 +9,6 @@ public:
 	int GetClsId();
 	cTriangulo();
 	~cTriangulo();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-

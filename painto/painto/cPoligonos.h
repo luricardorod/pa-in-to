@@ -10,5 +10,6 @@ public:
 	int GetClsId();
 	cPoligonos();
 	~cPoligonos();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-

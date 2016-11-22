@@ -14,3 +14,21 @@ cLinea::cLinea()
 cLinea::~cLinea()
 {
 }
+
+void cLinea::Guardar(ofstream & salida)
+{
+	salida << p1.x << endl;
+	salida << p1.y << endl;
+
+	salida << p2.x << endl;
+	salida << p2.y << endl;
+}
+
+void cLinea::Cargar(ifstream & entrada)
+{
+	entrada >> p1.x;
+	entrada >> p1.y;
+
+	entrada >> p2.x;
+	entrada >> p2.y;
+}

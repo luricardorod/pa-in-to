@@ -9,5 +9,6 @@ public:
 	int GetClsId();
 	cTexto();
 	~cTexto();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-

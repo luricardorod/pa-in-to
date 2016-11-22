@@ -9,5 +9,6 @@ public:
 	int GetClsId();
 	cRectanguloRedondeado();
 	~cRectanguloRedondeado();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-

@@ -10,5 +10,6 @@ public:
 	int GetClsId();
 	cTiraDeLinea();
 	~cTiraDeLinea();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-

@@ -9,5 +9,6 @@ public:
 	int GetClsId();
 	cCurvaBezier();
 	~cCurvaBezier();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-

@@ -9,5 +9,6 @@ public:
 	int GetClsId();
 	cElipse();
 	~cElipse();
+	void Guardar(ofstream & salida);
+	void Cargar(ifstream & entrada);
 };
-
