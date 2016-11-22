@@ -13,24 +13,17 @@
 
 class cFiguras:public cSeleccionable
 {
-public:
+private:
 	Vector3f colorRelleno;
 	Vector3f colorLinea;
 	Point posicion;
-	long id_Nombre;
+	long id_Nombre; // nombre o id unico de figura?
 public:
-	cFiguras();
-	~cFiguras();
-	/*
+	void setColorLinea(Vector3f nuevoColor);
+	Vector3f getColorLinea();
+	void setColorRelleno(Vector3f nuevoColor);
+	Vector3f getColorRelleno();
+	void setPosicion(Point coordenadas);
+	Point getPosition();
 
-	virtual void setColorLinea(Vector3f nuevoColor) = 0;
-	virtual Vector3f getColorLinea() = 0;
-
-	virtual bool hitTest(Point mouseCoords) = 0;
-
-	virtual void Guardar(ofstream &salida) = 0;
-	virtual void Cargar(ifstream &entrada) = 0;
-	virtual int GetClsId() = 0;
-	virtual void Dibujar() = 0;
-	*/
 };

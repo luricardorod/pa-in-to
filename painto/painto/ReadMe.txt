@@ -28,3 +28,6 @@ Otras notas:
 El asistente para aplicaciones utiliza comentarios "TODO:" para indicar las partes del código fuente que tendrá que agregar o personalizar.
 
 /////////////////////////////////////////////////////////////////////////////
+
+
+En rectangulo hay que verificar como lo vamos a construir, que posicion va a tener cada uno de los puntos.

@@ -11,34 +11,18 @@ cRectangulo::~cRectangulo()
 
 }
 
-void cRectangulo::setColorLinea(Vector3f nuevoColor)
-{
-	colorLinea = nuevoColor;
-}
-
-Vector3f cRectangulo::getColorLinea()
-{
-	return colorLinea;
-}
 
 bool cRectangulo::hitTest(Point mouseCoords)
 {
-	return (((mouseCoords.x >= p1.x) && (mouseCoords.x <= p2.x)) && ((mouseCoords.y >= p1.y) && (mouseCoords.y <= p4.x)));
+	Point posicion = getPosition();
+	return (((mouseCoords.x >= posicion.x - base/2) && (mouseCoords.x <= posicion.x + base / 2)) && ((mouseCoords.y >= posicion.y - altura / 2) && (mouseCoords.y <= posicion.y + altura / 2)));
 }
 
 void cRectangulo::Guardar(ofstream &salida)
 {
-	salida << p1.x << endl;
-	salida << p1.y << endl;
 
-	salida << p2.x << endl;
-	salida << p2.y << endl;
-
-	salida << p3.x << endl;
-	salida << p3.y << endl;
-
-	salida << p4.x << endl;
-	salida << p4.y << endl;
+	salida << base << endl;
+	salida << altura << endl;
 };
 
 void cRectangulo::Cargar(ifstream &entrada)
@@ -63,17 +47,8 @@ void cRectangulo::Cargar(ifstream &entrada)
 		i++;
 	}
 	*/
-	entrada >> p1.x;
-	entrada >> p1.y;
-
-	entrada >> p2.x;
-	entrada >> p2.y;
-
-	entrada >> p3.x;
-	entrada >> p3.y;
-
-	entrada >> p4.x;
-	entrada >> p4.y;
+	entrada >> base;
+	entrada >> altura;
 };
 
 int cRectangulo::GetClsId()

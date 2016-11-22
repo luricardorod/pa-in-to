@@ -4,13 +4,10 @@
 class cRectangulo:public cFiguras
 {
 public:
-	Point p1, p2, p3, p4;
+	float base, altura;
 public:
 	cRectangulo();
 	~cRectangulo();
-
-	virtual void setColorLinea(Vector3f nuevoColor);
-	virtual Vector3f getColorLinea();
 
 	virtual bool hitTest(Point mouseCoords);
 

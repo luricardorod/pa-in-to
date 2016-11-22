@@ -33,6 +33,27 @@ Vector3f cTriangulo::getColorLinea()
 
 bool cTriangulo::hitTest(Point mouseCoords)
 {
+	Point vector1, vector2;
+	float cross1, cross2;
+	vector1.x = p2.x - p1.x;
+	vector1.y = p2.y - p1.y;
+
+	vector2.x = mouseCoords.x - p2.x;
+	vector2.y = mouseCoords.y - p2.y;
+
+	cross1 = (vector1.x*vector2.y) - (vector2.x*vector1.y);
+
+	vector1.x = p3.x - p2.x;
+	vector1.y = p3.y - p2.y;
+
+	vector2.x = mouseCoords.x - p3.x;
+	vector2.y = mouseCoords.y - p3.y;
+	cross2 = (vector1.x*vector2.y) - (vector2.x*vector1.y);
+	if ((cross1 > 0 && cross2 > 0) || (cross1 < 0 && cross2 < 0))
+	{
+		return true;
+	}
+
 	return false;
 }
 

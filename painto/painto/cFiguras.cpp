@@ -1,12 +1,23 @@
 #include "stdafx.h"
 #include "cFiguras.h"
 
-cFiguras::cFiguras()
+void cFiguras::setColorLinea(Vector3f nuevoColor)
 {
-
+	colorLinea = nuevoColor;
 }
 
-
-cFiguras::~cFiguras()
-{
+Vector3f cFiguras::getColorLinea() {
+	return colorLinea;
+}
+void cFiguras::setColorRelleno(Vector3f nuevoColor) {
+	colorRelleno = nuevoColor;
+}
+Vector3f cFiguras::getColorRelleno() {
+	return colorRelleno;
+}
+void cFiguras::setPosicion(Point coordenadas) {
+	posicion = coordenadas;
+}
+Point cFiguras::getPosition() {
+	return posicion;
 }
