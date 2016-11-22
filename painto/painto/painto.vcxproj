@@ -159,6 +159,7 @@
     <ClInclude Include="cTexto.h" />
     <ClInclude Include="cTiraDeLinea.h" />
     <ClInclude Include="cTriangulo.h" />
+    <ClInclude Include="Fabrica.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -175,6 +176,7 @@
     <ClCompile Include="cTexto.cpp" />
     <ClCompile Include="cTiraDeLinea.cpp" />
     <ClCompile Include="cTriangulo.cpp" />
+    <ClCompile Include="Fabrica.cpp" />
     <ClCompile Include="painto.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -68,38 +68,7 @@ void cCapa::Cargar(ifstream &entrada)
 	{
 		int shapeNumber;
 		entrada >> shapeNumber;
-		switch (shapeNumber)
-		{
-		case ClsId_Rectangulo:
-			Figuras.push_back(new cRectangulo());
-			break;
-		case ClsId_RectanguloRedondeado:
-			Figuras.push_back(new cRectanguloRedondeado());
-			break;
-		case ClsId_Elipse:
-			Figuras.push_back(new cElipse());
-			break;
-		case ClsId_Triangulo:
-			Figuras.push_back(new cTriangulo());
-			break;
-		case ClsId_Polignos:
-			Figuras.push_back(new cPoligonos());
-			break;
-		case ClsId_CurvaBezier:
-			Figuras.push_back(new cCurvaBezier());
-			break;
-		case ClsId_Linea:
-			Figuras.push_back(new cLinea());
-			break;
-		case ClsId_TiraDeLinea:
-			Figuras.push_back(new cTiraDeLinea());
-			break;
-		case ClsId_Texto:
-			Figuras.push_back(new cTexto());
-			break;
-		default:
-			break;
-		}
+		Figuras.push_back(CrearFigura(shapeNumber));
 		Vector3f temp;
 		entrada >> temp.x;
 		entrada >> temp.y;
