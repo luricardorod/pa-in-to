@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cCurvaBezier.h"
+#include <string>
 
 
 int cCurvaBezier::GetClsId()
@@ -41,6 +42,7 @@ void cCurvaBezier::Guardar(ofstream &salida)
 
 void cCurvaBezier::Cargar(ifstream &entrada)
 {
+	/*
 	entrada >> pInicio.x;
 	entrada >> pInicio.y;
 
@@ -52,4 +54,25 @@ void cCurvaBezier::Cargar(ifstream &entrada)
 
 	entrada >> pAnclaje2.x;
 	entrada >> pAnclaje2.y;
+	*/
+	string str;
+	getline(entrada, str);
+	pInicio.x = stof(str);
+	getline(entrada, str);
+	pInicio.y = stof(str);
+
+	getline(entrada, str);
+	pFinal.x = stof(str);
+	getline(entrada, str);
+	pFinal.y = stof(str);
+
+	getline(entrada, str);
+	pAnclaje1.x = stof(str);
+	getline(entrada, str);
+	pAnclaje1.y = stof(str);
+
+	getline(entrada, str);
+	pAnclaje2.x = stof(str);
+	getline(entrada, str);
+	pAnclaje2.y = stof(str);
 }

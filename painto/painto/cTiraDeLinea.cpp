@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cTiraDeLinea.h"
+#include <string>
 
 
 int cTiraDeLinea::GetClsId()
@@ -43,7 +44,14 @@ void cTiraDeLinea::Cargar(ifstream &entrada)
 	listaDePuntos.resize(sz);
 	for (int i = 0; i < listaDePuntos.size(); i++)
 	{
+		/*
 		entrada >> listaDePuntos[i].x;
 		entrada >> listaDePuntos[i].y;
+		*/
+		string str;
+		getline(entrada, str);
+		listaDePuntos[i].x = stof(str);
+		getline(entrada, str);
+		listaDePuntos[i].y = stof(str);
 	}
 }

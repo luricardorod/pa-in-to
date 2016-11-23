@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cRectangulo.h"
+#include <string>
 
 cRectangulo::cRectangulo()
 {
@@ -47,8 +48,11 @@ void cRectangulo::Cargar(ifstream &entrada)
 		i++;
 	}
 	*/
-	entrada >> base;
-	entrada >> altura;
+	string str;
+	getline(entrada, str);
+	base = stof(str);
+	getline(entrada, str);
+	altura = stof(str);
 };
 
 int cRectangulo::GetClsId()

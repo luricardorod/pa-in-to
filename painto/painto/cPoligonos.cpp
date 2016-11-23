@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cPoligonos.h"
+#include <string>
 
 
 int cPoligonos::GetClsId()
@@ -46,7 +47,14 @@ void cPoligonos::Cargar(ifstream &entrada)
 	listaPuntos.resize(sz);
 	for (int i = 0; i < listaPuntos.size(); i++)
 	{
+		/*
 		entrada >> listaPuntos[i].x;
 		entrada >> listaPuntos[i].y;
+		*/
+		string str;
+		getline(entrada, str);
+		listaPuntos[i].x = stof(str);
+		getline(entrada, str);
+		listaPuntos[i].y = stof(str);
 	}
 }
