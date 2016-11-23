@@ -71,16 +71,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\F_A_R\OneDrive\Documentos\SFML-2.3.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\F_A_R\OneDrive\Documentos\SFML-2.3.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\F_A_R\Source\Repos\pa-in-to\painto\sfml\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\F_A_R\Source\Repos\pa-in-to\painto\sfml\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\F_A_R\OneDrive\Documentos\SFML-2.3.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\F_A_R\OneDrive\Documentos\SFML-2.3.2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\F_A_R\Source\Repos\pa-in-to\painto\sfml\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\F_A_R\Source\Repos\pa-in-to\painto\sfml\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
