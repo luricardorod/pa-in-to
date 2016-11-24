@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cDocumento.h"
+#include <string>
 
 cDocumento::cDocumento()
 {
@@ -43,8 +44,11 @@ void cDocumento::Guardar(ofstream &salida)
 void cDocumento::Cargar(ifstream &entrada)
 {
 	int sz;
-	entrada >> sz;
-
+	string str;
+	getline(entrada, str);
+	
+	sz = stoi(str);
+	
 	Capas.clear();
 
 	Capas.resize(sz);
