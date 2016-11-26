@@ -13,6 +13,8 @@ int main()
 
 	int decision;
 	ofstream fOut;
+	ifstream fIn;
+
 	while (true)
 	{
 		cout << "Hola, bienvenido al corel chafa" << endl;
@@ -28,6 +30,7 @@ int main()
 		cout << "9. Crear Curva de Bezier" << endl;
 		cout << "10. Crear Texto" << endl;
 		cout << "11. Guardar" << endl;
+		cout << "12. Cargar" << endl;
 		cin >> decision;
 
 		switch (decision)
@@ -68,6 +71,14 @@ int main()
 			{
 				canvas1.Guardar(fOut);
 				fOut.close();
+			}
+			break;
+		case 12:
+			fIn.open("loquesea.txt");
+			if (fIn.is_open())
+			{
+				canvas1.Cargar(fIn);
+				fIn.close();
 			}
 			break;
 		default:

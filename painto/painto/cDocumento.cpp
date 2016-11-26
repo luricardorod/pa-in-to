@@ -51,13 +51,12 @@ void cDocumento::Cargar(ifstream &entrada)
 	sz = stoi(str);
 	
 	Capas.clear();
-
-	Capas.resize(sz);
 	while (Capas.size() < sz)
 	{
 		Capas.push_back(new cCapa());
 		Capas.back()->Cargar(entrada);
 	}
+	capaActual = Capas.back();
 }
 
 int cDocumento::GetClsId()
