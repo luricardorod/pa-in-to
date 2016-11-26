@@ -15,10 +15,7 @@ cCapa::~cCapa()
 
 void cCapa::Insertar(int clsId)
 {
-	cFiguras *lu;
-	lu = CrearFigura(clsId);
-	printf("asdas");
-	Figuras.push_back(lu);
+	Figuras.push_back(CrearFigura(clsId));
 }
 
 void cCapa::Eliminar()
@@ -46,6 +43,7 @@ void cCapa::Guardar(ofstream &salida)
 	salida << Figuras.size() << endl;
 	for (list<cFiguras*>::iterator it = Figuras.begin(); it != Figuras.end(); ++it)
 	{
+		salida << (*it)->GetClsId() << endl;
 		salida << (*it)->getColorLinea().x << endl;
 		salida << (*it)->getColorLinea().y << endl;
 		salida << (*it)->getColorLinea().z << endl;
@@ -54,7 +52,6 @@ void cCapa::Guardar(ofstream &salida)
 		salida << (*it)->getColorRelleno().z << endl;
 		salida << (*it)->getPosition().x << endl;
 		salida << (*it)->getPosition().y << endl;
-		salida << (*it)->GetClsId() << endl;
 
 		(*it)->Guardar(salida);
 	}
@@ -71,6 +68,11 @@ void cCapa::Cargar(ifstream &entrada)
 	{
 		string str;
 		Vector3f temp;
+		int shapeNumber;
+		getline(entrada, str);
+		shapeNumber = stoi(str);
+		Figuras.push_back(CrearFigura(shapeNumber));
+		(Figuras.back())->Cargar(entrada);
 
 		getline(entrada, str);
 		temp.x = stof(str);
@@ -94,11 +96,7 @@ void cCapa::Cargar(ifstream &entrada)
 		getline(entrada, str);
 		temp1.y = stof(str);
 
-		int shapeNumber;
-		getline(entrada, str);
-		shapeNumber = stoi(str);
-		Figuras.push_back(CrearFigura(shapeNumber));
-		(Figuras.back())->Cargar(entrada);
+		
 	}
 }
 

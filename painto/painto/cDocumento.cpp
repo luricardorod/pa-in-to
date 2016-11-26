@@ -24,9 +24,8 @@ void cDocumento::Bajar()
 
 void cDocumento::Insertar()
 {
-	cCapa nuevaCapa;
-	capaActual = &nuevaCapa;
-	Capas.push_back(capaActual);
+	Capas.push_back(new cCapa());
+	capaActual = Capas.back();
 }
 
 void cDocumento::Eliminar()
