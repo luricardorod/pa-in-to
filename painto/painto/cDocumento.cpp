@@ -24,7 +24,9 @@ void cDocumento::Bajar()
 
 void cDocumento::Insertar()
 {
-
+	cCapa nuevaCapa;
+	capaActual = &nuevaCapa;
+	Capas.push_back(capaActual);
 }
 
 void cDocumento::Eliminar()
@@ -35,9 +37,9 @@ void cDocumento::Eliminar()
 void cDocumento::Guardar(ofstream &salida)
 {
 	salida << Capas.size() << endl;
-	for (list<cCapa>::iterator it = Capas.begin(); it != Capas.end(); ++it)
+	for (list<cCapa*>::iterator it = Capas.begin(); it != Capas.end(); ++it)
 	{
-		(*it).Guardar(salida);
+		(*it)->Guardar(salida);
 	}
 }
 
@@ -54,8 +56,8 @@ void cDocumento::Cargar(ifstream &entrada)
 	Capas.resize(sz);
 	while (Capas.size() < sz)
 	{
-		Capas.push_back(cCapa());
-		Capas.back().Cargar(entrada);
+		Capas.push_back(new cCapa());
+		Capas.back()->Cargar(entrada);
 	}
 }
 
@@ -66,6 +68,6 @@ int cDocumento::GetClsId()
 
 void cDocumento::Dibujar()
 {
-	for (list<cCapa>::iterator it = Capas.begin(); it != Capas.end(); ++it)
-		(*it).Dibujar();
+	for (list<cCapa*>::iterator it = Capas.begin(); it != Capas.end(); ++it)
+		(*it)->Dibujar();
 }

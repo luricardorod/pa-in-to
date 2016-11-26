@@ -5,7 +5,7 @@
 #define ClsId_RectanguloRedondeado 2
 #define ClsId_Elipse 3
 #define ClsId_Triangulo 4
-#define ClsId_Polignos 5
+#define ClsId_Poligono 5
 #define ClsId_CurvaBezier 6
 #define ClsId_Linea 7
 #define ClsId_TiraDeLinea 8

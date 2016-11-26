@@ -5,7 +5,7 @@
 
 int cPoligonos::GetClsId()
 {
-	return ClsId_Polignos;
+	return ClsId_Poligono;
 }
 
 void cPoligonos::Dibujar()

@@ -13,7 +13,7 @@ public:
 	cCapa();
 	~cCapa();
 
-	void Insertar();
+	void Insertar(int clsId);
 	void Eliminar();
 	void Subir();
 	void Bajar();

@@ -13,9 +13,12 @@ cCapa::~cCapa()
 
 }
 
-void cCapa::Insertar()
+void cCapa::Insertar(int clsId)
 {
-
+	cFiguras *lu;
+	lu = CrearFigura(clsId);
+	printf("asdas");
+	Figuras.push_back(lu);
 }
 
 void cCapa::Eliminar()

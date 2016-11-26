@@ -6,8 +6,8 @@
 class cDocumento:public CDibujable
 {
 public:
-	list<cCapa> Capas;
-	long capaActual;
+	list<cCapa*> Capas;
+	cCapa *capaActual;
 public:
 	cDocumento();
 	~cDocumento();
