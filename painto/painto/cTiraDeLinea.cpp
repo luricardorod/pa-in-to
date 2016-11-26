@@ -16,7 +16,16 @@ cTiraDeLinea::~cTiraDeLinea()
 {
 }
 
-void cTiraDeLinea::Dibujar()
+void cTiraDeLinea::setColorLinea(Vector3f nuevoColor)
+{
+}
+
+Vector3f cTiraDeLinea::getColorLinea()
+{
+	return Vector3f();
+}
+
+void cTiraDeLinea::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }

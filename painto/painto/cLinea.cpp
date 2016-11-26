@@ -16,7 +16,7 @@ cLinea::~cLinea()
 {
 }
 
-void cLinea::Dibujar()
+void cLinea::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }

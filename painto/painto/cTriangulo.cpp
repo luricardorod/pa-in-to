@@ -7,7 +7,7 @@ int cTriangulo::GetClsId()
 {
 	return ClsId_Triangulo;
 }
-void cTriangulo::Dibujar()
+void cTriangulo::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }

@@ -15,7 +15,7 @@ cCurvaBezier::~cCurvaBezier()
 {
 }
 
-void cCurvaBezier::Dibujar()
+void cCurvaBezier::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }

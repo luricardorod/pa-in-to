@@ -14,5 +14,5 @@ public:
 	void Guardar(ofstream &salida);
 	void Cargar(ifstream &entrada);
 	int GetClsId();
-	void Dibujar();
+	virtual void Dibujar(sf::RenderWindow &Ventana);
 };

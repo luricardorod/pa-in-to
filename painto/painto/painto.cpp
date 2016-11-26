@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include <SFML\Graphics.hpp>
 #include "cDocumento.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
+	/*
 	cDocumento canvas1;
 
 	cCapa *CapaInicial;
@@ -75,24 +75,43 @@ int main()
 		}
 	}
 
-	/*
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-		window.draw(shape);
-		window.display();
-	}
 	*/
+	vector<sf::RenderWindow*> ventanas;
+
+	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(800, 0), "Painto!"));
+	ventanas.back()->setPosition(sf::Vector2i(0, 0));
+
+	for (int i = 0; i < 5; i++)
+	{
+		ventanas.push_back(new sf::RenderWindow(sf::VideoMode(200, 200), to_string(i)));
+		ventanas.back()->setPosition(sf::Vector2i(i * 200, 0));
+	}
+
+	bool TodasCerradas;
+	bool estaVentana;
+
+	while (!ventanas.empty())
+	{
+		for (vector<sf::RenderWindow*>::iterator it = ventanas.begin(); it != ventanas.end(); ++it)
+		{
+			estaVentana = (*it)->isOpen();
+			if (estaVentana)
+			{
+				sf::Event event;
+				while ((*it)->pollEvent(event))
+				{
+					if (event.type == sf::Event::Closed)
+					{
+						(*it)->close();
+					}
+				}
+
+				(*it)->clear();
+		
+				(*it)->display();
+			}
+		}
+	}
     return 0;
 }

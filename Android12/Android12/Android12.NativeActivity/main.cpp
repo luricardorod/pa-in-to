@@ -86,7 +86,7 @@ static int engine_init_display(struct engine* engine) {
 	eglGetConfigAttrib(display, config, EGL_NATIVE_VISUAL_ID, &format);
 
 	ANativeWindow_setBuffersGeometry(engine->app->window, 0, 0, format);
-
+	
 	surface = eglCreateWindowSurface(display, config, engine->app->window, NULL);
 	context = eglCreateContext(display, config, NULL, NULL);
 

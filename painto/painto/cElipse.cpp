@@ -8,7 +8,7 @@ int cElipse::GetClsId()
 	return ClsId_Elipse;
 }
 
-void cElipse::Dibujar()
+void cElipse::Dibujar(sf::RenderWindow &Ventana)
 {
 }
 

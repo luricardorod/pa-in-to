@@ -8,7 +8,7 @@ int cPoligonos::GetClsId()
 	return ClsId_Poligono;
 }
 
-void cPoligonos::Dibujar()
+void cPoligonos::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }

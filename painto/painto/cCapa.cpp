@@ -105,8 +105,8 @@ int cCapa::GetClsId()
 	return 0;
 }
 
-void cCapa::Dibujar()
+void cCapa::Dibujar(sf::RenderWindow &Ventana)
 {
 	for (list<cFiguras*>::iterator it = Figuras.begin(); it != Figuras.end(); ++it)
-		(*it)->Dibujar();
+		(*it)->Dibujar(Ventana);
 }

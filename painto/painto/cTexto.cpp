@@ -16,7 +16,7 @@ cTexto::~cTexto()
 {
 }
 
-void cTexto::Dibujar()
+void cTexto::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }
