@@ -90,38 +90,120 @@ int main()
 	*/
 	vector<sf::RenderWindow*> ventanas;
 
-	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(800, 0), "Painto!"));
-	ventanas.back()->setPosition(sf::Vector2i(0, 0));
+	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(1040, 128), "Modificadores"));
+	ventanas.back()->setPosition(sf::Vector2i(50, 0));
+	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(120, 600), "Herramientas"));
+	ventanas.back()->setPosition(sf::Vector2i(50, 128));
+	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(800, 600), "Canvas"));
+	ventanas.back()->setPosition(sf::Vector2i(ventanas[1]->getPosition().x + ventanas[1]->getSize().x, 128));
+	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(120, 600), "Capas"));
+	ventanas.back()->setPosition(sf::Vector2i(ventanas[2]->getPosition().x + ventanas[2]->getSize().x, 128));
+	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(1040, 100), "Propiedades"));
+	ventanas.back()->setPosition(sf::Vector2i(50, 728));
 
-	for (int i = 0; i < 5; i++)
+	bool TodasAbiertas = true;
+
+	//0 modificadores
+	//1 Herramientas
+	//2 canvas
+	//3 capas
+	//4 propiedades
+
+	while (TodasAbiertas)
 	{
-		ventanas.push_back(new sf::RenderWindow(sf::VideoMode(200, 200), to_string(i)));
-		ventanas.back()->setPosition(sf::Vector2i(i * 200, 0));
-	}
+		if (ventanas[0]->isOpen())
+		{
+			sf::Event event;
+			while (ventanas[0]->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+				{
+					ventanas[0]->close();
+					ventanas[1]->close();
+					ventanas[2]->close();
+					ventanas[3]->close();
+					ventanas[4]->close();
+				}
+			}
+			ventanas[0]->clear();
+			ventanas[0]->display();
+		}
 
-	bool TodasCerradas;
-	bool estaVentana;
+		if (ventanas[1]->isOpen())
+		{
+			sf::Event event;
+			while (ventanas[1]->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+				{
+					ventanas[0]->close();
+					ventanas[1]->close();
+					ventanas[2]->close();
+					ventanas[3]->close();
+					ventanas[4]->close();
+				}
+			}
+			ventanas[1]->clear();
+			ventanas[1]->display();
+		}
 
-	while (!ventanas.empty())
-	{
+		if (ventanas[2]->isOpen())
+		{
+			sf::Event event;
+			while (ventanas[2]->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+				{
+					ventanas[0]->close();
+					ventanas[1]->close();
+					ventanas[2]->close();
+					ventanas[3]->close();
+					ventanas[4]->close();
+				}
+			}
+			ventanas[2]->clear();
+			ventanas[2]->display();
+		}
+
+		if (ventanas[3]->isOpen())
+		{
+			sf::Event event;
+			while (ventanas[3]->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+				{
+					ventanas[0]->close();
+					ventanas[1]->close();
+					ventanas[2]->close();
+					ventanas[3]->close();
+					ventanas[4]->close();
+				}
+			}
+			ventanas[3]->clear();
+			ventanas[3]->display();
+		}
+
+		if (ventanas[4]->isOpen())
+		{
+			sf::Event event;
+			while (ventanas[4]->pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+				{
+					ventanas[0]->close();
+					ventanas[1]->close();
+					ventanas[2]->close();
+					ventanas[3]->close();
+					ventanas[4]->close();
+				}
+			}
+			ventanas[4]->clear();
+			ventanas[4]->display();
+		}
+
 		for (vector<sf::RenderWindow*>::iterator it = ventanas.begin(); it != ventanas.end(); ++it)
 		{
-			estaVentana = (*it)->isOpen();
-			if (estaVentana)
-			{
-				sf::Event event;
-				while ((*it)->pollEvent(event))
-				{
-					if (event.type == sf::Event::Closed)
-					{
-						(*it)->close();
-					}
-				}
-
-				(*it)->clear();
-		
-				(*it)->display();
-			}
+			TodasAbiertas = TodasAbiertas && (*it)->isOpen();
 		}
 	}
     return 0;
