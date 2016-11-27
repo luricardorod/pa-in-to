@@ -6,6 +6,7 @@ class cExplorador :
 	public cObservador
 {
 public:
+	bool hitTestExplorador;
 	void update();
 	sf::RenderWindow* window;
 	cDocumento* documento;

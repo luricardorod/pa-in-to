@@ -5,7 +5,7 @@
 
 cCapa::cCapa()
 {
-
+	
 }
 
 cCapa::~cCapa()
