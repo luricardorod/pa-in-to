@@ -91,15 +91,20 @@ int main()
 	vector<sf::RenderWindow*> ventanas;
 
 	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(1040, 128), "Modificadores"));
-	ventanas.back()->setPosition(sf::Vector2i(50, 0));
+	ventanas[0]->setPosition(sf::Vector2i(50, 0));
 	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(120, 600), "Herramientas"));
-	ventanas.back()->setPosition(sf::Vector2i(50, 128));
 	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(800, 600), "Canvas"));
-	ventanas.back()->setPosition(sf::Vector2i(ventanas[1]->getPosition().x + ventanas[1]->getSize().x, 128));
 	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(120, 600), "Capas"));
-	ventanas.back()->setPosition(sf::Vector2i(ventanas[2]->getPosition().x + ventanas[2]->getSize().x, 128));
 	ventanas.push_back(new sf::RenderWindow(sf::VideoMode(1040, 100), "Propiedades"));
-	ventanas.back()->setPosition(sf::Vector2i(50, 728));
+
+	ventanas[0]->setSize(sf::Vector2u(ventanas[1]->getSize().x + ventanas[2]->getSize().x + ventanas[3]->getSize().x, 128));
+	ventanas[4]->setSize(ventanas[0]->getSize());
+
+	ventanas[1]->setPosition(sf::Vector2i(ventanas[0]->getPosition().x, ventanas[0]->getPosition().y + ventanas[0]->getSize().y));
+	ventanas[2]->setPosition(sf::Vector2i(ventanas[1]->getPosition().x + ventanas[1]->getSize().x, ventanas[1]->getPosition().y));
+	ventanas[3]->setPosition(sf::Vector2i(ventanas[2]->getPosition().x + ventanas[2]->getSize().x, ventanas[2]->getPosition().y));
+	ventanas[4]->setPosition(sf::Vector2i(ventanas[0]->getPosition().x, ventanas[3]->getPosition().y + ventanas[3]->getSize().y));
+
 
 	bool TodasAbiertas = true;
 
