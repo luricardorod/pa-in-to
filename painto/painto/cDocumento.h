@@ -9,6 +9,11 @@ public:
 	list<cCapa*> Capas;
 	cCapa *capaActual;
 public:
+	bool nuevo = true;
+	bool estructura = true;
+	bool figuraSeleccionada = true;
+	bool visual = true;
+
 	cDocumento();
 	~cDocumento();
 
