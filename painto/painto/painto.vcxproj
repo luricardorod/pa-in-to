@@ -166,8 +166,10 @@
     <ClInclude Include="CDibujable.h" />
     <ClInclude Include="cDocumento.h" />
     <ClInclude Include="cElipse.h" />
+    <ClInclude Include="cExplorador.h" />
     <ClInclude Include="cFiguras.h" />
     <ClInclude Include="cLinea.h" />
+    <ClInclude Include="cObservador.h" />
     <ClInclude Include="cPoligonos.h" />
     <ClInclude Include="cRectangulo.h" />
     <ClInclude Include="cRectanguloRedondeado.h" />
@@ -184,6 +186,7 @@
     <ClCompile Include="cCurvaBezier.cpp" />
     <ClCompile Include="cDocumento.cpp" />
     <ClCompile Include="cElipse.cpp" />
+    <ClCompile Include="cExplorador.cpp" />
     <ClCompile Include="cFiguras.cpp" />
     <ClCompile Include="cLinea.cpp" />
     <ClCompile Include="cPoligonos.cpp" />

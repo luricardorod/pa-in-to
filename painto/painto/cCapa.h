@@ -13,7 +13,7 @@ public:
 	cCapa();
 	~cCapa();
 
-	void Insertar();
+	void Insertar(int clsId);
 	void Eliminar();
 	void Subir();
 	void Bajar();
@@ -23,5 +23,5 @@ public:
 	void Guardar(ofstream &salida);
 	void Cargar(ifstream &entrada);
 	int GetClsId();
-	void Dibujar();
+	void Dibujar(sf::RenderWindow &Ventana);
 };

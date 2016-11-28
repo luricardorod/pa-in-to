@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cDocumento.h"
+#include <string>
 
 cDocumento::cDocumento()
 {
@@ -23,7 +24,8 @@ void cDocumento::Bajar()
 
 void cDocumento::Insertar()
 {
-
+	Capas.push_back(new cCapa());
+	capaActual = Capas.back();
 }
 
 void cDocumento::Eliminar()
@@ -34,25 +36,27 @@ void cDocumento::Eliminar()
 void cDocumento::Guardar(ofstream &salida)
 {
 	salida << Capas.size() << endl;
-	for (list<cCapa>::iterator it = Capas.begin(); it != Capas.end(); ++it)
+	for (list<cCapa*>::iterator it = Capas.begin(); it != Capas.end(); ++it)
 	{
-		(*it).Guardar(salida);
+		(*it)->Guardar(salida);
 	}
 }
 
 void cDocumento::Cargar(ifstream &entrada)
 {
 	int sz;
-	entrada >> sz;
-
+	string str;
+	getline(entrada, str);
+	
+	sz = stoi(str);
+	
 	Capas.clear();
-
-	Capas.resize(sz);
 	while (Capas.size() < sz)
 	{
-		Capas.push_back(cCapa());
-		Capas.back().Cargar(entrada);
+		Capas.push_back(new cCapa());
+		Capas.back()->Cargar(entrada);
 	}
+	capaActual = Capas.back();
 }
 
 int cDocumento::GetClsId()
@@ -60,8 +64,8 @@ int cDocumento::GetClsId()
 	return 0;
 }
 
-void cDocumento::Dibujar()
+void cDocumento::Dibujar(sf::RenderWindow &Ventana)
 {
-	for (list<cCapa>::iterator it = Capas.begin(); it != Capas.end(); ++it)
-		(*it).Dibujar();
+	for (list<cCapa*>::iterator it = Capas.begin(); it != Capas.end(); ++it)
+		(*it)->Dibujar(Ventana);
 }

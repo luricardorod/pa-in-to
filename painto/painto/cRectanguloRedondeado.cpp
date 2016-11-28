@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cRectanguloRedondeado.h"
+#include <string>
 
 
 cRectanguloRedondeado::cRectanguloRedondeado()
@@ -56,8 +57,18 @@ void cRectanguloRedondeado::Cargar(ifstream &entrada)
 	}
 	i++;
 	}
-	*/
+	-----------------------
 	entrada >> base;
 	entrada >> altura;
 	entrada >> radio;
+	*/
+
+	string str;
+	getline(entrada, str);
+	base = stof(str);
+	getline(entrada, str);
+	altura = stof(str);
+
+	getline(entrada, str);
+	radio = stof(str);
 }

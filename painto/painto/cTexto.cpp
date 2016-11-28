@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cTexto.h"
+#include <string>
 
 
 int cTexto::GetClsId()
@@ -15,7 +16,7 @@ cTexto::~cTexto()
 {
 }
 
-void cTexto::Dibujar()
+void cTexto::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }
@@ -42,6 +43,7 @@ void cTexto::Guardar(ofstream &salida)
 
 void cTexto::Cargar(ifstream &entrada)
 {
+	/*
 	entrada >> p1.x;
 	entrada >> p1.y;
 
@@ -53,4 +55,26 @@ void cTexto::Cargar(ifstream &entrada)
 
 	entrada >> p4.x;
 	entrada >> p4.y;
+	*/
+
+	string str;
+	getline(entrada, str);
+	p1.x = stof(str);
+	getline(entrada, str);
+	p1.y = stof(str);
+
+	getline(entrada, str);
+	p2.x = stof(str);
+	getline(entrada, str);
+	p2.y = stof(str);
+
+	getline(entrada, str);
+	p3.x = stof(str);
+	getline(entrada, str);
+	p3.y = stof(str);
+
+	getline(entrada, str);
+	p4.x = stof(str);
+	getline(entrada, str);
+	p4.y = stof(str);
 }

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cElipse.h"
+#include <string>
 
 
 int cElipse::GetClsId()
@@ -7,7 +8,7 @@ int cElipse::GetClsId()
 	return ClsId_Elipse;
 }
 
-void cElipse::Dibujar()
+void cElipse::Dibujar(sf::RenderWindow &Ventana)
 {
 }
 
@@ -34,6 +35,13 @@ void cElipse::Guardar(ofstream &salida)
 
 void cElipse::Cargar(ifstream &entrada)
 {
+	/*
 	entrada >> radio1;
 	entrada >> radio2;
+	*/
+	string str;
+	getline(entrada, str);
+	radio1 = stof(str);
+	getline(entrada, str);
+	radio2 = stof(str);
 }

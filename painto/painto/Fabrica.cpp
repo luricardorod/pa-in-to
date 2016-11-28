@@ -18,7 +18,7 @@ cFiguras* CrearFigura(int shapeNumber)
 	case ClsId_Triangulo:
 		return new cTriangulo();
 		break;
-	case ClsId_Polignos:
+	case ClsId_Poligono:
 		return new cPoligonos();
 		break;
 	case ClsId_CurvaBezier:

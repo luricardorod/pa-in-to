@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cTiraDeLinea.h"
+#include <string>
 
 
 int cTiraDeLinea::GetClsId()
@@ -15,7 +16,16 @@ cTiraDeLinea::~cTiraDeLinea()
 {
 }
 
-void cTiraDeLinea::Dibujar()
+void cTiraDeLinea::setColorLinea(Vector3f nuevoColor)
+{
+}
+
+Vector3f cTiraDeLinea::getColorLinea()
+{
+	return Vector3f();
+}
+
+void cTiraDeLinea::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }
@@ -43,7 +53,14 @@ void cTiraDeLinea::Cargar(ifstream &entrada)
 	listaDePuntos.resize(sz);
 	for (int i = 0; i < listaDePuntos.size(); i++)
 	{
+		/*
 		entrada >> listaDePuntos[i].x;
 		entrada >> listaDePuntos[i].y;
+		*/
+		string str;
+		getline(entrada, str);
+		listaDePuntos[i].x = stof(str);
+		getline(entrada, str);
+		listaDePuntos[i].y = stof(str);
 	}
 }

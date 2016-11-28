@@ -1,12 +1,13 @@
 #include "stdafx.h"
 #include "cTriangulo.h"
+#include <string>
 
 
 int cTriangulo::GetClsId()
 {
 	return ClsId_Triangulo;
 }
-void cTriangulo::Dibujar()
+void cTriangulo::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }
@@ -62,6 +63,7 @@ void cTriangulo::Guardar(ofstream &salida)
 
 void cTriangulo::Cargar(ifstream &entrada)
 {
+	/*
 	entrada >> p1.x;
 	entrada >> p1.y;
 
@@ -70,4 +72,20 @@ void cTriangulo::Cargar(ifstream &entrada)
 
 	entrada >> p3.x;
 	entrada >> p3.y;
+	*/
+	string str;
+	getline(entrada, str);
+	p1.x = stof(str);
+	getline(entrada, str);
+	p1.y = stof(str);
+
+	getline(entrada, str);
+	p2.x = stof(str);
+	getline(entrada, str);
+	p2.y = stof(str);
+
+	getline(entrada, str);
+	p3.x = stof(str);
+	getline(entrada, str);
+	p3.y = stof(str);
 }

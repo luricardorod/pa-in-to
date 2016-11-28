@@ -9,7 +9,5 @@
 #include "cTiraDeLinea.h"
 #include "cTriangulo.h"
 
-
-
 cFiguras* CrearFigura(int shapeNumber);
 

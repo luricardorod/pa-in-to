@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cLinea.h"
+#include <string>
 
 
 int cLinea::GetClsId()
@@ -15,7 +16,7 @@ cLinea::~cLinea()
 {
 }
 
-void cLinea::Dibujar()
+void cLinea::Dibujar(sf::RenderWindow &Ventana)
 {
 
 }
@@ -36,9 +37,21 @@ void cLinea::Guardar(ofstream &salida)
 
 void cLinea::Cargar(ifstream &entrada)
 {
+	/*
 	entrada >> p1.x;
 	entrada >> p1.y;
 
 	entrada >> p2.x;
 	entrada >> p2.y;
+	*/
+	string str;
+	getline(entrada, str);
+	p1.x = stof(str);
+	getline(entrada, str);
+	p1.y = stof(str);
+
+	getline(entrada, str);
+	p2.x = stof(str);
+	getline(entrada, str);
+	p2.y = stof(str);
 }

@@ -5,8 +5,10 @@ class cRectangulo:public cFiguras
 {
 public:
 	float base, altura;
+	sf::RectangleShape Rectangulo;
 public:
 	cRectangulo();
+	cRectangulo(Point p1, Point p2);
 	~cRectangulo();
 
 	virtual bool hitTest(Point mouseCoords);
@@ -14,5 +16,5 @@ public:
 	virtual void Guardar(ofstream &salida);
 	virtual void Cargar(ifstream &entrada);
 	virtual int GetClsId();
-	virtual void Dibujar();
+	virtual void Dibujar(sf::RenderWindow &Ventana);
 };

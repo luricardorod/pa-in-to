@@ -6,9 +6,14 @@
 class cDocumento:public CDibujable
 {
 public:
-	list<cCapa> Capas;
-	long capaActual;
+	list<cCapa*> Capas;
+	cCapa *capaActual;
 public:
+	bool nuevo = true;
+	bool estructura = true;
+	bool figuraSeleccionada = true;
+	bool visual = true;
+
 	cDocumento();
 	~cDocumento();
 
@@ -20,5 +25,5 @@ public:
 	void Guardar(ofstream &salida);
 	void Cargar(ifstream &entrada);
 	int GetClsId();
-	void Dibujar();
+	void Dibujar(sf::RenderWindow &Ventana);
 };
