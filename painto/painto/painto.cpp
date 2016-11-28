@@ -1,16 +1,25 @@
 #include "stdafx.h"
 #include "cDocumento.h"
 #include <iostream>
+#include "cExplorador.h"
 #include "cMouse.h"
 using namespace std;
 
 int main()
 {
-	/*
 	cDocumento canvas1;
 
 	cCapa *CapaInicial;
 	canvas1.Insertar();
+	ifstream fIn;
+
+	fIn.open("loquesea.txt");
+	if (fIn.is_open())
+	{
+		canvas1.Cargar(fIn);
+		fIn.close();
+	}
+	/*
 
 	int decision;
 	ofstream fOut;
@@ -216,6 +225,7 @@ int main()
 
 
 	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos.
+	cExplorador chemonky(&canvas1, &window);
 
 	while (window.isOpen())
 	{
@@ -282,6 +292,9 @@ int main()
 
 		window.draw(layers);
 		/*Dibujar aqui las capas*/
+		chemonky.update();
+		
+		
 
 		window.draw(tools);
 		/*Dibujar aqui los botones de herramientas*/

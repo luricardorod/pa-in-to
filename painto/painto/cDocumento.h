@@ -8,6 +8,7 @@ class cDocumento:public CDibujable
 public:
 	list<cCapa*> Capas;
 	cCapa *capaActual;
+	int contador = 0;
 public:
 	bool nuevo = true;
 	bool estructura = true;

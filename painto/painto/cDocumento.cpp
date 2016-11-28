@@ -26,6 +26,8 @@ void cDocumento::Insertar()
 {
 	Capas.push_back(new cCapa());
 	capaActual = Capas.back();
+	capaActual->nombre = "Capa " + to_string(contador);
+	contador++;
 }
 
 void cDocumento::Eliminar()
@@ -53,7 +55,7 @@ void cDocumento::Cargar(ifstream &entrada)
 	Capas.clear();
 	while (Capas.size() < sz)
 	{
-		Capas.push_back(new cCapa());
+		Insertar();
 		Capas.back()->Cargar(entrada);
 	}
 	capaActual = Capas.back();

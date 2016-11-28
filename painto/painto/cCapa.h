@@ -8,7 +8,8 @@ class cCapa:public cSeleccionable
 {
 public:
 	list<cFiguras*> Figuras;
-	wchar_t figuraActual;
+	cFiguras* figuraActual;
+	int contador = 0;
 public:
 	cCapa();
 	~cCapa();
