@@ -14,7 +14,6 @@ void cTriangulo::Dibujar(sf::RenderWindow &Ventana)
 
 cTriangulo::cTriangulo()
 {
-
 }
 
 
@@ -88,4 +87,8 @@ void cTriangulo::Cargar(ifstream &entrada)
 	p3.x = stof(str);
 	getline(entrada, str);
 	p3.y = stof(str);
+}
+
+string cTriangulo::info() {
+	return "lu";
 }

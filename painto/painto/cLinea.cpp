@@ -18,7 +18,6 @@ cLinea::~cLinea()
 
 void cLinea::Dibujar(sf::RenderWindow &Ventana)
 {
-
 }
 
 bool cLinea::hitTest(Point mouseCoords)
@@ -54,4 +53,8 @@ void cLinea::Cargar(ifstream &entrada)
 	p2.x = stof(str);
 	getline(entrada, str);
 	p2.y = stof(str);
+}
+
+string cLinea::info() {
+	return "lu";
 }

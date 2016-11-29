@@ -64,3 +64,7 @@ void cTiraDeLinea::Cargar(ifstream &entrada)
 		listaDePuntos[i].y = stof(str);
 	}
 }
+
+string cTiraDeLinea::info() {
+	return "lu";
+}

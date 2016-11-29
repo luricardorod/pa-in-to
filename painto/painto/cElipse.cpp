@@ -45,3 +45,7 @@ void cElipse::Cargar(ifstream &entrada)
 	getline(entrada, str);
 	radio2 = stof(str);
 }
+
+string cElipse::info() {
+	return "lu";
+}

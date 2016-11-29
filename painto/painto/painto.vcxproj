@@ -168,6 +168,7 @@
     <ClInclude Include="cElipse.h" />
     <ClInclude Include="cExplorador.h" />
     <ClInclude Include="cFiguras.h" />
+    <ClInclude Include="cInformacion.h" />
     <ClInclude Include="cLinea.h" />
     <ClInclude Include="cMouse.h" />
     <ClInclude Include="cObservador.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="cElipse.cpp" />
     <ClCompile Include="cExplorador.cpp" />
     <ClCompile Include="cFiguras.cpp" />
+    <ClCompile Include="cInformacion.cpp" />
     <ClCompile Include="cLinea.cpp" />
     <ClCompile Include="cMouse.cpp" />
     <ClCompile Include="cPoligonos.cpp" />

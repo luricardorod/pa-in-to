@@ -16,4 +16,6 @@ public:
 	void Cargar(ifstream &entrada);
 	int GetClsId();
 	void Dibujar(sf::RenderWindow &Ventana);
+	string info();
+
 };

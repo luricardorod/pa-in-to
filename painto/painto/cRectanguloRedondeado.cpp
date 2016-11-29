@@ -5,7 +5,6 @@
 
 cRectanguloRedondeado::cRectanguloRedondeado()
 {
-
 }
 
 cRectanguloRedondeado::~cRectanguloRedondeado()
@@ -71,4 +70,8 @@ void cRectanguloRedondeado::Cargar(ifstream &entrada)
 
 	getline(entrada, str);
 	radio = stof(str);
+}
+
+string cRectanguloRedondeado::info() {
+	return "lu";
 }

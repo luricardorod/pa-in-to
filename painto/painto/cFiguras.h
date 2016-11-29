@@ -11,7 +11,7 @@
 #define ClsId_TiraDeLinea 8
 #define ClsId_Texto 9
 
-class cFiguras:public cSeleccionable
+class cFiguras :public cSeleccionable
 {
 private:
 	Vector3f colorRelleno;
@@ -19,6 +19,7 @@ private:
 	Point posicion;
 	long id_Nombre; // nombre o id unico de figura?
 public:
+	virtual string info() = 0;
 	void setColorLinea(Vector3f nuevoColor);
 	Vector3f getColorLinea();
 	void setColorRelleno(Vector3f nuevoColor);

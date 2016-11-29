@@ -34,6 +34,7 @@ cFiguras* CrearFigura(int shapeNumber)
 		return new cTexto();
 		break;
 	default:
+		return new cRectangulo();
 		break;
 	}
 }

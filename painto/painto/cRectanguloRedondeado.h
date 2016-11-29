@@ -18,4 +18,6 @@ public:
 	void Cargar(ifstream &entrada);
 	int GetClsId();
 	void Dibujar();
+	string info();
+
 };

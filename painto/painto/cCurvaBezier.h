@@ -15,4 +15,5 @@ public:
 	void Cargar(ifstream &entrada);
 	int GetClsId();
 	virtual void Dibujar(sf::RenderWindow &Ventana);
+	string info();
 };

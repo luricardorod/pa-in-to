@@ -21,7 +21,6 @@ cPoligonos::cPoligonos()
 
 cPoligonos::~cPoligonos()
 {
-
 }
 
 bool cPoligonos::hitTest(Point mouseCoords)
@@ -57,4 +56,8 @@ void cPoligonos::Cargar(ifstream &entrada)
 		getline(entrada, str);
 		listaPuntos[i].y = stof(str);
 	}
+}
+
+string cPoligonos::info() {
+	return "lu";
 }

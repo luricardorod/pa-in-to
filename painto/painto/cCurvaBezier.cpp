@@ -76,3 +76,7 @@ void cCurvaBezier::Cargar(ifstream &entrada)
 	getline(entrada, str);
 	pAnclaje2.y = stof(str);
 }
+
+string cCurvaBezier::info() {
+	return "lu";
+}

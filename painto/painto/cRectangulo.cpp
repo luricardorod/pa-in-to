@@ -4,7 +4,6 @@
 
 cRectangulo::cRectangulo()
 {
-
 }
 
 cRectangulo::cRectangulo(Point p1, Point p2)
@@ -86,3 +85,7 @@ void cRectangulo::Dibujar(sf::RenderWindow &Ventana)
 {
 
 };
+
+string cRectangulo::info() {
+	return "lu";
+}

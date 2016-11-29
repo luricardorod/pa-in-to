@@ -78,3 +78,7 @@ void cTexto::Cargar(ifstream &entrada)
 	getline(entrada, str);
 	p4.y = stof(str);
 }
+
+string cTexto::info() {
+	return "lu";
+}
