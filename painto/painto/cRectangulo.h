@@ -17,6 +17,8 @@ public:
 	virtual void Cargar(ifstream &entrada);
 	virtual int GetClsId();
 	virtual void Dibujar(sf::RenderWindow &Ventana);
-	string info();
 
+	virtual void setPosicion(Point coordenadas);
+	virtual void setColorLinea(Vector3f nuevoColor);
+	virtual void setColorRelleno(Vector3f nuevoColor);
 };

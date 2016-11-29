@@ -289,11 +289,11 @@ int main()
 
 		window.draw(canvasBground);
 		/*Dibujar aqui todas las figuras*/
+		canvas1.Dibujar(window);
 
 		window.draw(layers);
 		/*Dibujar aqui las capas*/
 		chemonky.update();
-		
 		
 
 		window.draw(tools);

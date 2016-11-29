@@ -12,6 +12,16 @@ cRectanguloRedondeado::~cRectanguloRedondeado()
 
 }
 
+void cRectanguloRedondeado::setColorLinea(Vector3f nuevoColor)
+{
+
+}
+
+void cRectanguloRedondeado::setColorRelleno(Vector3f nuevoColor)
+{
+
+}
+
 int cRectanguloRedondeado::GetClsId()
 {
 	return ClsId_RectanguloRedondeado;

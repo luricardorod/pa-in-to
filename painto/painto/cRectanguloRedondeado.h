@@ -9,8 +9,11 @@ public:
 	cRectanguloRedondeado();
 	~cRectanguloRedondeado();
 
-	void setColorLinea(Vector3f nuevoColor);
+	virtual void setColorLinea(Vector3f nuevoColor);
+	virtual void setColorRelleno(Vector3f nuevoColor);
+
 	Vector3f getColorLinea();
+
 
 	bool hitTest(Point mouseCoords);
 
