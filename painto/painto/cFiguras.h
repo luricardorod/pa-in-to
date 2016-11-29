@@ -19,11 +19,10 @@ private:
 	Point posicion;
 	long id_Nombre; // nombre o id unico de figura?
 public:
-	void setColorLinea(Vector3f nuevoColor);
+	virtual void setColorLinea(Vector3f nuevoColor);
 	Vector3f getColorLinea();
-	void setColorRelleno(Vector3f nuevoColor);
+	virtual void setColorRelleno(Vector3f nuevoColor);
 	Vector3f getColorRelleno();
-	void setPosicion(Point coordenadas);
+	virtual void setPosicion(Point coordenadas);
 	Point getPosition();
-
 };

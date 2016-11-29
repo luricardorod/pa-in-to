@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "cRectangulo.h"
 #include <string>
+#include <iostream>
+using namespace std;
 
 cRectangulo::cRectangulo()
 {
@@ -50,31 +52,13 @@ void cRectangulo::Guardar(ofstream &salida)
 
 void cRectangulo::Cargar(ifstream &entrada)
 {
-	/*
-	int i = 0;
-	while (!entrada.eof())
-	{
-		if (i == 1)
-		{
-			float n;
-			entrada >> n;
-			base = n;
-		}
-		if (i == 2)
-		{
-			float n;
-			entrada >> n;
-			altura = n;
-			break;
-		}
-		i++;
-	}
-	*/
 	string str;
 	getline(entrada, str);
 	base = stof(str);
 	getline(entrada, str);
 	altura = stof(str);
+
+	Rectangulo.setSize(sf::Vector2f (base, altura));
 };
 
 int cRectangulo::GetClsId()
@@ -84,5 +68,20 @@ int cRectangulo::GetClsId()
 
 void cRectangulo::Dibujar(sf::RenderWindow &Ventana)
 {
+	Ventana.draw(Rectangulo);
+}
 
-};
+void cRectangulo::setPosicion(Point coordenadas)
+{
+	Rectangulo.setPosition(coordenadas.x, coordenadas.y);
+}
+
+void cRectangulo::setColorLinea(Vector3f nuevoColor)
+{
+	Rectangulo.setOutlineColor(sf::Color(nuevoColor.x, nuevoColor.y, nuevoColor.z));
+}
+
+void cRectangulo::setColorRelleno(Vector3f nuevoColor)
+{
+	Rectangulo.setFillColor(sf::Color(nuevoColor.x, nuevoColor.y, nuevoColor.z));
+}
