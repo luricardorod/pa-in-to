@@ -19,6 +19,7 @@ int main()
 		canvas1.Cargar(fIn);
 		fIn.close();
 	}
+	canvas1.capaActual->Insertar(ClsId_CurvaBezier);
 	/*
 
 	int decision;
@@ -284,10 +285,6 @@ int main()
 		if (canvasBground.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
-			{
-				//Codigo
-			}
-			else if (mousePointer.getRightState() == "Pressed") //Si hizo clic derecho
 			{
 				//Codigo
 			}
