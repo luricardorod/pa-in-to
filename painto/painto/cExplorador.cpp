@@ -38,10 +38,29 @@ void cExplorador::checarClick(Point clickMouse)
 				break;
 			case 1:
 				cout << "subir" << endl; //imprimir numero de boton
+				
+				if (documento->figuraActual == 0)
+				{
+					documento->Subir();
+				}
+				else
+				{
+					cout << "subir figura" << endl; //imprimir numero de boton
+					documento->SubirFigura();
+				}
 				return;
 				break;
 			case 2:
 				cout << "bajar" << endl; //imprimir numero de boton
+				if (documento->figuraActual == 0)
+				{
+					documento->Bajar();
+				}
+				else
+				{
+					cout << "subir figura" << endl; //imprimir numero de boton
+					documento->BajarFigura();
+				}
 				return;
 				break;
 			case 3:

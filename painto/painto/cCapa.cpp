@@ -26,16 +26,6 @@ void cCapa::Eliminar(cFiguras* id)
 	Figuras.remove(id);
 }
 
-void cCapa::Subir()
-{
-
-}
-
-void cCapa::Bajar()
-{
-
-}
-
 bool cCapa::hitTest(Point mouseCoords)
 {
 	return false;

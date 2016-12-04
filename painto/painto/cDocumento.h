@@ -17,6 +17,8 @@ public:
 
 	void Subir();
 	void Bajar();
+	void SubirFigura();
+	void BajarFigura();
 	void Insertar();
 	void Eliminar();
 

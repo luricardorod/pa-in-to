@@ -15,8 +15,6 @@ public:
 
 	void Insertar(int clsId);
 	void Eliminar(cFiguras* id);
-	void Subir();
-	void Bajar();
 
 	bool hitTest(Point mouseCoords);
 
