@@ -150,7 +150,8 @@ int main()
 	texturesModificadores[18] = texturesModificadores[11];
 	texturesModificadores[19] = texturesModificadores[8];
 	texturesModificadores[20].loadFromFile("Assets/RGBarriba.png");
-	//----------------------Fin de------------------------//
+
+		//----------------------Fin de------------------------//
 	//---------------Cargado de texturas------------------//
 	//----------------------------------------------------//
 
@@ -187,6 +188,8 @@ int main()
 			counterButons++;
 		}
 	}
+
+	
 	//----------------------Fin de------------------------//
 	//---------------Creacion y aginacion-----------------//
 	//--------------------Sprites-------------------------//
@@ -287,14 +290,22 @@ int main()
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
 				//Codigo
+				cout << "canvas haola" << endl;
+
 			}
 		}
-		//Si el mouse esta dentro del area de modificadores
+		//Si el mouse esta dentro del area de layers
 		else if (layers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
 				//Codigo
+				Point cordenadas;
+				cordenadas.x = mousePointer.getPosition().x;
+				cordenadas.y = mousePointer.getPosition().y;
+				chemonky.checarClick(cordenadas);
+				cout << "hola modi" << endl;
+
 			}
 		}
 		//Si el mouse esta dentro de la seccion de Tools
@@ -310,11 +321,12 @@ int main()
 			}
 		}
 		//Si el mouse esta dentro de el area de layers
-		else if (layers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
+		else if (modifiers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
 				//Codigo
+				cout << "hola" << endl;
 			}
 		}
 

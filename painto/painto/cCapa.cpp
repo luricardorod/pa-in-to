@@ -5,7 +5,8 @@
 
 cCapa::cCapa()
 {
-	
+	visible = true;
+	desbloqueado = true;
 }
 
 cCapa::~cCapa()
@@ -16,14 +17,13 @@ cCapa::~cCapa()
 void cCapa::Insertar(int clsId)
 {
 	Figuras.push_back(CrearFigura(clsId));
-	figuraActual = Figuras.back();
-	figuraActual->nombre = "figura " + to_string(contador);
+	Figuras.back()->nombre = "figura " + to_string(contador);
 	contador++;
 }
 
-void cCapa::Eliminar()
+void cCapa::Eliminar(cFiguras* id)
 {
-
+	Figuras.remove(id);
 }
 
 void cCapa::Subir()

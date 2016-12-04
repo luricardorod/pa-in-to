@@ -8,13 +8,10 @@ class cDocumento:public CDibujable
 public:
 	list<cCapa*> Capas;
 	cCapa *capaActual;
+	cFiguras* figuraActual;
+
 	int contador = 0;
 public:
-	bool nuevo = true;
-	bool estructura = true;
-	bool figuraSeleccionada = true;
-	bool visual = true;
-
 	cDocumento();
 	~cDocumento();
 
@@ -27,4 +24,5 @@ public:
 	void Cargar(ifstream &entrada);
 	int GetClsId();
 	void Dibujar(sf::RenderWindow &Ventana);
+	void cambiarSeleccionado(cSeleccionable* nuevaSeleccion);
 };

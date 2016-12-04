@@ -8,14 +8,13 @@ class cCapa:public cSeleccionable
 {
 public:
 	list<cFiguras*> Figuras;
-	cFiguras* figuraActual;
 	int contador = 0;
 public:
 	cCapa();
 	~cCapa();
 
 	void Insertar(int clsId);
-	void Eliminar();
+	void Eliminar(cFiguras* id);
 	void Subir();
 	void Bajar();
 
