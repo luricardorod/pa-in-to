@@ -10,12 +10,35 @@ int cPoligonos::GetClsId()
 
 void cPoligonos::Dibujar(sf::RenderWindow &Ventana)
 {
+	Ventana.draw(figura);
+}
 
+void cPoligonos::setPosicion(Point coordenadas)
+{
+	figura.setPosition(sf::Vector2f(coordenadas.x, coordenadas.y));
+}
+
+void cPoligonos::setColorLinea(Vector3f nuevoColor)
+{
+	figura.setOutlineColor(sf::Color(nuevoColor.x, nuevoColor.y, nuevoColor.z));
+}
+
+void cPoligonos::setColorRelleno(Vector3f nuevoColor)
+{
+	figura.setFillColor(sf::Color(nuevoColor.x, nuevoColor.y, nuevoColor.z));
 }
 
 cPoligonos::cPoligonos()
 {
 
+}
+
+cPoligonos::cPoligonos(int lados)
+{
+	for (int i = 0; i < lados; i++)
+	{
+		figura.setPoint(i, sf::Vector2f(cos((i*(360 / lados))*(Pi / 180)), sin((i*(360 / lados))*(Pi / 180))));
+	}
 }
 
 
@@ -46,10 +69,6 @@ void cPoligonos::Cargar(ifstream &entrada)
 	listaPuntos.resize(sz);
 	for (int i = 0; i < listaPuntos.size(); i++)
 	{
-		/*
-		entrada >> listaPuntos[i].x;
-		entrada >> listaPuntos[i].y;
-		*/
 		string str;
 		getline(entrada, str);
 		listaPuntos[i].x = stof(str);
@@ -58,6 +77,7 @@ void cPoligonos::Cargar(ifstream &entrada)
 	}
 }
 
-string cPoligonos::info() {
+string cPoligonos::info()
+{
 	return "lu";
 }

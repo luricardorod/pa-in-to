@@ -227,6 +227,8 @@ int main()
 	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos.
 	cExplorador chemonky(&canvas1, &window);
 
+	cFiguras *FiguraFlotante;
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -247,7 +249,11 @@ int main()
 			{
 				//Codigo
 			}
-			else if (mousePointer.getRightState() == "Pressed") //Si hizo clic derecho
+			else if (mousePointer.getLeftState() == "Down") //Si hizo clic derecho
+			{
+				//Codigo
+			}
+			else if (mousePointer.getRightState() == "Released") //Si hizo clic derecho
 			{
 				//Codigo
 			}

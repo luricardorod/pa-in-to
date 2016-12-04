@@ -1,6 +1,8 @@
 #pragma once
 #include "cFiguras.h"
 
+
+
 class cRectangulo:public cFiguras
 {
 public:
