@@ -96,7 +96,6 @@ void cCapa::Cargar(ifstream &entrada)
 		getline(entrada, str);
 		temp1.y = stof(str);
 		(Figuras.back())->setPosicion(temp1);
-		
 	}
 }
 

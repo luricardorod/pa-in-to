@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cRectangulo.h"
+#include "cDocumento.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -30,6 +31,7 @@ cRectangulo::cRectangulo(Point p1, Point p2)
 
 	Rectangulo.setFillColor(colorin);
 	Rectangulo.setOutlineColor(colorin);
+	infoFig = &Rectangulo;
 }
 
 cRectangulo::~cRectangulo()
@@ -58,6 +60,7 @@ void cRectangulo::Cargar(ifstream &entrada)
 	base = stof(str);
 	getline(entrada, str);
 	altura = stof(str);
+	infoFig = &Rectangulo;
 
 	Rectangulo.setSize(sf::Vector2f (base, altura));
 };
@@ -85,4 +88,9 @@ void cRectangulo::setColorLinea(Vector3f nuevoColor)
 void cRectangulo::setColorRelleno(Vector3f nuevoColor)
 {
 	Rectangulo.setFillColor(sf::Color(nuevoColor.x, nuevoColor.y, nuevoColor.z));
+}
+
+string cRectangulo::info()
+{
+	return "lu";
 }
