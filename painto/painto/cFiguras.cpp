@@ -22,3 +22,11 @@ Point cFiguras::getPosition()
 {
 	return posicion;
 }
+
+void cFiguras::setMove(float x, float y)
+{
+}
+
+void cFiguras::setColor(sf::Color newColor)
+{
+}

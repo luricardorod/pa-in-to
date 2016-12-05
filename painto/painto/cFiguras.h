@@ -28,4 +28,7 @@ public:
 	virtual Point getPosition();
 
 	virtual string info() = 0;
+
+	virtual void setMove(float x, float y);
+	virtual void setColor(sf::Color newColor);
 };

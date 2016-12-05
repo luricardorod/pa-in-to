@@ -16,7 +16,6 @@ public:
 	int GetClsId();
 	virtual void Dibujar(sf::RenderWindow &Ventana);
 	string info();
-	
-	void setMove(float x, float y);
-	void setColor(sf::Color newColor);
+	virtual void setMove(float x, float y);
+	virtual void setColor(sf::Color newColor);
 };

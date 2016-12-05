@@ -26,17 +26,24 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		else
 		{
-			//PENEPENEPENEPENEPENEPENEPENEEPENEPENEPEPENPENPENPENPENPEEPEPEPENEPENENEPNEPNPENPENPENPENPNEPNE
+			Documento->figuraActual->setMove(0, -5);
 		}
 		break;
 	case 1:
-		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
+		if (!linea)
+		{
+			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-		if (PosicionTemporal.y >= 660)
-			return;
+			if (PosicionTemporal.y >= 660)
+				return;
+			else
+				PosicionTemporal.y += 5;
+			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
+		}
 		else
-			PosicionTemporal.y += 5;
-		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
+		{
+			Documento->figuraActual->setMove(0, 5);
+		}
 		break;
 	case 2:
 		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
