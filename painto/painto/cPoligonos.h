@@ -10,7 +10,7 @@ public:
 	sf::ConvexShape figura;
 public:
 	cPoligonos();
-	cPoligonos(int lados);
+	cPoligonos(Point p1, Point p2, int lados);
 	~cPoligonos();
 
 	bool hitTest(Point mouseCoords);

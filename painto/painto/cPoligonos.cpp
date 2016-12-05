@@ -33,12 +33,20 @@ cPoligonos::cPoligonos()
 
 }
 
-cPoligonos::cPoligonos(int lados)
+cPoligonos::cPoligonos(Point p1, Point p2, int lados)
 {
+	float apotema;
+	if (p2.x - p1.x > p2.y - p1.y)
+		apotema = p2.x - p1.x;
+	else
+		apotema = p2.y - p1.y;
+
 	for (int i = 0; i < lados; i++)
 	{
-		figura.setPoint(i, sf::Vector2f(cos((i*(360 / lados))*(Pi / 180)), sin((i*(360 / lados))*(Pi / 180))));
+		figura.setPoint(i, sf::Vector2f(apotema*cos((i*(360 / lados))*(Pi / 180)), apotema*sin((i*(360 / lados))*(Pi / 180))));
 	}
+
+	figura.setPosition(p1.x, p1.y);
 }
 
 
