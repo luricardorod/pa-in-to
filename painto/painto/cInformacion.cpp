@@ -18,11 +18,15 @@ void cInformacion::update() {
 	//tamaño de ventanoa (1024, 60) posicion  660
 	// debe de mostrar que figura su posicion, color en rgb del relleno y de la linea
 	// ademas imprimir la informacion de cada figura info()
+	if (documento->figuraActual == 0 || documento->figuraActual->infoFig == 0)
+	{
+		return;
+	}
 	sf::Font fuente;
 	fuente.loadFromFile("comic.ttf");
 
 	sf::Vector2f Position(0, 660);
-	cFiguras* infoFigura = documento->capaActual->figuraActual;
+	cFiguras* infoFigura = documento->figuraActual;
 	
 	float posX = infoFigura->infoFig->getPosition().x;
 	float posY = infoFigura->infoFig->getPosition().y;

@@ -30,6 +30,7 @@ cRectangulo::cRectangulo(Point p1, Point p2)
 	colorin.a = getColorLinea().z;
 
 	Rectangulo.setOutlineColor(colorin);
+	infoFig = &Rectangulo;
 }
 
 cRectangulo::~cRectangulo()
@@ -58,6 +59,7 @@ void cRectangulo::Cargar(ifstream &entrada)
 	base = stof(str);
 	getline(entrada, str);
 	altura = stof(str);
+	infoFig = &Rectangulo;
 
 	Rectangulo.setSize(sf::Vector2f (base, altura));
 };
