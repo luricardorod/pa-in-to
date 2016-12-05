@@ -71,3 +71,13 @@ sf::Vector2i cMouse::getPosition()
 {
 	return mouseCords;
 }
+
+int cMouse::getAction()
+{
+	return action;
+}
+
+void cMouse::setAction(int ActionManVsMaxSteel)
+{
+	action = ActionManVsMaxSteel;
+}

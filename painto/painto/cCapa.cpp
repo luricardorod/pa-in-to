@@ -21,6 +21,13 @@ void cCapa::Insertar(int clsId)
 	contador++;
 }
 
+void cCapa::Insertar(cFiguras *nuevo)
+{
+	Figuras.push_back(nuevo);
+	Figuras.back()->nombre = "figura " + to_string(contador);
+	contador++;
+}
+
 void cCapa::Eliminar(cFiguras* id)
 {
 	Figuras.remove(id);
@@ -101,5 +108,8 @@ int cCapa::GetClsId()
 void cCapa::Dibujar(sf::RenderWindow &Ventana)
 {
 	for (list<cFiguras*>::iterator it = Figuras.begin(); it != Figuras.end(); ++it)
-		(*it)->Dibujar(Ventana);
+	{
+		if((*it)->visible)
+			(*it)->Dibujar(Ventana);
+	}
 }
