@@ -26,7 +26,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		else
 		{
-
+			//PENEPENEPENEPENEPENEPENEPENEEPENEPENEPEPENPENPENPENPENPEEPEPEPENEPENENEPNEPNPENPENPENPENPNEPNE
 		}
 		break;
 	case 1:
