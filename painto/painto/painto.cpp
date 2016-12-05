@@ -20,6 +20,7 @@ int main()
 		canvas1.Cargar(fIn);
 		fIn.close();
 	}
+	canvas1.capaActual->Insertar(ClsId_CurvaBezier);
 	/*
 
 	int decision;
@@ -127,7 +128,31 @@ int main()
 	textures[7].loadFromFile("Assets/line.png");
 	textures[8].loadFromFile("Assets/multilines.png");
 	textures[9].loadFromFile("Assets/text.png");
-	//----------------------Fin de------------------------//
+
+	sf::Texture texturesModificadores[21];
+	texturesModificadores[0].loadFromFile("Assets/arriba.png");
+	texturesModificadores[1].loadFromFile("Assets/abajo.png");
+	texturesModificadores[2].loadFromFile("Assets/derecha.png");
+	texturesModificadores[3].loadFromFile("Assets/izquierda.png");
+	texturesModificadores[4].loadFromFile("Assets/ancho.png");
+	texturesModificadores[5].loadFromFile("Assets/largo.png");
+	texturesModificadores[6].loadFromFile("Assets/borde.png");
+	texturesModificadores[7].loadFromFile("Assets/RGB1.png");
+	texturesModificadores[8].loadFromFile("Assets/RGBabajo.png");
+	texturesModificadores[9].loadFromFile("Assets/RGB3.png");
+	texturesModificadores[10] = texturesModificadores [8];
+	texturesModificadores[11].loadFromFile("Assets/RGB2.png");
+	texturesModificadores[12] = texturesModificadores[8];
+	texturesModificadores[13].loadFromFile("Assets/relleno.png");
+	texturesModificadores[14] = texturesModificadores[7];
+	texturesModificadores[15] = texturesModificadores[8];
+	texturesModificadores[16] = texturesModificadores[9];
+	texturesModificadores[17] = texturesModificadores[8];
+	texturesModificadores[18] = texturesModificadores[11];
+	texturesModificadores[19] = texturesModificadores[8];
+	texturesModificadores[20].loadFromFile("Assets/RGBarriba.png");
+
+		//----------------------Fin de------------------------//
 	//---------------Cargado de texturas------------------//
 	//----------------------------------------------------//
 
@@ -147,6 +172,25 @@ int main()
 		spriteBotones[i].setPosition(0, (20 * (i + 1)) + (i + 1) * 40);
 		spriteBotones[i].setScale((float)40 / 200, (float)40 / 200);
 	}
+
+	sf::Sprite spriteBotonesModificadores[26];
+	int counterButons = 20;
+	for (int i = 0; i < 20; i++)
+	{
+		spriteBotonesModificadores[i].setTexture(texturesModificadores[i]);
+		spriteBotonesModificadores[i].setPosition(40*(i+1), 0);
+		spriteBotonesModificadores[i].setScale((float)40 / 200, (float)40 / 200);
+		if (i == 8 || i == 10 || i == 12 || i == 15 || i == 17 || i == 19)
+		{
+			spriteBotonesModificadores[i].setPosition(40 * (i + 1) + 10, 0);
+			spriteBotonesModificadores[counterButons].setTexture(texturesModificadores[20]);
+			spriteBotonesModificadores[counterButons].setPosition(40 * (i + 1) +10, 20);
+			spriteBotonesModificadores[counterButons].setScale((float)40 / 200, (float)40 / 200);
+			counterButons++;
+		}
+	}
+
+	
 	//----------------------Fin de------------------------//
 	//---------------Creacion y aginacion-----------------//
 	//--------------------Sprites-------------------------//
@@ -248,18 +292,22 @@ int main()
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
 				//Codigo
-			}
-			else if (mousePointer.getRightState() == "Pressed") //Si hizo clic derecho
-			{
-				//Codigo
+				cout << "canvas haola" << endl;
+
 			}
 		}
-		//Si el mouse esta dentro del area de modificadores
+		//Si el mouse esta dentro del area de layers
 		else if (layers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
 				//Codigo
+				Point cordenadas;
+				cordenadas.x = mousePointer.getPosition().x;
+				cordenadas.y = mousePointer.getPosition().y;
+				chemonky.checarClick(cordenadas);
+				cout << "hola modi" << endl;
+
 			}
 		}
 		//Si el mouse esta dentro de la seccion de Tools
@@ -275,11 +323,12 @@ int main()
 			}
 		}
 		//Si el mouse esta dentro de el area de layers
-		else if (layers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
+		else if (modifiers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
 				//Codigo
+				cout << "hola" << endl;
 			}
 		}
 
@@ -305,6 +354,8 @@ int main()
 
 		window.draw(modifiers);
 		/*Dibujar aqui los botones modificadores*/
+		for (int i = 0; i < 26; i++)
+			window.draw(spriteBotonesModificadores[i]);
 
 		window.draw(data);
 		/*Dibujar aqui los datos de la figura seleccionada*/
