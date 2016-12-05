@@ -310,6 +310,11 @@ int main()
 					pos1.x = mousePointer.getPosition().x;
 					pos1.y = mousePointer.getPosition().y;
 				}
+				else if (mousePointer.getAction() == 5)
+				{
+					pos1.x = mousePointer.getPosition().x;
+					pos1.y = mousePointer.getPosition().y;
+				}
 			}
 			else if (mousePointer.getLeftState() == "Down") //Si el esta apretado
 			{
@@ -327,6 +332,13 @@ int main()
 
 					FiguraFlotante = new cRectanguloRedondeado(pos1, pos2);
 				}
+				else if (mousePointer.getAction() == 5)
+				{
+					pos2.x = mousePointer.getPosition().x;
+					pos2.y = mousePointer.getPosition().y;
+
+					FiguraFlotante = new cPoligonos(pos1, pos2, 5);
+				}
 			}
 			else if (mousePointer.getLeftState() == "Released") //Si el esta apretado
 			{
@@ -335,7 +347,12 @@ int main()
 					canvas1.capaActual->Insertar(FiguraFlotante);
 					FiguraFlotante = NULL;
 				}
-				if (mousePointer.getAction() == 2)
+				else if (mousePointer.getAction() == 2)
+				{
+					canvas1.capaActual->Insertar(FiguraFlotante);
+					FiguraFlotante = NULL;
+				}
+				else if (mousePointer.getAction() == 5)
 				{
 					canvas1.capaActual->Insertar(FiguraFlotante);
 					FiguraFlotante = NULL;
@@ -371,7 +388,7 @@ int main()
 		//Si el mouse esta dentro de el area de layers
 		else if (modifiers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
-			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
+			if (mousePointer.getLeftState() == "Down") //Si hizo clic izquierdo
 			{
 				for (int i = 0; i < 28; i++)
 				{

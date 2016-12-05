@@ -18,6 +18,8 @@ void cCapa::Insertar(int clsId)
 {
 	Figuras.push_back(CrearFigura(clsId));
 	Figuras.back()->nombre = "figura " + to_string(contador);
+	Figuras.back()->visible = true;
+	Figuras.back()->desbloqueado = true;
 	contador++;
 }
 
@@ -25,6 +27,8 @@ void cCapa::Insertar(cFiguras *nuevo)
 {
 	Figuras.push_back(nuevo);
 	Figuras.back()->nombre = "figura " + to_string(contador);
+	Figuras.back()->desbloqueado = true;
+	Figuras.back()->visible = true;
 	contador++;
 }
 
