@@ -45,15 +45,15 @@ int main()
 	textures[8].loadFromFile("Assets/multilines.png");
 	textures[9].loadFromFile("Assets/text.png");
 
-	sf::Texture texturesModificadores[23];
+	sf::Texture texturesModificadores[24];
 	texturesModificadores[0].loadFromFile("Assets/arriba.png");
 	texturesModificadores[1].loadFromFile("Assets/abajo.png");
 	texturesModificadores[2].loadFromFile("Assets/derecha.png");
 	texturesModificadores[3].loadFromFile("Assets/izquierda.png");
-	texturesModificadores[4].loadFromFile("Assets/ExpandLeft.png");
-	texturesModificadores[5].loadFromFile("Assets/ExpandRight.png");
-	texturesModificadores[6].loadFromFile("Assets/ExpandUp.png");
-	texturesModificadores[7].loadFromFile("Assets/ExpandDown.png");
+	texturesModificadores[4].loadFromFile("Assets/ExpandX.png");
+	texturesModificadores[5].loadFromFile("Assets/ReduceX.png");
+	texturesModificadores[6].loadFromFile("Assets/ExpandY.png");
+	texturesModificadores[7].loadFromFile("Assets/ReduceY.png");
 	texturesModificadores[8].loadFromFile("Assets/OutlineColor.png");
 	texturesModificadores[9].loadFromFile("Assets/RGB1.png");
 	texturesModificadores[10].loadFromFile("Assets/RGBabajo.png");
@@ -69,6 +69,7 @@ int main()
 	texturesModificadores[20] = texturesModificadores[13];
 	texturesModificadores[21] = texturesModificadores[10];
 	texturesModificadores[22].loadFromFile("Assets/RGBarriba.png");
+	texturesModificadores[23].loadFromFile("Assets/Save.png");
 	
 	//----------------------Fin de------------------------//
 	//---------------Cargado de texturas------------------//
@@ -105,7 +106,7 @@ int main()
 			counterButons++;
 		}
 	}
-	spriteBotonesModificadores[28].setTexture(texturesModificadores[2]);
+	spriteBotonesModificadores[28].setTexture(texturesModificadores[23]);
 	spriteBotonesModificadores[28].setPosition(980, 0);
 	spriteBotonesModificadores[28].setScale((float)40 / 200, (float)40 / 200);
 	
