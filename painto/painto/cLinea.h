@@ -1,11 +1,9 @@
 #pragma once
 #include "cFiguras.h"
+#include "cLineType.h"
 
-class cLinea:public cFiguras
+class cLinea:public cFiguras, public cLineType
 {
-public:
-	Point p1, p2;
-	sf::VertexArray lines;
 public:
 	cLinea();
 	cLinea(Point p1, Point p2);
@@ -18,5 +16,7 @@ public:
 	int GetClsId();
 	virtual void Dibujar(sf::RenderWindow &Ventana);
 	string info();
-
+	
+	void setMove(float x, float y);
+	void setColor(sf::Color newColor);
 };

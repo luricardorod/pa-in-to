@@ -67,12 +67,7 @@ bool cCurvaBezier::adCosa(Point nP)
 		pAnclaje2.y = nP.y;
 	}
 
-	return (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x != NULL && pAnclaje2.x != NULL);
-}
-
-void cCurvaBezier::Dibujar(sf::RenderWindow &Ventana)
-{
-	sf::VertexArray vertices(sf::LinesStrip, 0);
+	vertices = sf::VertexArray(sf::LinesStrip, 0);
 
 	std::vector<sf::Vector2f> points;
 	points.clear();
@@ -84,10 +79,17 @@ void cCurvaBezier::Dibujar(sf::RenderWindow &Ventana)
 	else
 		points = CalcCubicBezier(pInicio, pFinal, pAnclaje1, pAnclaje2, 20);
 
-	
+
+	tamano = points.size();
+
 	for (std::vector<sf::Vector2f>::const_iterator a = points.begin(); a != points.end(); ++a)
 		vertices.append(sf::Vertex(*a, sf::Color::Black));
 
+	return (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x != NULL && pAnclaje2.x != NULL);
+}
+
+void cCurvaBezier::Dibujar(sf::RenderWindow &Ventana)
+{
 	if (pInicio.x != NULL && pFinal.x != NULL)
 		Ventana.draw(vertices);
 }
@@ -149,6 +151,23 @@ void cCurvaBezier::Cargar(ifstream &entrada)
 	pAnclaje2.y = stof(str);
 }
 
-string cCurvaBezier::info() {
+string cCurvaBezier::info()
+{
 	return "lu";
+}
+
+void cCurvaBezier::setMove(float x, float y)
+{
+	for (int i = 0; i < tamano; i++)
+	{
+		vertices[i].position = vertices[i].position + sf::Vector2f(x, y);
+	}
+}
+
+void cCurvaBezier::setColor(sf::Color newColor)
+{
+	for (int i = 0; i < tamano; i++)
+	{
+		vertices[i].color = newColor;
+	}
 }

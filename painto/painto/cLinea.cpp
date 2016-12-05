@@ -14,14 +14,15 @@ cLinea::cLinea()
 
 cLinea::cLinea(Point p1, Point p2)
 {
-	lines.setPrimitiveType(sf::Lines);
-	lines.clear();
-	lines.resize(2);
+	vertices.setPrimitiveType(sf::Lines);
+	vertices.clear();
+	vertices.resize(2);
+	tamano = 2;
 
-	lines[0].position = sf::Vector2f(p1.x, p1.y);
-	lines[1].position = sf::Vector2f(p2.x, p2.y);
-	lines[0].color = sf::Color::Black;
-	lines[1].color = sf::Color::Black;
+	vertices[0].position = sf::Vector2f(p1.x, p1.y);
+	vertices[1].position = sf::Vector2f(p2.x, p2.y);
+	vertices[0].color = sf::Color::Black;
+	vertices[1].color = sf::Color::Black;
 }
 
 cLinea::~cLinea()
@@ -30,7 +31,7 @@ cLinea::~cLinea()
 
 void cLinea::Dibujar(sf::RenderWindow &Ventana)
 {
-	Ventana.draw(lines);
+	Ventana.draw(vertices);
 }
 
 bool cLinea::hitTest(Point mouseCoords)
@@ -40,34 +41,49 @@ bool cLinea::hitTest(Point mouseCoords)
 
 void cLinea::Guardar(ofstream &salida)
 {
-	salida << p1.x << endl;
-	salida << p1.y << endl;
+	salida << (vertices[0].position).x << endl;
+	salida << (vertices[0].position).y << endl;
 
-	salida << p2.x << endl;
-	salida << p2.y << endl;
+	salida << (vertices[1].position).x << endl;
+	salida << (vertices[1].position).y << endl;
 }
 
 void cLinea::Cargar(ifstream &entrada)
 {
-	/*
-	entrada >> p1.x;
-	entrada >> p1.y;
+	vertices.setPrimitiveType(sf::Lines);
+	vertices.clear();
+	vertices.resize(2);
+	tamano = 2;
 
-	entrada >> p2.x;
-	entrada >> p2.y;
-	*/
 	string str;
 	getline(entrada, str);
-	p1.x = stof(str);
+	(vertices[0].position).x = stof(str);
 	getline(entrada, str);
-	p1.y = stof(str);
+	(vertices[0].position).y = stof(str);
 
 	getline(entrada, str);
-	p2.x = stof(str);
+	(vertices[1].position).x = stof(str);
 	getline(entrada, str);
-	p2.y = stof(str);
+	(vertices[1].position).y = stof(str);
 }
 
-string cLinea::info() {
+string cLinea::info()
+{
 	return "lu";
+}
+
+void cLinea::setMove(float x, float y)
+{
+	for (int i = 0; i < tamano; i++)
+	{
+		vertices[i].position = vertices[i].position + sf::Vector2f(x, y);
+	}
+}
+
+void cLinea::setColor(sf::Color newColor)
+{
+	for (int i = 0; i < tamano; i++)
+	{
+		vertices[i].color = newColor;
+	}
 }

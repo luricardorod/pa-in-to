@@ -170,6 +170,7 @@
     <ClInclude Include="cFiguras.h" />
     <ClInclude Include="cInformacion.h" />
     <ClInclude Include="cLinea.h" />
+    <ClInclude Include="cLineType.h" />
     <ClInclude Include="cMouse.h" />
     <ClInclude Include="cObservador.h" />
     <ClInclude Include="cPoligonos.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="cFiguras.cpp" />
     <ClCompile Include="cInformacion.cpp" />
     <ClCompile Include="cLinea.cpp" />
+    <ClCompile Include="cLineType.cpp" />
     <ClCompile Include="cMouse.cpp" />
     <ClCompile Include="cPoligonos.cpp" />
     <ClCompile Include="cRectangulo.cpp" />

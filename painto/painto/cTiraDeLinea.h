@@ -1,13 +1,10 @@
 #pragma once
 #include "cFiguras.h"
+#include "cLineType.h"
 #include <vector>
 
-class cTiraDeLinea:public cFiguras
+class cTiraDeLinea:public cFiguras, public cLineType
 {
-public:
-	vector<Point> listaDePuntos;
-	sf::VertexArray lines;
-	int sizeze = 0;
 public:
 	cTiraDeLinea();
 	~cTiraDeLinea();
@@ -24,5 +21,7 @@ public:
 	int GetClsId();
 	virtual void Dibujar(sf::RenderWindow &Ventana);
 	string info();
-
+	
+	void setMove(float x, float y);
+	void setColor(sf::Color newColor);
 };
