@@ -8,12 +8,11 @@ void BotonActivado(int boton, cDocumento* Documento)
 		return;
 	sf::Color ColorTemporal;
 	sf::Vector2f PosicionTemporal;
-	sf::Vector2f sumaPos;
-	
+	sf::Vector2f EscalaTemporal;
+
 	switch (boton)
 	{
 	case 0:
-		cout << "Mover arriba";
 		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
 		if (PosicionTemporal.y <= 110)
@@ -27,34 +26,69 @@ void BotonActivado(int boton, cDocumento* Documento)
 		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		break;
 	case 1:
-		cout << "Mover abajo";
+		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
+
+		if (PosicionTemporal.y >= 290)
+		{
+			return;
+		}
+		else
+		{
+			PosicionTemporal.y += 5;
+		}
+		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		break;
 	case 2:
-		cout << "Mover derecha";
+		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
+
+		if (PosicionTemporal.x >= 615)
+		{
+			return;
+		}
+		else
+		{
+			PosicionTemporal.x += 5;
+		}
+		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		break;
 	case 3:
-		cout << "Mover izquierda";
+		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
+
+		if (PosicionTemporal.x <= 97)
+		{
+			return;
+		}
+		else
+		{
+			PosicionTemporal.x -= 5;
+		}
+		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		break;
 	case 4:
-		cout << "Expandir izquierda";
+		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+		
+		EscalaTemporal.x += 0.02f;
+		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
 		break;
 	case 5:
-		cout << "Expandir derecha";
+		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+
+		EscalaTemporal.x -= 0.02f;
+		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
 		break;
 	case 6:
-		cout << "Expandir arriba";
+		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+
+		EscalaTemporal.y += 0.02f;
+		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
 		break;
 	case 7:
-		cout << "expandir abajo";
-		break;
-	case 8:
-		cout << "Color Borde";
-		break;
-	case 9:
-		cout << "Color Borde Red";
+		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+
+		EscalaTemporal.y -= 0.02f;
+		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
 		break;
 	case 10:
-
 		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 		if (ColorTemporal.r >= 255)
 		{
@@ -65,9 +99,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 			ColorTemporal.r += 5;
 		}
 		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
-		break;
-	case 11:
-		cout << "Color borde azul";
 		break;
 	case 12:
 		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
@@ -81,9 +112,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
 		break;
-	case 13:
-		cout << "Color Borde Green";
-		break;
 	case 14:
 		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 		if (ColorTemporal.g >= 255)
@@ -95,12 +123,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 			ColorTemporal.g += 5;
 		}
 		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
-		break;
-	case 15:
-		cout << "Color relleno";
-		break;
-	case 16:
-		cout << "Color relleno Red";
 		break;
 	case 17:
 		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
@@ -114,9 +136,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
 		break;
-	case 18:
-		cout << "Color relleno azul";
-		break;
 	case 19:
 		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
 		if (ColorTemporal.b >= 255)
@@ -128,9 +147,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 			ColorTemporal.b += 5;
 		}
 		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
-		break;
-	case 20:
-		cout << "Color relleno verde";
 		break;
 	case 21:
 		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
