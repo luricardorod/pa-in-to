@@ -7,10 +7,22 @@ int cLinea::GetClsId()
 {
 	return ClsId_Linea;
 }
+
 cLinea::cLinea()
 {
 }
 
+cLinea::cLinea(Point p1, Point p2)
+{
+	lines.setPrimitiveType(sf::Lines);
+	lines.clear();
+	lines.resize(2);
+
+	lines[0].position = sf::Vector2f(p1.x, p1.y);
+	lines[1].position = sf::Vector2f(p2.x, p2.y);
+	lines[0].color = sf::Color::Black;
+	lines[1].color = sf::Color::Black;
+}
 
 cLinea::~cLinea()
 {
@@ -18,6 +30,7 @@ cLinea::~cLinea()
 
 void cLinea::Dibujar(sf::RenderWindow &Ventana)
 {
+	Ventana.draw(lines);
 }
 
 bool cLinea::hitTest(Point mouseCoords)

@@ -278,8 +278,10 @@ int main()
 	cInformacion showInfo(&canvas1, &window);
 
 	cFiguras *FiguraFlotante = NULL;
-	Point pos1;
-	Point pos2;
+
+	Point pos1, pos2;
+
+	bool falg1 = false;
 
 	while (window.isOpen())
 	{
@@ -300,25 +302,72 @@ int main()
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
 				cout << "canvas hola" << endl;
-				if (mousePointer.getAction() == 1)
+				if (mousePointer.getAction() >= 1 && mousePointer.getAction() <= 5)
 				{
 					pos1.x = mousePointer.getPosition().x;
 					pos1.y = mousePointer.getPosition().y;
 				}
-				else if (mousePointer.getAction() == 2)
+				if (mousePointer.getAction() == 6)
 				{
 					pos1.x = mousePointer.getPosition().x;
 					pos1.y = mousePointer.getPosition().y;
+
+					if (FiguraFlotante == NULL)
+					{
+						FiguraFlotante = new cCurvaBezier;
+						((cCurvaBezier*)(FiguraFlotante))->adCosa(pos1);
+					}
+					else if (((cCurvaBezier*)(FiguraFlotante))->adCosa(pos1))
+					{
+						canvas1.capaActual->Insertar(FiguraFlotante);
+						FiguraFlotante = NULL;
+					}
 				}
-				else if (mousePointer.getAction() == 4)
+				if (mousePointer.getAction() == 7)
 				{
-					pos1.x = mousePointer.getPosition().x;
-					pos1.y = mousePointer.getPosition().y;
+					if (!falg1)
+					{
+						pos1.x = mousePointer.getPosition().x;
+						pos1.y = mousePointer.getPosition().y;
+						falg1 = true;
+					}
+					else
+					{
+						pos2.x = mousePointer.getPosition().x;
+						pos2.y = mousePointer.getPosition().y;
+						FiguraFlotante = new cLinea(pos1, pos2);
+						canvas1.capaActual->Insertar(FiguraFlotante);
+						FiguraFlotante = NULL;
+						falg1 = false;
+					}
 				}
-				else if (mousePointer.getAction() == 5)
+				if (mousePointer.getAction() == 8)
 				{
-					pos1.x = mousePointer.getPosition().x;
-					pos1.y = mousePointer.getPosition().y;
+					if (FiguraFlotante == NULL)
+					{
+						pos1.x = mousePointer.getPosition().x;
+						pos1.y = mousePointer.getPosition().y;
+						pos2.x = pos1.x;
+						pos2.y = pos1.y;
+						FiguraFlotante = new cTiraDeLinea;
+						((cTiraDeLinea*)(FiguraFlotante))->addPointu(pos1);
+					}
+					else
+					{
+						pos1.x = mousePointer.getPosition().x;
+						pos1.y = mousePointer.getPosition().y;
+						if (sqrt(pow(pos2.x - pos1.x, 2) + pow(pos2.y - pos1.y, 2)) > 10)
+						{
+							((cTiraDeLinea*)(FiguraFlotante))->addPointu(pos1);
+							pos2.x = pos1.x;
+							pos2.y = pos1.y;
+						}
+						else
+						{
+							canvas1.capaActual->Insertar(FiguraFlotante);
+							FiguraFlotante = NULL;
+						}
+					}
 				}
 			}
 			else if (mousePointer.getLeftState() == "Down") //Si el esta apretado
@@ -337,6 +386,13 @@ int main()
 
 					FiguraFlotante = new cRectanguloRedondeado(pos1, pos2);
 				}
+				else if (mousePointer.getAction() == 3)
+				{
+					pos2.x = mousePointer.getPosition().x;
+					pos2.y = mousePointer.getPosition().y;
+
+					FiguraFlotante = new cElipse(pos1, pos2);
+				}
 				else if (mousePointer.getAction() == 4)
 				{
 					pos2.x = mousePointer.getPosition().x;
@@ -354,22 +410,7 @@ int main()
 			}
 			else if (mousePointer.getLeftState() == "Released") //Si el esta apretado
 			{
-				if (mousePointer.getAction() == 1)
-				{
-					canvas1.capaActual->Insertar(FiguraFlotante);
-					FiguraFlotante = NULL;
-				}
-				else if (mousePointer.getAction() == 2)
-				{
-					canvas1.capaActual->Insertar(FiguraFlotante);
-					FiguraFlotante = NULL;
-				}
-				else if (mousePointer.getAction() == 4)
-				{
-					canvas1.capaActual->Insertar(FiguraFlotante);
-					FiguraFlotante = NULL;
-				}
-				else if (mousePointer.getAction() == 5)
+				if (mousePointer.getAction() >= 1 && mousePointer.getAction() <= 5)
 				{
 					canvas1.capaActual->Insertar(FiguraFlotante);
 					FiguraFlotante = NULL;
@@ -432,7 +473,6 @@ int main()
 		if (FiguraFlotante != NULL)
 		{
 			FiguraFlotante->Dibujar(window);
-			cout << "holi" << endl;
 		}
 
 		window.draw(layers);

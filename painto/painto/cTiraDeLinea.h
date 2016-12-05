@@ -6,9 +6,13 @@ class cTiraDeLinea:public cFiguras
 {
 public:
 	vector<Point> listaDePuntos;
+	sf::VertexArray lines;
+	int sizeze = 0;
 public:
 	cTiraDeLinea();
 	~cTiraDeLinea();
+
+	void addPointu(Point nP);
 
 	void setColorLinea(Vector3f nuevoColor);
 	Vector3f getColorLinea();

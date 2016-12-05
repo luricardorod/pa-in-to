@@ -2,12 +2,7 @@
 #include "cCurvaBezier.h"
 #include <string>
 
-std::vector<sf::Vector2f> CalcCubicBezier(
-	const sf::Vector2f &start,
-	const sf::Vector2f &end,
-	const sf::Vector2f &startControl,
-	const sf::Vector2f &endControl,
-	const size_t numSegments)
+std::vector<sf::Vector2f> CalcCubicBezier( const sf::Vector2f &start, const sf::Vector2f &end, const sf::Vector2f &startControl, const sf::Vector2f &endControl, const size_t numSegments)
 {
 	std::vector<sf::Vector2f> ret;
 	if (!numSegments) // Any points at all?
@@ -23,39 +18,78 @@ std::vector<sf::Vector2f> CalcCubicBezier(
 	ret.push_back(end); // Last point is fixed
 	return ret;
 }
+
 int cCurvaBezier::GetClsId()
 {
 	return ClsId_CurvaBezier;
 }
+
 cCurvaBezier::cCurvaBezier()
 {
+	pInicio.x = NULL;
+	pInicio.y = NULL;
+
+	pFinal.x = NULL;
+	pFinal.y = NULL;
+
+	pAnclaje1.x = NULL;
+	pAnclaje1.y = NULL;
+
+	pAnclaje2.x = NULL;
+	pAnclaje2.y = NULL;
 }
 
 cCurvaBezier::~cCurvaBezier()
 {
+
+}
+
+bool cCurvaBezier::adCosa(Point nP)
+{
+	if (pInicio.x == NULL && pFinal.x == NULL && pAnclaje1.x == NULL && pAnclaje2.x == NULL)
+	{
+		pInicio.x = nP.x;
+		pInicio.y = nP.y;
+	}
+	else if (pInicio.x != NULL && pFinal.x == NULL && pAnclaje1.x == NULL && pAnclaje2.x == NULL)
+	{
+		pFinal.x = nP.x;
+		pFinal.y = nP.y;
+	}
+	else if (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x == NULL && pAnclaje2.x == NULL)
+	{
+		pAnclaje1.x = nP.x;
+		pAnclaje1.x = nP.y;
+	}
+	else if (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x != NULL && pAnclaje2.x == NULL)
+	{
+		pAnclaje2.x = nP.x;
+		pAnclaje2.y = nP.y;
+	}
+
+	return (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x != NULL && pAnclaje2.x != NULL);
 }
 
 void cCurvaBezier::Dibujar(sf::RenderWindow &Ventana)
 {
 	sf::VertexArray vertices(sf::LinesStrip, 0);
 
-	// Calculate the points on the curve (10 segments)
-	std::vector<sf::Vector2f> points =
-		CalcCubicBezier(
-			sf::Vector2f(97, 110),
-			sf::Vector2f(300, 200),
-			sf::Vector2f(0, 150),
-			sf::Vector2f(300, 150),
-			20);
+	std::vector<sf::Vector2f> points;
+	points.clear();
 
-	// Append the points as vertices to the vertex array
+	if (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x == NULL && pAnclaje2.x == NULL)
+		points = CalcCubicBezier(pInicio, pFinal, pInicio, pFinal, 20);
+	else if (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x != NULL && pAnclaje2.x == NULL)
+		points = CalcCubicBezier(pInicio, pFinal, pAnclaje1, pFinal, 20);
+	else
+		points = CalcCubicBezier(pInicio, pFinal, pAnclaje1, pAnclaje2, 20);
+
+	
 	for (std::vector<sf::Vector2f>::const_iterator a = points.begin(); a != points.end(); ++a)
-		vertices.append(sf::Vertex(*a, sf::Color::Blue));
+		vertices.append(sf::Vertex(*a, sf::Color::Black));
 
-	// ...
-
-	// Draw the vertex array
-	Ventana.draw(vertices);
+	if (pInicio.x != NULL && pFinal.x != NULL)
+		Ventana.draw(vertices);
 }
 
 bool cCurvaBezier::hitTest(Point mouseCoords)

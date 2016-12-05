@@ -9,11 +9,18 @@ int cTiraDeLinea::GetClsId()
 }
 cTiraDeLinea::cTiraDeLinea()
 {
+	lines.clear();
+	lines.setPrimitiveType(sf::LineStrip);
 }
 
 
 cTiraDeLinea::~cTiraDeLinea()
 {
+}
+
+void cTiraDeLinea::addPointu(Point nP)
+{
+	lines.append(sf::Vertex(sf::Vector2f(nP.x, nP.y), sf::Color::Black));
 }
 
 void cTiraDeLinea::setColorLinea(Vector3f nuevoColor)
@@ -27,7 +34,7 @@ Vector3f cTiraDeLinea::getColorLinea()
 
 void cTiraDeLinea::Dibujar(sf::RenderWindow &Ventana)
 {
-
+	Ventana.draw(lines);
 }
 
 bool cTiraDeLinea::hitTest(Point mouseCoords)
@@ -65,6 +72,7 @@ void cTiraDeLinea::Cargar(ifstream &entrada)
 	}
 }
 
-string cTiraDeLinea::info() {
+string cTiraDeLinea::info()
+{
 	return "lu";
 }

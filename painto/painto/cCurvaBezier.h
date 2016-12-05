@@ -4,10 +4,12 @@
 class cCurvaBezier:public cFiguras
 {
 public:
-	Point pInicio, pFinal, pAnclaje1, pAnclaje2;
+	sf::Vector2f pInicio, pFinal, pAnclaje1, pAnclaje2;
 public:
 	cCurvaBezier();
 	~cCurvaBezier();
+
+	bool adCosa(Point nP);
 
 	bool hitTest(Point mouseCoords);
 

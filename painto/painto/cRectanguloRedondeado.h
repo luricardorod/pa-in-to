@@ -16,7 +16,6 @@ public:
 
 	Vector3f getColorLinea();
 
-
 	bool hitTest(Point mouseCoords);
 
 	void Guardar(ofstream &salida);

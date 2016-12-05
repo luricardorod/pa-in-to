@@ -7,6 +7,7 @@ public:
 	float radio1, radio2;
 	sf::ConvexShape Elipse;
 public:
+	cElipse(Point p1, Point p2);
 	cElipse();
 	~cElipse();
 	

@@ -5,8 +5,10 @@ class cLinea:public cFiguras
 {
 public:
 	Point p1, p2;
+	sf::VertexArray lines;
 public:
 	cLinea();
+	cLinea(Point p1, Point p2);
 	~cLinea();
 	
 	bool hitTest(Point mouseCoords);
