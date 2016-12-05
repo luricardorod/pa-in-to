@@ -13,6 +13,7 @@ cRectangulo::cRectangulo()
 cRectangulo::cRectangulo(Point p1, Point p2)
 {
 	Rectangulo = sf::RectangleShape(sf::Vector2f(p2.x - p1.x, p2.y - p1.y));
+	Rectangulo.setOutlineThickness(2);
 	Rectangulo.setOrigin(Rectangulo.getSize().x / 2, Rectangulo.getSize().y / 2);
 
 	Point fixedPosition;
@@ -55,6 +56,7 @@ void cRectangulo::Guardar(ofstream &salida)
 void cRectangulo::Cargar(ifstream &entrada)
 {
 	string str;
+	Rectangulo.setOutlineThickness(2);
 	getline(entrada, str);
 	base = stof(str);
 	getline(entrada, str);

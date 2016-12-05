@@ -4,6 +4,8 @@
 #include "cExplorador.h"
 #include "cMouse.h"
 #include "cInformacion.h"
+#include "Modificadores.h"
+
 using namespace std;
 
 int main()
@@ -161,7 +163,7 @@ int main()
 
 
 	//--------------------Inicio de-----------------------//
-	//---------------Creacion y aginacion-----------------//
+	//---------------Creacion y asignacion-----------------//
 	//--------------------Sprites-------------------------//
 	sf::Sprite patoSprite;
 	patoSprite.setTexture(patoTextura);
@@ -329,8 +331,16 @@ int main()
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
+				for (int i = 0; i < 28; i++)
+				{
+					if (spriteBotonesModificadores[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
+					{
+						//cout << i << endl;
+						BotonActivado(i,&canvas1);
+					}
+				}
 				//Codigo
-				cout << "hola" << endl;
+				cout << "hola xd" << endl;
 			}
 		}
 
