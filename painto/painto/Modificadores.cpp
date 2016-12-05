@@ -7,11 +7,24 @@ void BotonActivado(int boton, cDocumento* Documento)
 	if (Documento->figuraActual == NULL)
 		return;
 	sf::Color ColorTemporal;
-
+	sf::Vector2f PosicionTemporal;
+	sf::Vector2f sumaPos;
+	
 	switch (boton)
 	{
 	case 0:
 		cout << "Mover arriba";
+		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
+
+		if (PosicionTemporal.y <= 110)
+		{
+			return;
+		}
+		else
+		{
+			PosicionTemporal.y -= 5;
+		}
+		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		break;
 	case 1:
 		cout << "Mover abajo";
@@ -51,8 +64,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 		{
 			ColorTemporal.r += 5;
 		}
-		cout << ColorTemporal.r << endl;
-
 		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
 		break;
 	case 11:

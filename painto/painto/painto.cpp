@@ -227,7 +227,7 @@ int main()
 	bground.setPosition(sf::Vector2f(0, 0));
 
 	sf::RectangleShape canvasBground;
-	canvasBground.setSize(sf::Vector2f(720, 480));
+	canvasBground.setSize(sf::Vector2f(720, 480	));
 	canvasBground.setFillColor(sf::Color::White);
 	canvasBground.setPosition(sf::Vector2f(97, 110));
 
