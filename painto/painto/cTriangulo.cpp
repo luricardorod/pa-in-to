@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "cTriangulo.h"
 #include <string>
-
+#define pi 3.14159265359
 
 int cTriangulo::GetClsId()
 {
@@ -9,7 +9,29 @@ int cTriangulo::GetClsId()
 }
 void cTriangulo::Dibujar(sf::RenderWindow &Ventana)
 {
+	Ventana.draw(Triangulo);
+}
 
+cTriangulo::cTriangulo(Point p1, Point p2)
+{
+	float apotema;
+
+	if (p2.x - p1.x > p2.y - p1.y)
+		apotema = p2.x - p1.x;
+	else
+		apotema = p2.y - p1.y;
+
+	Triangulo.setPointCount(3);
+
+	for (int i = 0; i < 3; i++)
+	{
+		Triangulo.setPoint(i, sf::Vector2f(apotema*sin((i*(360 / 3))*(pi / 180)), apotema*-cos((i*(360 / 3))*(pi / 180))));
+	}
+
+	Triangulo.setPosition(p1.x, p1.y);
+	Triangulo.setOutlineThickness(2);
+	Triangulo.setOutlineColor(sf::Color::Black);
+	infoFig = &Triangulo;
 }
 
 cTriangulo::cTriangulo()

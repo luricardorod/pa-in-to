@@ -8,6 +8,7 @@ public:
 	sf::ConvexShape Triangulo;
 public:
 	cTriangulo();
+	cTriangulo(Point p1, Point p2);
 	~cTriangulo();
 
 	bool hitTest(Point mouseCoords);
