@@ -7,6 +7,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 	if (Documento->figuraActual == NULL || !Documento->figuraActual->desbloqueado)
 		return;
 	bool linea = (Documento->figuraActual->GetClsId() >= 6 && Documento->figuraActual->GetClsId() <= 8);
+	bool txt = (Documento->figuraActual->GetClsId() == 9);
 	sf::Color ColorTemporal;
 	sf::Vector2f PosicionTemporal;
 	sf::Vector2f EscalaTemporal;
@@ -14,7 +15,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 	switch (boton)
 	{
 	case 0:
-		if (!linea)
+		if (!linea && !txt && !txt)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
@@ -30,7 +31,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 1:
-		if (!linea)
+		if (!linea && !txt && !txt)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
@@ -46,7 +47,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 2:
-		if (!linea)
+		if (!linea && !txt && !txt)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
@@ -62,7 +63,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 3:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
@@ -78,7 +79,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 4:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 		
@@ -87,7 +88,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 5:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 
@@ -96,7 +97,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 6:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 
@@ -105,7 +106,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 7:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 
@@ -114,7 +115,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 10:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 			if (ColorTemporal.r >= 255)
@@ -134,7 +135,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 12:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 			if (ColorTemporal.b >= 255)
@@ -154,7 +155,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 14:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 			if (ColorTemporal.g >= 255)
@@ -174,7 +175,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 17:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
 			if (ColorTemporal.r >= 255)
@@ -185,7 +186,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 19:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
 			if (ColorTemporal.b >= 255)
@@ -196,7 +197,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 21:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
 			if (ColorTemporal.g >= 255)
@@ -207,7 +208,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 22:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 			if (ColorTemporal.r <= 0)
@@ -227,7 +228,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 23:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 			if (ColorTemporal.b <= 0)
@@ -247,7 +248,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 24:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
 			if (ColorTemporal.g <= 0)
@@ -267,7 +268,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 25:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
 			if (ColorTemporal.r <= 0)
@@ -278,7 +279,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 26:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
 			if (ColorTemporal.b <= 0)
@@ -289,7 +290,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 27:
-		if (!linea)
+		if (!linea && !txt)
 		{
 			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
 			if (ColorTemporal.g <= 0)
