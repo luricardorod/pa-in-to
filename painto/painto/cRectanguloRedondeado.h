@@ -5,9 +5,10 @@ class cRectanguloRedondeado:public cRectangulo
 {
 public:
 	float radio;
-	sf::ConvexShape RectRedondeado;
+	sf::ConvexShape rectanguloC;
 public:
 	cRectanguloRedondeado();
+	cRectanguloRedondeado(Point p1, Point p2);
 	~cRectanguloRedondeado();
 
 	virtual void setColorLinea(Vector3f nuevoColor);
@@ -21,7 +22,7 @@ public:
 	void Guardar(ofstream &salida);
 	void Cargar(ifstream &entrada);
 	int GetClsId();
-	void Dibujar();
 	string info();
 
+	virtual void Dibujar(sf::RenderWindow &Ventana);
 };

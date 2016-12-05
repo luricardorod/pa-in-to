@@ -14,6 +14,7 @@ public:
 	~cCapa();
 
 	void Insertar(int clsId);
+	void Insertar(cFiguras *nuevo);
 	void Eliminar(cFiguras* id);
 
 	bool hitTest(Point mouseCoords);

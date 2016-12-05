@@ -188,7 +188,10 @@ int cDocumento::GetClsId()
 void cDocumento::Dibujar(sf::RenderWindow &Ventana)
 {
 	for (list<cCapa*>::iterator it = Capas.begin(); it != Capas.end(); ++it)
-		(*it)->Dibujar(Ventana);
+	{
+		if((*it)->visible)
+			(*it)->Dibujar(Ventana);
+	}
 }
 
 void cDocumento::cambiarSeleccionado(cSeleccionable * nuevaSeleccion)

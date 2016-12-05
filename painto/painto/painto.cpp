@@ -277,6 +277,10 @@ int main()
 	cExplorador chemonky(&canvas1, &window);
 	cInformacion showInfo(&canvas1, &window);
 
+	cFiguras *FiguraFlotante = NULL;
+	Point pos1;
+	Point pos2;
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -295,9 +299,47 @@ int main()
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
-				//Codigo
-				cout << "canvas haola" << endl;
+				cout << "canvas hola" << endl;
+				if (mousePointer.getAction() == 1)
+				{
+					pos1.x = mousePointer.getPosition().x;
+					pos1.y = mousePointer.getPosition().y;
+				}
+				else if (mousePointer.getAction() == 2)
+				{
+					pos1.x = mousePointer.getPosition().x;
+					pos1.y = mousePointer.getPosition().y;
+				}
+			}
+			else if (mousePointer.getLeftState() == "Down") //Si el esta apretado
+			{
+				if (mousePointer.getAction() == 1)
+				{
+					pos2.x = mousePointer.getPosition().x;
+					pos2.y = mousePointer.getPosition().y;
 
+					FiguraFlotante = new cRectangulo(pos1, pos2);
+				}
+				else if (mousePointer.getAction() == 2)
+				{
+					pos2.x = mousePointer.getPosition().x;
+					pos2.y = mousePointer.getPosition().y;
+
+					FiguraFlotante = new cRectanguloRedondeado(pos1, pos2);
+				}
+			}
+			else if (mousePointer.getLeftState() == "Released") //Si el esta apretado
+			{
+				if (mousePointer.getAction() == 1)
+				{
+					canvas1.capaActual->Insertar(FiguraFlotante);
+					FiguraFlotante = NULL;
+				}
+				if (mousePointer.getAction() == 2)
+				{
+					canvas1.capaActual->Insertar(FiguraFlotante);
+					FiguraFlotante = NULL;
+				}
 			}
 		}
 		//Si el mouse esta dentro del area de layers
@@ -322,7 +364,7 @@ int main()
 				for (int i = 0; i < 10; i++) //Buscar a que "boton" le dio clic
 				{
 					if (spriteBotones[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
-						cout << i << endl; //imprimir numero de boton
+						mousePointer.setAction(i);
 				}
 			}
 		}
@@ -353,6 +395,11 @@ int main()
 		window.draw(canvasBground);
 		/*Dibujar aqui todas las figuras*/
 		canvas1.Dibujar(window);
+		if (FiguraFlotante != NULL)
+		{
+			FiguraFlotante->Dibujar(window);
+			cout << "holi" << endl;
+		}
 
 		window.draw(layers);
 		/*Dibujar aqui las capas*/
