@@ -262,7 +262,6 @@ int main()
 	//--------------------fondos UI-----------------------//
 	//----------------------------------------------------//
 
-
 	//Esto es un mouse, tiene funciones que te dan la posicion del mouse respecto a la ventana
 	//Tiene funciones que te devuelven el estado del clic izquierdo y derecho en forma de string
 	//"Pressed"		El mouse acaba de ser presionado (dura un frame/instante)
