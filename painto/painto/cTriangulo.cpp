@@ -14,7 +14,7 @@ void cTriangulo::Dibujar(sf::RenderWindow &Ventana)
 
 cTriangulo::cTriangulo(Point p1, Point p2)
 {
-	float apotema;
+	apotema;
 
 	if (p2.x - p1.x > p2.y - p1.y)
 		apotema = p2.x - p1.x;
@@ -72,43 +72,63 @@ bool cTriangulo::hitTest(Point mouseCoords)
 
 void cTriangulo::Guardar(ofstream &salida)
 {
-	salida << p1.x << endl;
-	salida << p1.y << endl;
-
-	salida << p2.x << endl;
-	salida << p2.y << endl;
-
-	salida << p3.x << endl;
-	salida << p3.y << endl;
+	salida << to_string(apotema) << endl;
+	salida << to_string(infoFig->getOutlineColor().r) << endl;
+	salida << to_string(infoFig->getOutlineColor().g) << endl;
+	salida << to_string(infoFig->getOutlineColor().b) << endl;
+	salida << to_string(infoFig->getFillColor().r) << endl;
+	salida << to_string(infoFig->getFillColor().g) << endl;
+	salida << to_string(infoFig->getFillColor().b) << endl;
+	salida << to_string(infoFig->getPosition().x) << endl;
+	salida << to_string(infoFig->getPosition().y) << endl;
+	salida << to_string(infoFig->getScale().x) << endl;
+	salida << to_string(infoFig->getScale().y) << endl;
 }
 
 void cTriangulo::Cargar(ifstream &entrada)
 {
-	/*
-	entrada >> p1.x;
-	entrada >> p1.y;
-
-	entrada >> p2.x;
-	entrada >> p2.y;
-
-	entrada >> p3.x;
-	entrada >> p3.y;
-	*/
 	string str;
-	getline(entrada, str);
-	p1.x = stof(str);
-	getline(entrada, str);
-	p1.y = stof(str);
+	Triangulo.setOutlineThickness(2);
+	infoFig = &Triangulo;
+	sf::Color colortemp;
+	sf::Vector2f posTemp;
 
 	getline(entrada, str);
-	p2.x = stof(str);
-	getline(entrada, str);
-	p2.y = stof(str);
+	apotema = stof(str);
+	Triangulo.setPointCount(3);
+
+	for (int i = 0; i < 3; i++)
+	{
+		Triangulo.setPoint(i, sf::Vector2f(apotema*sin((i*(360 / 3))*(pi / 180)), apotema*-cos((i*(360 / 3))*(pi / 180))));
+	}
 
 	getline(entrada, str);
-	p3.x = stof(str);
+	colortemp.r = stoul(str);
 	getline(entrada, str);
-	p3.y = stof(str);
+	colortemp.g = stoul(str);
+	getline(entrada, str);
+	colortemp.b = stoul(str);
+	Triangulo.setOutlineColor(colortemp);
+
+	getline(entrada, str);
+	colortemp.r = stoul(str);
+	getline(entrada, str);
+	colortemp.g = stoul(str);
+	getline(entrada, str);
+	colortemp.b = stoul(str);
+	Triangulo.setFillColor(colortemp);
+
+	getline(entrada, str);
+	posTemp.x = stof(str);
+	getline(entrada, str);
+	posTemp.y = stof(str);
+	Triangulo.setPosition(posTemp);
+
+	getline(entrada, str);
+	posTemp.x = stof(str);
+	getline(entrada, str);
+	posTemp.y = stof(str);
+	Triangulo.setScale(posTemp);
 }
 
 string cTriangulo::info() {

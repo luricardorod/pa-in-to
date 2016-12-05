@@ -9,13 +9,13 @@ void BotonActivado(int boton, cDocumento* Documento)
 	sf::Color ColorTemporal;
 	sf::Vector2f PosicionTemporal;
 	sf::Vector2f EscalaTemporal;
-
+	ofstream fOut;
 	switch (boton)
 	{
 	case 0:
 		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-		if (PosicionTemporal.y <= 110)
+		if (PosicionTemporal.y <= 40)
 		{
 			return;
 		}
@@ -28,7 +28,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 	case 1:
 		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-		if (PosicionTemporal.y >= 290)
+		if (PosicionTemporal.y >= 660)
 		{
 			return;
 		}
@@ -231,6 +231,15 @@ void BotonActivado(int boton, cDocumento* Documento)
 			ColorTemporal.g -= 5;
 		}
 		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		break;
+	case 28:
+		cout << "guardar" << endl;
+		fOut.open("loquesea.txt", ios_base::out);
+		if (fOut.is_open())
+		{
+			Documento->Guardar(fOut);
+			fOut.close();
+		}
 		break;
 	default:
 		break;

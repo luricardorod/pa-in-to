@@ -4,6 +4,7 @@
 class cTriangulo:public cFiguras
 {
 public:
+	float apotema;
 	Point p1, p2, p3;
 	sf::ConvexShape Triangulo;
 public:

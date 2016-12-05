@@ -14,7 +14,8 @@ cRectanguloRedondeado::cRectanguloRedondeado(Point p1, Point p2)
 {
 	float anch = (p2.x - p1.x) / 2.0f;
 	float alto = (p2.y - p1.y) / 2.0f;
-
+	base = anch;
+	altura = alto;
 	rectanguloC.setPointCount(121);
 
 	for (int i = 0; i <= 120; i++)
@@ -62,47 +63,75 @@ bool cRectanguloRedondeado::hitTest(Point mouseCoords)
 
 void cRectanguloRedondeado::Guardar(ofstream &salida)
 {
-	salida << base << endl;
-	salida << altura << endl;
-
-	salida << radio << endl;
+	salida << to_string(base) << endl;
+	salida << to_string(altura) << endl;
+	salida << to_string(infoFig->getOutlineColor().r) << endl;
+	salida << to_string(infoFig->getOutlineColor().g) << endl;
+	salida << to_string(infoFig->getOutlineColor().b) << endl;
+	salida << to_string(infoFig->getFillColor().r) << endl;
+	salida << to_string(infoFig->getFillColor().g) << endl;
+	salida << to_string(infoFig->getFillColor().b) << endl;
+	salida << to_string(infoFig->getPosition().x) << endl;
+	salida << to_string(infoFig->getPosition().y) << endl;
+	salida << to_string(infoFig->getScale().x) << endl;
+	salida << to_string(infoFig->getScale().y) << endl;
 }
 
 void cRectanguloRedondeado::Cargar(ifstream &entrada)
 {
-	/*
-	int i = 0;
-	while (!entrada.eof())
-	{
-	if (i == 1)
-	{
-	float n;
-	entrada >> n;
-	base = n;
-	}
-	if (i == 2)
-	{
-	float n;
-	entrada >> n;
-	altura = n;
-	break;
-	}
-	i++;
-	}
-	-----------------------
-	entrada >> base;
-	entrada >> altura;
-	entrada >> radio;
-	*/
-
 	string str;
+	rectanguloC.setOutlineThickness(2);
+	infoFig = &rectanguloC;
+	sf::Color colortemp;
+	sf::Vector2f posTemp;
+
 	getline(entrada, str);
 	base = stof(str);
 	getline(entrada, str);
 	altura = stof(str);
 
+	rectanguloC.setPointCount(121);
+
+	for (int i = 0; i <= 120; i++)
+	{
+		if (i <= 30)
+			rectanguloC.setPoint(i, sf::Vector2f(base*sin((i*pi * 3) / 180) + base, altura*-cos((i*pi * 3) / 180) - altura));
+		else if (i <= 60)
+			rectanguloC.setPoint(i, sf::Vector2f(base*sin((i*pi * 3) / 180) + base, altura*-cos((i*pi * 3) / 180) + altura));
+		else if (i <= 90)
+			rectanguloC.setPoint(i, sf::Vector2f(base*sin((i*pi * 3) / 180) - base, altura*-cos((i*pi * 3) / 180) + altura));
+		else
+			rectanguloC.setPoint(i, sf::Vector2f(base*sin((i*pi * 3) / 180) - base, altura*-cos((i*pi * 3) / 180) - altura));
+	}
+
+
 	getline(entrada, str);
-	radio = stof(str);
+	colortemp.r = stoul(str);
+	getline(entrada, str);
+	colortemp.g = stoul(str);
+	getline(entrada, str);
+	colortemp.b = stoul(str);
+	rectanguloC.setOutlineColor(colortemp);
+
+	getline(entrada, str);
+	colortemp.r = stoul(str);
+	getline(entrada, str);
+	colortemp.g = stoul(str);
+	getline(entrada, str);
+	colortemp.b = stoul(str);
+	rectanguloC.setFillColor(colortemp);
+
+	getline(entrada, str);
+	posTemp.x = stof(str);
+	getline(entrada, str);
+	posTemp.y = stof(str);
+	rectanguloC.setPosition(posTemp);
+
+	getline(entrada, str);
+	posTemp.x = stof(str);
+	getline(entrada, str);
+	posTemp.y = stof(str);
+	rectanguloC.setScale(posTemp);
 }
 
 string cRectanguloRedondeado::info() {

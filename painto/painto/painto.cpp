@@ -22,100 +22,14 @@ int main()
 		canvas1.Cargar(fIn);
 		fIn.close();
 	}
-	canvas1.capaActual->Insertar(ClsId_CurvaBezier);
-	/*
-
-	int decision;
-	ofstream fOut;
-	ifstream fIn;
-
-	while (true)
-	{
-		cout << "Hola, bienvenido al corel chafa" << endl;
-		cout << "Que deseas hacer?" << endl;
-		cout << "1. Crear Capa" << endl;
-		cout << "2. Crear Rectangulo" << endl;
-		cout << "3. Crear Rectangulo Redondeado" << endl;
-		cout << "4. Crear Triangulo" << endl;
-		cout << "5. Crear Elipse" << endl;
-		cout << "6. Crear Linea" << endl;
-		cout << "7. Crear Poligono" << endl;
-		cout << "8. Crear Tira de Lineas" << endl;
-		cout << "9. Crear Curva de Bezier" << endl;
-		cout << "10. Crear Texto" << endl;
-		cout << "11. Guardar" << endl;
-		cout << "12. Cargar" << endl;
-		cin >> decision;
-
-		switch (decision)
-		{
-		case 1:
-			canvas1.Insertar();
-			break;
-		case 2:
-			canvas1.capaActual->Insertar(ClsId_Rectangulo);
-			break;
-		case 3:
-			canvas1.capaActual->Insertar(ClsId_RectanguloRedondeado);
-			break;
-		case 4:
-			canvas1.capaActual->Insertar(ClsId_Triangulo);
-			break;
-		case 5:
-			canvas1.capaActual->Insertar(ClsId_Elipse);
-			break;
-		case 6:
-			canvas1.capaActual->Insertar(ClsId_Linea);
-			break;
-		case 7:
-			canvas1.capaActual->Insertar(ClsId_Poligono);
-			break;
-		case 8:
-			canvas1.capaActual->Insertar(ClsId_TiraDeLinea);
-			break;
-		case 9:
-			canvas1.capaActual->Insertar(ClsId_CurvaBezier);
-			break;
-		case 10:
-			canvas1.capaActual->Insertar(ClsId_Texto);
-			break;
-		case 11:
-			fOut.open("loquesea.txt", ios_base::out);
-			if (fOut.is_open())
-			{
-				canvas1.Guardar(fOut);
-				fOut.close();
-			}
-			break;
-		case 12:
-			fIn.open("loquesea.txt");
-			if (fIn.is_open())
-			{
-				canvas1.Cargar(fIn);
-				fIn.close();
-			}
-			break;
-		default:
-			break;
-		}
-	}
-
-
-	*/
 	
-	
-	//----------------------------------------------------//
 	//---------------Esto es una ventana------------------//
-	//----------------------------------------------------//
 	sf::RenderWindow window(sf::VideoMode(1024, 720), "Painto!", sf::Style::Close);
-	//----------------------------------------------------//
-	//----------------------------------------------------//
 	//----------------------------------------------------//
 
 
 	//--------------------Inicio de-----------------------//
 	//---------------Cargado de texturas------------------//
-	//----------------------------------------------------//
 	sf::Texture patoTextura;
 	patoTextura.loadFromFile("Assets/pato8bit.png");
 
@@ -155,11 +69,9 @@ int main()
 	texturesModificadores[20] = texturesModificadores[13];
 	texturesModificadores[21] = texturesModificadores[10];
 	texturesModificadores[22].loadFromFile("Assets/RGBarriba.png");
-
-		//----------------------Fin de------------------------//
+	
+	//----------------------Fin de------------------------//
 	//---------------Cargado de texturas------------------//
-	//----------------------------------------------------//
-
 
 
 	//--------------------Inicio de-----------------------//
@@ -177,7 +89,7 @@ int main()
 		spriteBotones[i].setScale((float)40 / 200, (float)40 / 200);
 	}
 
-	sf::Sprite spriteBotonesModificadores[28];
+	sf::Sprite spriteBotonesModificadores[29];
 	int counterButons = 22;
 	for (int i = 0; i < 22; i++)
 	{
@@ -193,12 +105,13 @@ int main()
 			counterButons++;
 		}
 	}
-
+	spriteBotonesModificadores[28].setTexture(texturesModificadores[2]);
+	spriteBotonesModificadores[28].setPosition(980, 0);
+	spriteBotonesModificadores[28].setScale((float)40 / 200, (float)40 / 200);
 	
 	//----------------------Fin de------------------------//
 	//---------------Creacion y aginacion-----------------//
 	//--------------------Sprites-------------------------//
-
 
 
 	//--------------------Inicio de-----------------------//
@@ -262,14 +175,13 @@ int main()
 	//--------------------fondos UI-----------------------//
 	//----------------------------------------------------//
 
+	cMouse mousePointer; //La clase mas inutil de todas, no es para nada importante, el uso de esta clase requiere un terabyte de RAM
 	//Esto es un mouse, tiene funciones que te dan la posicion del mouse respecto a la ventana
 	//Tiene funciones que te devuelven el estado del clic izquierdo y derecho en forma de string
 	//"Pressed"		El mouse acaba de ser presionado (dura un frame/instante)
 	//"Down"		El mouse esta presionado
 	//"Released";	El mouese acaba de dejar de ser presionado (dura un frame/instante)
 	//"Up";			El mouse no esta siendo presionado
-
-	cMouse mousePointer; //La clase mas inutil de todas, no es para nada importante, el uso de esta clase requiere un terabyte de RAM
 
 
 	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos.
@@ -442,7 +354,7 @@ int main()
 				}
 			}
 		}
-		//Si el mouse esta dentro de el area de layers
+		//Si el mouse esta dentro de el area de modificadores
 		else if (modifiers.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
 			if (mousePointer.getLeftState() == "Down") //Si hizo clic izquierdo
@@ -451,16 +363,18 @@ int main()
 				{
 					if (spriteBotonesModificadores[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 					{
-						//cout << i << endl;
 						BotonActivado(i,&canvas1);
 					}
 				}
-				//Codigo
-				cout << "hola xd" << endl;
+			}
+			if (mousePointer.getLeftState() == "Released")
+			{
+				if (spriteBotonesModificadores[28].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
+				{
+					BotonActivado(28, &canvas1);
+				}
 			}
 		}
-
-
 
 		window.clear();
 
@@ -470,9 +384,7 @@ int main()
 		/*Dibujar aqui todas las figuras*/
 		canvas1.Dibujar(window);
 		if (FiguraFlotante != NULL)
-		{
 			FiguraFlotante->Dibujar(window);
-		}
 
 		window.draw(layers);
 		/*Dibujar aqui las capas*/
@@ -486,7 +398,7 @@ int main()
 
 		window.draw(modifiers);
 		/*Dibujar aqui los botones modificadores*/
-		for (int i = 0; i < 28; i++)
+		for (int i = 0; i < 29; i++)
 			window.draw(spriteBotonesModificadores[i]);
 
 		window.draw(data);

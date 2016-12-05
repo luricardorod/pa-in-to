@@ -48,22 +48,63 @@ bool cRectangulo::hitTest(Point mouseCoords)
 
 void cRectangulo::Guardar(ofstream &salida)
 {
-
-	salida << base << endl;
-	salida << altura << endl;
+	salida << to_string(Rectangulo.getSize().x) << endl;
+	salida << to_string(Rectangulo.getSize().y) << endl;
+	salida << to_string(infoFig->getOutlineColor().r) << endl;
+	salida << to_string(infoFig->getOutlineColor().g) << endl;
+	salida << to_string(infoFig->getOutlineColor().b) << endl;
+	salida << to_string(infoFig->getFillColor().r) << endl;
+	salida << to_string(infoFig->getFillColor().g) << endl;
+	salida << to_string(infoFig->getFillColor().b) << endl;
+	salida << to_string(infoFig->getPosition().x) << endl;
+	salida << to_string(infoFig->getPosition().y) << endl;
+	salida << to_string(infoFig->getScale().x) << endl;
+	salida << to_string(infoFig->getScale().y) << endl;
 };
 
 void cRectangulo::Cargar(ifstream &entrada)
 {
 	string str;
 	Rectangulo.setOutlineThickness(2);
+	infoFig = &Rectangulo;
+	sf::Color colortemp;
+	sf::Vector2f posTemp;
+
 	getline(entrada, str);
 	base = stof(str);
 	getline(entrada, str);
 	altura = stof(str);
-	infoFig = &Rectangulo;
+	Rectangulo.setSize(sf::Vector2f(base, altura));
+	Rectangulo.setOrigin(Rectangulo.getSize().x / 2, Rectangulo.getSize().y / 2);
 
-	Rectangulo.setSize(sf::Vector2f (base, altura));
+	getline(entrada, str);
+	colortemp.r = stoul(str);
+	getline(entrada, str);
+	colortemp.g = stoul(str);
+	getline(entrada, str);
+	colortemp.b = stoul(str);
+	Rectangulo.setOutlineColor(colortemp);
+
+	getline(entrada, str);
+	colortemp.r = stoul(str);
+	getline(entrada, str);
+	colortemp.g = stoul(str);
+	getline(entrada, str);
+	colortemp.b = stoul(str);
+	Rectangulo.setFillColor(colortemp);
+
+	getline(entrada, str);
+	posTemp.x = stof(str);
+	getline(entrada, str);
+	posTemp.y = stof(str);
+	Rectangulo.setPosition(posTemp);
+
+	getline(entrada, str);
+	posTemp.x = stof(str);
+	getline(entrada, str);
+	posTemp.y = stof(str);
+	Rectangulo.setScale(posTemp);
+
 };
 
 int cRectangulo::GetClsId()

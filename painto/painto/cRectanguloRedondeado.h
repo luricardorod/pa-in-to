@@ -4,7 +4,6 @@
 class cRectanguloRedondeado:public cRectangulo
 {
 public:
-	float radio;
 	sf::ConvexShape rectanguloC;
 public:
 	cRectanguloRedondeado();
