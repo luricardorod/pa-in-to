@@ -310,6 +310,11 @@ int main()
 					pos1.x = mousePointer.getPosition().x;
 					pos1.y = mousePointer.getPosition().y;
 				}
+				else if (mousePointer.getAction() == 4)
+				{
+					pos1.x = mousePointer.getPosition().x;
+					pos1.y = mousePointer.getPosition().y;
+				}
 				else if (mousePointer.getAction() == 5)
 				{
 					pos1.x = mousePointer.getPosition().x;
@@ -332,6 +337,13 @@ int main()
 
 					FiguraFlotante = new cRectanguloRedondeado(pos1, pos2);
 				}
+				else if (mousePointer.getAction() == 4)
+				{
+					pos2.x = mousePointer.getPosition().x;
+					pos2.y = mousePointer.getPosition().y;
+
+					FiguraFlotante = new cTriangulo(pos1, pos2);
+				}
 				else if (mousePointer.getAction() == 5)
 				{
 					pos2.x = mousePointer.getPosition().x;
@@ -348,6 +360,11 @@ int main()
 					FiguraFlotante = NULL;
 				}
 				else if (mousePointer.getAction() == 2)
+				{
+					canvas1.capaActual->Insertar(FiguraFlotante);
+					FiguraFlotante = NULL;
+				}
+				else if (mousePointer.getAction() == 4)
 				{
 					canvas1.capaActual->Insertar(FiguraFlotante);
 					FiguraFlotante = NULL;

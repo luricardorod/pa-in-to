@@ -50,6 +50,9 @@ cPoligonos::cPoligonos(Point p1, Point p2, int lados)
 	}
 
 	figura.setPosition(p1.x, p1.y);
+	figura.setOutlineThickness(2);
+	figura.setOutlineColor(sf::Color::Black);
+	infoFig = &figura;
 }
 
 
