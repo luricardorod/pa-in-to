@@ -17,3 +17,8 @@ void cLineType::setMove(float x, float y)
 void cLineType::setColor(sf::Color newColor)
 {
 }
+
+sf::Color cLineType::getColor()
+{
+	return sf::Color::Black;
+}

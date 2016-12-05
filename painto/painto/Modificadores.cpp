@@ -46,142 +46,258 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 2:
-		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
+		if (!linea)
+		{
+			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-		if (PosicionTemporal.x >= 615)
-			return;
+			if (PosicionTemporal.x >= 615)
+				return;
+			else
+				PosicionTemporal.x += 5;
+			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
+		}
 		else
-			PosicionTemporal.x += 5;
-		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
+		{
+			Documento->figuraActual->setMove(5, 0);
+		}
 		break;
 	case 3:
-		PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
+		if (!linea)
+		{
+			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-		if (PosicionTemporal.x <= 97)
-			return;
+			if (PosicionTemporal.x >= 615)
+				return;
+			else
+				PosicionTemporal.x += 5;
+			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
+		}
 		else
-			PosicionTemporal.x -= 5;
-		Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
+		{
+			Documento->figuraActual->setMove(-5, 0);
+		}
 		break;
 	case 4:
-		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+		if (!linea)
+		{
+			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 		
-		EscalaTemporal.x += 0.02f;
-		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+			EscalaTemporal.x += 0.02f;
+			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+		}
 		break;
 	case 5:
-		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+		if (!linea)
+		{
+			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 
-		EscalaTemporal.x -= 0.02f;
-		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+			EscalaTemporal.x -= 0.02f;
+			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+		}
 		break;
 	case 6:
-		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+		if (!linea)
+		{
+			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 
-		EscalaTemporal.y += 0.02f;
-		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+			EscalaTemporal.y += 0.02f;
+			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+		}
 		break;
 	case 7:
-		EscalaTemporal = Documento->figuraActual->infoFig->getScale();
+		if (!linea)
+		{
+			EscalaTemporal = Documento->figuraActual->infoFig->getScale();
 
-		EscalaTemporal.y -= 0.02f;
-		Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+			EscalaTemporal.y -= 0.02f;
+			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+		}
 		break;
 	case 10:
-		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
-		if (ColorTemporal.r >= 255)
-			ColorTemporal.r = 255;
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
+			if (ColorTemporal.r >= 255)
+				ColorTemporal.r = 255;
+			else
+				ColorTemporal.r += 5;
+			Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		}
 		else
-			ColorTemporal.r += 5;
-		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		{
+			ColorTemporal = Documento->figuraActual->getColor();
+			if (ColorTemporal.r >= 255)
+				ColorTemporal.r = 255;
+			else
+				ColorTemporal.r += 5;
+			Documento->figuraActual->setColor(ColorTemporal);
+		}
 		break;
 	case 12:
-		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
-		if (ColorTemporal.b >= 255)
-			ColorTemporal.b = 255;
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
+			if (ColorTemporal.b >= 255)
+				ColorTemporal.b = 255;
+			else
+				ColorTemporal.b += 5;
+			Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		}
 		else
-			ColorTemporal.b += 5;
-		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		{
+			ColorTemporal = Documento->figuraActual->getColor();
+			if (ColorTemporal.b >= 255)
+				ColorTemporal.b = 255;
+			else
+				ColorTemporal.b += 5;
+			Documento->figuraActual->setColor(ColorTemporal);
+		}
 		break;
 	case 14:
-		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
-		if (ColorTemporal.g >= 255)
-			ColorTemporal.g = 255;
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
+			if (ColorTemporal.g >= 255)
+				ColorTemporal.g = 255;
+			else
+				ColorTemporal.g += 5;
+			Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		}
 		else
-			ColorTemporal.g += 5;
-		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		{
+			ColorTemporal = Documento->figuraActual->getColor();
+			if (ColorTemporal.g >= 255)
+				ColorTemporal.g = 255;
+			else
+				ColorTemporal.g += 5;
+			Documento->figuraActual->setColor(ColorTemporal);
+		}
 		break;
 	case 17:
-		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
-		if (ColorTemporal.r >= 255)
-			ColorTemporal.r = 255;
-		else
-			ColorTemporal.r += 5;
-		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
+			if (ColorTemporal.r >= 255)
+				ColorTemporal.r = 255;
+			else
+				ColorTemporal.r += 5;
+			Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		}
 		break;
 	case 19:
-		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
-		if (ColorTemporal.b >= 255)
-			ColorTemporal.b = 255;
-		else
-			ColorTemporal.b += 5;
-		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
+			if (ColorTemporal.b >= 255)
+				ColorTemporal.b = 255;
+			else
+				ColorTemporal.b += 5;
+			Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		}
 		break;
 	case 21:
-		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
-		if (ColorTemporal.g >= 255)
-			ColorTemporal.g = 255;
-		else
-			ColorTemporal.g += 5;
-		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
+			if (ColorTemporal.g >= 255)
+				ColorTemporal.g = 255;
+			else
+				ColorTemporal.g += 5;
+			Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		}
 		break;
 	case 22:
-		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
-		if (ColorTemporal.r <= 0)
-			ColorTemporal.r = 0;
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
+			if (ColorTemporal.r <= 0)
+				ColorTemporal.r = 0;
+			else
+				ColorTemporal.r -= 5;
+			Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		}
 		else
-			ColorTemporal.r -= 5;
-		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		{
+			ColorTemporal = Documento->figuraActual->getColor();
+			if (ColorTemporal.r <= 0)
+				ColorTemporal.r = 0;
+			else
+				ColorTemporal.r -= 5;
+			Documento->figuraActual->setColor(ColorTemporal);
+		}
 		break;
 	case 23:
-		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
-		if (ColorTemporal.b <= 0)
-			ColorTemporal.b = 0;
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
+			if (ColorTemporal.b <= 0)
+				ColorTemporal.b = 0;
+			else
+				ColorTemporal.b -= 5;
+			Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		}
 		else
-			ColorTemporal.b -= 5;
-		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		{
+			ColorTemporal = Documento->figuraActual->getColor();
+			if (ColorTemporal.b <= 0)
+				ColorTemporal.b = 0;
+			else
+				ColorTemporal.b -= 5;
+			Documento->figuraActual->setColor(ColorTemporal);
+		}
 		break;
 	case 24:
-		ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
-		if (ColorTemporal.g <= 0)
-			ColorTemporal.g = 0;
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getOutlineColor();
+			if (ColorTemporal.g <= 0)
+				ColorTemporal.g = 0;
+			else
+				ColorTemporal.g -= 5;
+			Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		}
 		else
-			ColorTemporal.g -= 5;
-		Documento->figuraActual->infoFig->setOutlineColor(ColorTemporal);
+		{
+			ColorTemporal = Documento->figuraActual->getColor();
+			if (ColorTemporal.g <= 0)
+				ColorTemporal.g = 0;
+			else
+				ColorTemporal.g -= 5;
+			Documento->figuraActual->setColor(ColorTemporal);
+		}
 		break;
 	case 25:
-		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
-		if (ColorTemporal.r <= 0)
-			ColorTemporal.r = 0;
-		else
-			ColorTemporal.r -= 5;
-		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
+			if (ColorTemporal.r <= 0)
+				ColorTemporal.r = 0;
+			else
+				ColorTemporal.r -= 5;
+			Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		}
 		break;
 	case 26:
-		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
-		if (ColorTemporal.b <= 0)
-			ColorTemporal.b = 0;
-		else
-			ColorTemporal.b -= 5;
-		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
+			if (ColorTemporal.b <= 0)
+				ColorTemporal.b = 0;
+			else
+				ColorTemporal.b -= 5;
+			Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		}
 		break;
 	case 27:
-		ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
-		if (ColorTemporal.g <= 0)
-			ColorTemporal.g = 0;
-		else
-			ColorTemporal.g -= 5;
-		Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		if (!linea)
+		{
+			ColorTemporal = Documento->figuraActual->infoFig->getFillColor();
+			if (ColorTemporal.g <= 0)
+				ColorTemporal.g = 0;
+			else
+				ColorTemporal.g -= 5;
+			Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
+		}
 		break;
 	case 28:
 		cout << "guardar" << endl;

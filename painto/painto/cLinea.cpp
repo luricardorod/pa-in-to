@@ -87,3 +87,8 @@ void cLinea::setColor(sf::Color newColor)
 		vertices[i].color = newColor;
 	}
 }
+
+sf::Color cLinea::getColor()
+{
+	return vertices[0].color;
+}

@@ -171,3 +171,8 @@ void cCurvaBezier::setColor(sf::Color newColor)
 		vertices[i].color = newColor;
 	}
 }
+
+sf::Color cCurvaBezier::getColor()
+{
+	return vertices[0].color;
+}

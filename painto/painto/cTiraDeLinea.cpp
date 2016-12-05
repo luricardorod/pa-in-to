@@ -90,3 +90,8 @@ void cTiraDeLinea::setColor(sf::Color newColor)
 		vertices[i].color = newColor;
 	}
 }
+
+sf::Color cTiraDeLinea::getColor()
+{
+	return vertices[0].color;
+}

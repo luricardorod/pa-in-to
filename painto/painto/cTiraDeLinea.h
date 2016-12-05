@@ -24,4 +24,5 @@ public:
 	
 	void setMove(float x, float y);
 	void setColor(sf::Color newColor);
+	virtual sf::Color getColor();
 };
