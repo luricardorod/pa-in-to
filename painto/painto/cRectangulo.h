@@ -23,4 +23,5 @@ public:
 	virtual void setPosicion(Point coordenadas);
 	virtual void setColorLinea(Vector3f nuevoColor);
 	virtual void setColorRelleno(Vector3f nuevoColor);
+	string info();
 };

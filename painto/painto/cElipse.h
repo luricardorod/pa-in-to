@@ -5,6 +5,7 @@ class cElipse :public cFiguras
 {
 public:
 	float radio1, radio2;
+	sf::ConvexShape Elipse;
 public:
 	cElipse();
 	~cElipse();

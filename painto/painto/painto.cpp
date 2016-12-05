@@ -3,6 +3,9 @@
 #include <iostream>
 #include "cExplorador.h"
 #include "cMouse.h"
+#include "cInformacion.h"
+#include "Modificadores.h"
+
 using namespace std;
 
 int main()
@@ -128,28 +131,30 @@ int main()
 	textures[8].loadFromFile("Assets/multilines.png");
 	textures[9].loadFromFile("Assets/text.png");
 
-	sf::Texture texturesModificadores[21];
+	sf::Texture texturesModificadores[23];
 	texturesModificadores[0].loadFromFile("Assets/arriba.png");
 	texturesModificadores[1].loadFromFile("Assets/abajo.png");
 	texturesModificadores[2].loadFromFile("Assets/derecha.png");
 	texturesModificadores[3].loadFromFile("Assets/izquierda.png");
-	texturesModificadores[4].loadFromFile("Assets/ancho.png");
-	texturesModificadores[5].loadFromFile("Assets/largo.png");
-	texturesModificadores[6].loadFromFile("Assets/borde.png");
-	texturesModificadores[7].loadFromFile("Assets/RGB1.png");
-	texturesModificadores[8].loadFromFile("Assets/RGBabajo.png");
-	texturesModificadores[9].loadFromFile("Assets/RGB3.png");
-	texturesModificadores[10] = texturesModificadores [8];
-	texturesModificadores[11].loadFromFile("Assets/RGB2.png");
-	texturesModificadores[12] = texturesModificadores[8];
-	texturesModificadores[13].loadFromFile("Assets/relleno.png");
-	texturesModificadores[14] = texturesModificadores[7];
-	texturesModificadores[15] = texturesModificadores[8];
+	texturesModificadores[4].loadFromFile("Assets/ExpandLeft.png");
+	texturesModificadores[5].loadFromFile("Assets/ExpandRight.png");
+	texturesModificadores[6].loadFromFile("Assets/ExpandUp.png");
+	texturesModificadores[7].loadFromFile("Assets/ExpandDown.png");
+	texturesModificadores[8].loadFromFile("Assets/OutlineColor.png");
+	texturesModificadores[9].loadFromFile("Assets/RGB1.png");
+	texturesModificadores[10].loadFromFile("Assets/RGBabajo.png");
+	texturesModificadores[11].loadFromFile("Assets/RGB3.png");
+	texturesModificadores[12] = texturesModificadores[10];
+	texturesModificadores[13].loadFromFile("Assets/RGB2.png");
+	texturesModificadores[14] = texturesModificadores[10];
+	texturesModificadores[15].loadFromFile("Assets/FillColor.png");
 	texturesModificadores[16] = texturesModificadores[9];
-	texturesModificadores[17] = texturesModificadores[8];
+	texturesModificadores[17] = texturesModificadores[10];
 	texturesModificadores[18] = texturesModificadores[11];
-	texturesModificadores[19] = texturesModificadores[8];
-	texturesModificadores[20].loadFromFile("Assets/RGBarriba.png");
+	texturesModificadores[19] = texturesModificadores[10];
+	texturesModificadores[20] = texturesModificadores[13];
+	texturesModificadores[21] = texturesModificadores[10];
+	texturesModificadores[22].loadFromFile("Assets/RGBarriba.png");
 
 		//----------------------Fin de------------------------//
 	//---------------Cargado de texturas------------------//
@@ -158,7 +163,7 @@ int main()
 
 
 	//--------------------Inicio de-----------------------//
-	//---------------Creacion y aginacion-----------------//
+	//---------------Creacion y asignacion-----------------//
 	//--------------------Sprites-------------------------//
 	sf::Sprite patoSprite;
 	patoSprite.setTexture(patoTextura);
@@ -172,17 +177,17 @@ int main()
 		spriteBotones[i].setScale((float)40 / 200, (float)40 / 200);
 	}
 
-	sf::Sprite spriteBotonesModificadores[26];
-	int counterButons = 20;
-	for (int i = 0; i < 20; i++)
+	sf::Sprite spriteBotonesModificadores[28];
+	int counterButons = 22;
+	for (int i = 0; i < 22; i++)
 	{
 		spriteBotonesModificadores[i].setTexture(texturesModificadores[i]);
 		spriteBotonesModificadores[i].setPosition(40*(i+1), 0);
 		spriteBotonesModificadores[i].setScale((float)40 / 200, (float)40 / 200);
-		if (i == 8 || i == 10 || i == 12 || i == 15 || i == 17 || i == 19)
+		if (i == 10 || i == 12 || i == 14 || i == 17 || i == 19 || i == 21)
 		{
 			spriteBotonesModificadores[i].setPosition(40 * (i + 1) + 10, 0);
-			spriteBotonesModificadores[counterButons].setTexture(texturesModificadores[20]);
+			spriteBotonesModificadores[counterButons].setTexture(texturesModificadores[22]);
 			spriteBotonesModificadores[counterButons].setPosition(40 * (i + 1) +10, 20);
 			spriteBotonesModificadores[counterButons].setScale((float)40 / 200, (float)40 / 200);
 			counterButons++;
@@ -270,6 +275,11 @@ int main()
 
 	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos.
 	cExplorador chemonky(&canvas1, &window);
+	cInformacion showInfo(&canvas1, &window);
+
+	cFiguras *FiguraFlotante = NULL;
+	Point pos1;
+	Point pos2;
 
 	while (window.isOpen())
 	{
@@ -289,9 +299,47 @@ int main()
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
-				//Codigo
-				cout << "canvas haola" << endl;
+				cout << "canvas hola" << endl;
+				if (mousePointer.getAction() == 1)
+				{
+					pos1.x = mousePointer.getPosition().x;
+					pos1.y = mousePointer.getPosition().y;
+				}
+				else if (mousePointer.getAction() == 2)
+				{
+					pos1.x = mousePointer.getPosition().x;
+					pos1.y = mousePointer.getPosition().y;
+				}
+			}
+			else if (mousePointer.getLeftState() == "Down") //Si el esta apretado
+			{
+				if (mousePointer.getAction() == 1)
+				{
+					pos2.x = mousePointer.getPosition().x;
+					pos2.y = mousePointer.getPosition().y;
 
+					FiguraFlotante = new cRectangulo(pos1, pos2);
+				}
+				else if (mousePointer.getAction() == 2)
+				{
+					pos2.x = mousePointer.getPosition().x;
+					pos2.y = mousePointer.getPosition().y;
+
+					FiguraFlotante = new cRectanguloRedondeado(pos1, pos2);
+				}
+			}
+			else if (mousePointer.getLeftState() == "Released") //Si el esta apretado
+			{
+				if (mousePointer.getAction() == 1)
+				{
+					canvas1.capaActual->Insertar(FiguraFlotante);
+					FiguraFlotante = NULL;
+				}
+				if (mousePointer.getAction() == 2)
+				{
+					canvas1.capaActual->Insertar(FiguraFlotante);
+					FiguraFlotante = NULL;
+				}
 			}
 		}
 		//Si el mouse esta dentro del area de layers
@@ -316,7 +364,7 @@ int main()
 				for (int i = 0; i < 10; i++) //Buscar a que "boton" le dio clic
 				{
 					if (spriteBotones[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
-						cout << i << endl; //imprimir numero de boton
+						mousePointer.setAction(i);
 				}
 			}
 		}
@@ -325,8 +373,16 @@ int main()
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
+				for (int i = 0; i < 28; i++)
+				{
+					if (spriteBotonesModificadores[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
+					{
+						//cout << i << endl;
+						BotonActivado(i,&canvas1);
+					}
+				}
 				//Codigo
-				cout << "hola" << endl;
+				cout << "hola xd" << endl;
 			}
 		}
 
@@ -339,6 +395,11 @@ int main()
 		window.draw(canvasBground);
 		/*Dibujar aqui todas las figuras*/
 		canvas1.Dibujar(window);
+		if (FiguraFlotante != NULL)
+		{
+			FiguraFlotante->Dibujar(window);
+			cout << "holi" << endl;
+		}
 
 		window.draw(layers);
 		/*Dibujar aqui las capas*/
@@ -352,11 +413,12 @@ int main()
 
 		window.draw(modifiers);
 		/*Dibujar aqui los botones modificadores*/
-		for (int i = 0; i < 26; i++)
+		for (int i = 0; i < 28; i++)
 			window.draw(spriteBotonesModificadores[i]);
 
 		window.draw(data);
 		/*Dibujar aqui los datos de la figura seleccionada*/
+		showInfo.update();
 
 		/*<No tocar esta parte del codigo>*/
 		window.draw(logoBground);

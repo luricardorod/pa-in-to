@@ -19,10 +19,13 @@ private:
 	Point posicion;
 	long id_Nombre; // nombre o id unico de figura?
 public:
+	sf::Shape* infoFig;
 	virtual void setColorLinea(Vector3f nuevoColor);
 	Vector3f getColorLinea();
 	virtual void setColorRelleno(Vector3f nuevoColor);
 	Vector3f getColorRelleno();
 	virtual void setPosicion(Point coordenadas);
-	Point getPosition();
+	virtual Point getPosition();
+
+	virtual string info() = 0;
 };
