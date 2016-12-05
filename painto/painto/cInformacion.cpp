@@ -41,13 +41,13 @@ void cInformacion::update() {
 	string PosX = to_string(posX);
 	string PosY = to_string(posY);
 
-	string ColRr = to_string(posX);
-	string ColRg = to_string(posX);
-	string ColRb = to_string(posX);
+	string ColRr = to_string(colRr);
+	string ColRg = to_string(colRg);
+	string ColRb = to_string(colRb);
 
-	string ColLr = to_string(posX);
-	string ColLg = to_string(posX);
-	string ColLb = to_string(posX);
+	string ColLr = to_string(colLr);
+	string ColLg = to_string(colLg);
+	string ColLb = to_string(colLb);
 
 	string Linea1 = "Pos X = " + PosX + "						  R: " + ColRr + "					  R: " + ColLr;;
 	string Linea2 = "Pos Y = " + PosY + "	Col. Relleno  G: " + ColRg + "	Col. Linea  G: " + ColLg;

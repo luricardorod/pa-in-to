@@ -4,7 +4,7 @@
 
 void BotonActivado(int boton, cDocumento* Documento)
 {
-	if (Documento->figuraActual == NULL)
+	if (Documento->figuraActual == NULL || !Documento->figuraActual->desbloqueado)
 		return;
 	sf::Color ColorTemporal;
 	sf::Vector2f PosicionTemporal;
