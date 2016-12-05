@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cRectangulo.h"
+#include "cDocumento.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -84,4 +85,9 @@ void cRectangulo::setColorLinea(Vector3f nuevoColor)
 void cRectangulo::setColorRelleno(Vector3f nuevoColor)
 {
 	Rectangulo.setFillColor(sf::Color(nuevoColor.x, nuevoColor.y, nuevoColor.z));
+}
+
+string cRectangulo::info()
+{
+	return "lu";
 }

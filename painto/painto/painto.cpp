@@ -3,6 +3,7 @@
 #include <iostream>
 #include "cExplorador.h"
 #include "cMouse.h"
+#include "cInformacion.h"
 using namespace std;
 
 int main()
@@ -226,6 +227,7 @@ int main()
 
 	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos.
 	cExplorador chemonky(&canvas1, &window);
+	cInformacion showInfo(&canvas1, &window);
 
 	while (window.isOpen())
 	{
@@ -306,6 +308,7 @@ int main()
 
 		window.draw(data);
 		/*Dibujar aqui los datos de la figura seleccionada*/
+		showInfo.update();
 
 		/*<No tocar esta parte del codigo>*/
 		window.draw(logoBground);

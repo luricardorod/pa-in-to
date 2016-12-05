@@ -18,6 +18,7 @@ Vector3f cFiguras::getColorRelleno() {
 void cFiguras::setPosicion(Point coordenadas) {
 	posicion = coordenadas;
 }
-Point cFiguras::getPosition() {
+Point cFiguras::getPosition()
+{
 	return posicion;
 }

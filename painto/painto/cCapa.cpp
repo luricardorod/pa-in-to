@@ -101,6 +101,7 @@ void cCapa::Cargar(ifstream &entrada)
 		(Figuras.back())->setPosicion(temp1);
 		
 	}
+	figuraActual = Figuras.back();
 }
 
 int cCapa::GetClsId()

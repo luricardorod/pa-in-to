@@ -6,6 +6,7 @@ class cPoligonos :public cFiguras
 {
 public:
 	vector<Point> listaPuntos;
+	sf::ConvexShape Poligono;
 public:
 	cPoligonos();
 	~cPoligonos();
