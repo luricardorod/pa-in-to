@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Modificadores.h"
-#include <iostream>
 
 void BotonActivado(int boton, cDocumento* Documento)
 {
@@ -50,11 +49,11 @@ void BotonActivado(int boton, cDocumento* Documento)
 		if (!linea && !txt && !txt)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
-
-			if (PosicionTemporal.x >= 615)
-				return;
-			else
+			
+			if (PosicionTemporal.x <= 577)
 				PosicionTemporal.x += 5;
+			else
+				return;
 			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		}
 		else
@@ -67,10 +66,10 @@ void BotonActivado(int boton, cDocumento* Documento)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-			if (PosicionTemporal.x >= 615)
-				return;
+			if (PosicionTemporal.x >= 97)
+				PosicionTemporal.x -= 5;
 			else
-				PosicionTemporal.x += 5;
+				return;
 			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		}
 		else
@@ -86,6 +85,10 @@ void BotonActivado(int boton, cDocumento* Documento)
 			EscalaTemporal.x += 0.02f;
 			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
 		}
+		else if (txt)
+		{
+			Documento->figuraActual->setScale(0.02f,0);
+		}
 		break;
 	case 5:
 		if (!linea && !txt)
@@ -94,6 +97,10 @@ void BotonActivado(int boton, cDocumento* Documento)
 
 			EscalaTemporal.x -= 0.02f;
 			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+		}
+		else if (txt)
+		{
+			Documento->figuraActual->setScale(-0.02f, 0);
 		}
 		break;
 	case 6:
@@ -104,6 +111,10 @@ void BotonActivado(int boton, cDocumento* Documento)
 			EscalaTemporal.y += 0.02f;
 			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
 		}
+		else if (txt)
+		{
+			Documento->figuraActual->setScale(0, 0.02f);
+		}
 		break;
 	case 7:
 		if (!linea && !txt)
@@ -112,6 +123,10 @@ void BotonActivado(int boton, cDocumento* Documento)
 
 			EscalaTemporal.y -= 0.02f;
 			Documento->figuraActual->infoFig->setScale(EscalaTemporal);
+		}
+		else if (txt)
+		{
+			Documento->figuraActual->setScale(0, -0.02f);
 		}
 		break;
 	case 10:
@@ -301,7 +316,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 		}
 		break;
 	case 28:
-		cout << "guardar" << endl;
 		fOut.open("loquesea.txt", ios_base::out);
 		if (fOut.is_open())
 		{
