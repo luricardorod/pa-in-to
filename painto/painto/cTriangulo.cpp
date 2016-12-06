@@ -43,31 +43,40 @@ cTriangulo::~cTriangulo()
 {
 }
 
+Point Cross2(Point p1, Point p2)
+{
+	Point result;
+	result.x = p1.x*p2.x;
+	result.y = p1.y*p2.y;
+	return result;
+}
+
+float Dot2(sf::Vector2f p1, sf::Vector2f p2)
+{
+	return ((p1.x*p2.x)+(p1.y*p2.y));
+}
 
 bool cTriangulo::hitTest(Point mouseCoords)
 {
-	Point vector1, vector2;
+	sf::Vector2f vector1, vector2, vector3;
+	sf::Vector2f mousese;
+	mousese.x = mousese.x;
+	mousese.y = mousese.y;
 	float cross1, cross2;
-	vector1.x = p2.x - p1.x;
-	vector1.y = p2.y - p1.y;
 
-	vector2.x = mouseCoords.x - p2.x;
-	vector2.y = mouseCoords.y - p2.y;
+	vector1 = Triangulo.getPoint(1) - Triangulo.getPoint(0);
+	vector2 = mousese - Triangulo.getPoint(0);
 
-	cross1 = (vector1.x*vector2.y) - (vector2.x*vector1.y);
+	cross1 = vector2.x*vector1.y - vector1.x*vector2.y;
 
-	vector1.x = p3.x - p2.x;
-	vector1.y = p3.y - p2.y;
+	vector1 = Triangulo.getPoint(2) - Triangulo.getPoint(1);
+	vector2 = mousese - Triangulo.getPoint(1);
 
-	vector2.x = mouseCoords.x - p3.x;
-	vector2.y = mouseCoords.y - p3.y;
-	cross2 = (vector1.x*vector2.y) - (vector2.x*vector1.y);
-	if ((cross1 > 0 && cross2 > 0) || (cross1 < 0 && cross2 < 0))
-	{
-		return true;
-	}
+	cross2 = vector2.x*vector1.y - vector1.x*vector2.y;
 
-	return false;
+	cross1 = cross1*cross2;
+
+	return (cross1 > 0);
 }
 
 void cTriangulo::Guardar(ofstream &salida)

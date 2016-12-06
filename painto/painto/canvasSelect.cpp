@@ -10,10 +10,23 @@ void selectFigureCanvas(cDocumento* documento, sf::RenderWindow* win,float mouse
 		{
 			for (list<cFiguras*>::iterator figit = (*it)->Figuras.begin(); figit != (*it)->Figuras.end(); figit++)
 			{
-				if ((*figit)->visible && (*figit)->desbloqueado) {
-					if ((*figit)->GetClsId() < 6)
+				if ((*figit)->visible && (*figit)->desbloqueado)
+				{
+					if ((*figit)->GetClsId() == 3)
 					{
-						if ((*figit)->infoFig->getGlobalBounds().contains(sf::Vector2f(mousex, mousey))) {
+						Point mousese;
+						mousese.x = mousex;
+						mousese.y = mousey;
+						if ((*figit)->hitTest(mousese))
+						{
+							documento->cambiarSeleccionado((*figit));
+							return;
+						}
+					}
+					else if ((*figit)->GetClsId() < 6)
+					{
+						if ((*figit)->infoFig->getGlobalBounds().contains(sf::Vector2f(mousex, mousey)))
+						{
 							documento->cambiarSeleccionado((*figit));
 							return;
 						}

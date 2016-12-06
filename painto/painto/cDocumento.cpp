@@ -187,11 +187,12 @@ int cDocumento::GetClsId()
 
 void cDocumento::Dibujar(sf::RenderWindow &Ventana)
 {
-	for (list<cCapa*>::iterator it = Capas.begin(); it != Capas.end(); ++it)
+	for (list<cCapa*>::reverse_iterator it = Capas.rbegin(); it != Capas.rend(); ++it)
 	{
 		if((*it)->visible)
 			(*it)->Dibujar(Ventana);
 	}
+
 	if (figuraActual == NULL)
 	{
 		return;

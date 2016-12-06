@@ -230,7 +230,6 @@ int main()
 			{
 				if (mousePointer.getAction() == 0)
 				{
-					cout << "holiscraayoly" << endl;
 					selectFigureCanvas(&canvas1, &window, mousePointer.getPosition().x, mousePointer.getPosition().y);
 				}
 				if (mousePointer.getAction() >= 1 && mousePointer.getAction() <= 5)

@@ -43,7 +43,12 @@ cElipse::~cElipse()
 
 bool cElipse::hitTest(Point mouseCoords)
 {
-	return false;
+	float k;
+	if (Elipse.getGlobalBounds().height <= Elipse.getGlobalBounds().width)
+		k = (pow(mouseCoords.x - Elipse.getPosition().x, 2) / pow(Elipse.getGlobalBounds().width / 2.0f, 2)) + (pow(mouseCoords.y - Elipse.getPosition().y, 2) / pow(Elipse.getGlobalBounds().height / 2.0f, 2));
+	else
+		k = (pow(mouseCoords.x - Elipse.getPosition().x, 2) / pow(Elipse.getGlobalBounds().height / 2.0f, 2)) + (pow(mouseCoords.y - Elipse.getPosition().y, 2) / pow(Elipse.getGlobalBounds().width / 2.0f, 2));
+	return (k <= 1);
 }
 
 void cElipse::Guardar(ofstream &salida)

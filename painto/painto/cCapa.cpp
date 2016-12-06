@@ -16,19 +16,19 @@ cCapa::~cCapa()
 
 void cCapa::Insertar(int clsId)
 {
-	Figuras.push_back(CrearFigura(clsId));
-	Figuras.back()->nombre = "figura " + to_string(contador);
-	Figuras.back()->visible = true;
-	Figuras.back()->desbloqueado = true;
+	Figuras.push_front(CrearFigura(clsId));
+	Figuras.front()->nombre = "figura " + to_string(contador);
+	Figuras.front()->visible = true;
+	Figuras.front()->desbloqueado = true;
 	contador++;
 }
 
 void cCapa::Insertar(cFiguras *nuevo)
 {
-	Figuras.push_back(nuevo);
-	Figuras.back()->nombre = "figura " + to_string(contador);
-	Figuras.back()->desbloqueado = true;
-	Figuras.back()->visible = true;
+	Figuras.push_front(nuevo);
+	Figuras.front()->nombre = "figura " + to_string(contador);
+	Figuras.front()->desbloqueado = true;
+	Figuras.front()->visible = true;
 	contador++;
 }
 
@@ -67,7 +67,7 @@ void cCapa::Cargar(ifstream &entrada)
 		getline(entrada, str);
 		shapeNumber = stoi(str);
 		Insertar(shapeNumber);
-		(Figuras.back())->Cargar(entrada);
+		(Figuras.front())->Cargar(entrada);
 	}
 }
 
@@ -78,7 +78,7 @@ int cCapa::GetClsId()
 
 void cCapa::Dibujar(sf::RenderWindow &Ventana)
 {
-	for (list<cFiguras*>::iterator it = Figuras.begin(); it != Figuras.end(); ++it)
+	for (list<cFiguras*>::reverse_iterator it = Figuras.rbegin(); it != Figuras.rend(); ++it)
 	{
 		if((*it)->visible)
 			(*it)->Dibujar(Ventana);
