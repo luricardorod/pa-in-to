@@ -18,10 +18,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-			if (PosicionTemporal.y <= 40)
-				return;
-			else
-				PosicionTemporal.y -= 5;
+			PosicionTemporal.y -= 5;
 			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		}
 		else
@@ -34,10 +31,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-			if (PosicionTemporal.y >= 660)
-				return;
-			else
-				PosicionTemporal.y += 5;
+			PosicionTemporal.y += 5;
 			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		}
 		else
@@ -50,10 +44,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 			
-			if (PosicionTemporal.x <= 577)
-				PosicionTemporal.x += 5;
-			else
-				return;
+			PosicionTemporal.x += 5;
 			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		}
 		else
@@ -66,10 +57,7 @@ void BotonActivado(int boton, cDocumento* Documento)
 		{
 			PosicionTemporal = Documento->figuraActual->infoFig->getPosition();
 
-			if (PosicionTemporal.x >= 97)
-				PosicionTemporal.x -= 5;
-			else
-				return;
+			PosicionTemporal.x -= 5;
 			Documento->figuraActual->infoFig->setPosition(PosicionTemporal);
 		}
 		else
