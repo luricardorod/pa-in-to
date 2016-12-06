@@ -32,4 +32,7 @@ public:
 	virtual void setMove(float x, float y);
 	virtual void setColor(sf::Color newColor);
 	virtual sf::Color getColor();
+
+	virtual void setScale(float scaleX, float scaleY) {};
+
 };
