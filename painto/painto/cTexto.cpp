@@ -7,18 +7,39 @@ int cTexto::GetClsId()
 {
 	return ClsId_Texto;
 }
+cTexto::cTexto(Point position, string tex)
+{
+	fuente;
+	fuente.loadFromFile("comic.ttf");
+	cajaTexto.setFont(fuente);
+	cajaTexto.setCharacterSize(15);
+	cajaTexto.setPosition(position.x, position.y);
+	cajaTexto.setFillColor(sf::Color::Black);
+	texto = tex;
+}
+
 cTexto::cTexto()
 {
+	fuente;
+	fuente.loadFromFile("comic.ttf");
+	cajaTexto.setFont(fuente);
+	cajaTexto.setCharacterSize(15);
+	cajaTexto.setPosition(640, 325);
+	cajaTexto.setFillColor(sf::Color::Black);
+	texto = "";
 }
 
 
 cTexto::~cTexto()
 {
+
 }
 
 void cTexto::Dibujar(sf::RenderWindow &Ventana)
 {
-
+	
+	cajaTexto.setString(texto);
+	Ventana.draw(cajaTexto);
 }
 
 bool cTexto::hitTest(Point mouseCoords)
@@ -81,4 +102,19 @@ void cTexto::Cargar(ifstream &entrada)
 
 string cTexto::info() {
 	return "lu";
+}
+
+void cTexto::setMove(float x, float y)
+{
+	cajaTexto.setPosition(cajaTexto.getPosition() + sf::Vector2f(x, y));
+}
+
+void cTexto::setColor(sf::Color newColor)
+{
+	cajaTexto.setFillColor(newColor);
+}
+
+sf::Color cTexto::getColor()
+{
+	return cajaTexto.getFillColor();
 }

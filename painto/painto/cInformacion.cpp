@@ -66,7 +66,7 @@ void cInformacion::update() {
 	string ColLg = to_string(colLg);
 	string ColLb = to_string(colLb);
 
-	string Linea1 = "Pos X = " + PosX + "						  R: " + ColRr + "					  R: " + ColLr;;
+	string Linea1 = "Pos X = " + PosX + "						  R: " + ColRr + "					  R: " + ColLr;
 	string Linea2 = "Pos Y = " + PosY + "	Col. Relleno  G: " + ColRg + "	Col. Linea  G: " + ColLg;
 	string Linea3 = "										 					B: " + ColRb + "					   B: " + ColLb;
 

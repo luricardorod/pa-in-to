@@ -194,6 +194,7 @@ int main()
 	Point pos1, pos2;
 
 	bool falg1 = false;
+	bool txtFlag = false;
 
 	while (window.isOpen())
 	{
@@ -202,6 +203,21 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+
+			if (event.type == sf::Event::TextEntered && mousePointer.getAction() == 9 && txtFlag)
+			{
+				// Handle ASCII characters only
+				if (event.text.unicode <= 31)
+				{
+					canvas1.capaActual->Insertar(FiguraFlotante);
+					FiguraFlotante = NULL;
+					txtFlag = false;
+				}
+				else if (event.text.unicode < 128)
+				{
+					((cTexto*)(FiguraFlotante))->texto += static_cast<char>(event.text.unicode);
+				}
+			}
 		}
 
 		//Actualizar informacion del mouse
@@ -279,6 +295,13 @@ int main()
 							FiguraFlotante = NULL;
 						}
 					}
+				}
+				if (mousePointer.getAction() == 9)
+				{
+					pos1.x = mousePointer.getPosition().x;
+					pos1.y = mousePointer.getPosition().y;
+					txtFlag = true;
+					FiguraFlotante = new cTexto(pos1, "");
 				}
 			}
 			else if (mousePointer.getLeftState() == "Down") //Si el esta apretado
