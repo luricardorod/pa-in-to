@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "cDocumento.h"
 #include <string>
-
+#include <iostream>
 cDocumento::cDocumento()
 {
 
@@ -192,7 +192,11 @@ void cDocumento::Dibujar(sf::RenderWindow &Ventana)
 		if((*it)->visible)
 			(*it)->Dibujar(Ventana);
 	}
-	if (figuraActual != NULL && figuraActual->GetClsId() < 6)
+	if (figuraActual == NULL)
+	{
+		return;
+	}
+	if (figuraActual->GetClsId() < 6)
 	{
 		sf::RectangleShape figSec;
 		figSec.setSize(sf::Vector2f(figuraActual->infoFig->getGlobalBounds().width, figuraActual->infoFig->getGlobalBounds().height));
@@ -202,7 +206,72 @@ void cDocumento::Dibujar(sf::RenderWindow &Ventana)
 		figSec.setPosition(sf::Vector2f(figuraActual->infoFig->getGlobalBounds().left, figuraActual->infoFig->getGlobalBounds().top));
 		Ventana.draw(figSec);
 	}
-		
+	else if (figuraActual->GetClsId() == 6)
+	{
+
+		sf::RectangleShape select;
+		float pMayor = 0, pMenor = 720 , pDer = 0, pIzq = 1080;
+		for (int i = 0; i < ((cCurvaBezier*)(figuraActual))->tamano; i++)
+		{
+			pMenor =((cCurvaBezier*)(figuraActual))->vertices[i].position.y < pMenor? ((cCurvaBezier*)(figuraActual))->vertices[i].position.y : pMenor;
+			pMayor = ((cCurvaBezier*)(figuraActual))->vertices[i].position.y > pMayor ? ((cCurvaBezier*)(figuraActual))->vertices[i].position.y : pMayor;
+			pDer = ((cCurvaBezier*)(figuraActual))->vertices[i].position.x > pDer ? ((cCurvaBezier*)(figuraActual))->vertices[i].position.x : pDer;
+			pIzq = ((cCurvaBezier*)(figuraActual))->vertices[i].position.x < pIzq ? ((cCurvaBezier*)(figuraActual))->vertices[i].position.x : pIzq;
+		}
+		select.setSize(sf::Vector2f(pDer-pIzq, pMayor-pMenor));		
+		select.setOutlineThickness(3);
+		select.setOutlineColor(sf::Color::Blue);
+		select.setFillColor(sf::Color::Transparent);
+		select.setPosition(sf::Vector2f( ((pDer+pIzq) / 2) - ((pDer-pIzq)/2), ((pMayor+pMenor)/2) - ((pMayor-pMenor)/2)));
+		Ventana.draw(select);
+	}
+	else if (figuraActual->GetClsId() == 7)
+	{
+		sf::RectangleShape select;
+		float pMayor = 0, pMenor = 720, pDer = 0, pIzq = 1080;
+		for (int i = 0; i < ((cLinea*)(figuraActual))->tamano; i++)
+		{
+			pMenor = ((cLinea*)(figuraActual))->vertices[i].position.y < pMenor ? ((cLinea*)(figuraActual))->vertices[i].position.y : pMenor;
+			pMayor = ((cLinea*)(figuraActual))->vertices[i].position.y > pMayor ? ((cLinea*)(figuraActual))->vertices[i].position.y : pMayor;
+			pDer = ((cLinea*)(figuraActual))->vertices[i].position.x > pDer ? ((cLinea*)(figuraActual))->vertices[i].position.x : pDer;
+			pIzq = ((cLinea*)(figuraActual))->vertices[i].position.x < pIzq ? ((cLinea*)(figuraActual))->vertices[i].position.x : pIzq;
+		}
+		select.setSize(sf::Vector2f(pDer - pIzq, pMayor - pMenor));
+		select.setOutlineThickness(3);
+		select.setOutlineColor(sf::Color::Blue);
+		select.setFillColor(sf::Color::Transparent);
+		select.setPosition(sf::Vector2f(((pDer + pIzq) / 2) - ((pDer - pIzq) / 2), ((pMayor + pMenor) / 2) - ((pMayor - pMenor) / 2)));
+		Ventana.draw(select);
+	}
+	else if (figuraActual->GetClsId() == 8)
+	{
+
+		sf::RectangleShape select;
+		float pMayor = 0, pMenor = 720, pDer = 0, pIzq = 1080;
+		for (int i = 0; i < ((cTiraDeLinea*)(figuraActual))->tamano; i++)
+		{
+			pMenor = ((cTiraDeLinea*)(figuraActual))->vertices[i].position.y < pMenor ? ((cTiraDeLinea*)(figuraActual))->vertices[i].position.y : pMenor;
+			pMayor = ((cTiraDeLinea*)(figuraActual))->vertices[i].position.y > pMayor ? ((cTiraDeLinea*)(figuraActual))->vertices[i].position.y : pMayor;
+			pDer = ((cTiraDeLinea*)(figuraActual))->vertices[i].position.x > pDer ? ((cTiraDeLinea*)(figuraActual))->vertices[i].position.x : pDer;
+			pIzq = ((cTiraDeLinea*)(figuraActual))->vertices[i].position.x < pIzq ? ((cTiraDeLinea*)(figuraActual))->vertices[i].position.x : pIzq;
+		}
+		select.setSize(sf::Vector2f(pDer - pIzq, pMayor - pMenor));
+		select.setOutlineThickness(3);
+		select.setOutlineColor(sf::Color::Blue);
+		select.setFillColor(sf::Color::Transparent);
+		select.setPosition(sf::Vector2f(((pDer + pIzq) / 2) - ((pDer - pIzq) / 2), ((pMayor + pMenor) / 2) - ((pMayor - pMenor) / 2)));
+		Ventana.draw(select);
+	}
+	else if (figuraActual->GetClsId() == 9)
+	{
+		sf::RectangleShape figSec;
+		figSec.setSize(sf::Vector2f( ((cTexto*)(figuraActual))->cajaTexto.getGlobalBounds().width, ((cTexto*)(figuraActual))->cajaTexto.getGlobalBounds().height));
+		figSec.setOutlineThickness(3);
+		figSec.setOutlineColor(sf::Color::Blue);
+		figSec.setFillColor(sf::Color::Transparent);
+		figSec.setPosition(sf::Vector2f(((cTexto*)(figuraActual))->cajaTexto.getGlobalBounds().left, ((cTexto*)(figuraActual))->cajaTexto.getGlobalBounds().top));
+		Ventana.draw(figSec);
+	}
 }
 
 void cDocumento::cambiarSeleccionado(cSeleccionable * nuevaSeleccion)

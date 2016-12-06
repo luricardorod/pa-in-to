@@ -172,7 +172,6 @@ void cCurvaBezier::Cargar(ifstream &entrada)
 
 	for (std::vector<sf::Vector2f>::const_iterator a = points.begin(); a != points.end(); ++a)
 		vertices.append(sf::Vertex(*a, Colorin));
-
 }
 
 string cCurvaBezier::info()
