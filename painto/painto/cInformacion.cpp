@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "cInformacion.h"
+#include <iostream>
 #include "cFiguras.h"
 
 
@@ -18,7 +19,7 @@ void cInformacion::update() {
 	//tamaño de ventanoa (1024, 60) posicion  660
 	// debe de mostrar que figura su posicion, color en rgb del relleno y de la linea
 	// ademas imprimir la informacion de cada figura info()
-	if (documento->figuraActual == 0 || documento->figuraActual->infoFig == 0)
+	if (documento->figuraActual == 0 || documento->figuraActual->infoFig)
 	{
 		return;
 	}
