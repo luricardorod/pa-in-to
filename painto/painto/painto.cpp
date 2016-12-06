@@ -185,7 +185,7 @@ int main()
 	//"Up";			El mouse no esta siendo presionado
 
 
-	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos.
+	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos en consola.
 	cExplorador chemonky(&canvas1, &window);
 	cInformacion showInfo(&canvas1, &window);
 
@@ -206,7 +206,6 @@ int main()
 
 		//Actualizar informacion del mouse
 		mousePointer.actualizarDatos(sf::Mouse::isButtonPressed(sf::Mouse::Left), sf::Mouse::isButtonPressed(sf::Mouse::Right), sf::Mouse::getPosition(window));
-
 
 		//Si el mouse esta dentro del canvas
 		if (canvasBground.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))

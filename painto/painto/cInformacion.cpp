@@ -27,6 +27,23 @@ void cInformacion::update() {
 
 	sf::Vector2f Position(0, 660);
 	cFiguras* infoFigura = documento->figuraActual;
+
+	if (infoFigura->GetClsId() == ClsId_Texto)
+	{
+		
+	}
+	else if (infoFigura->GetClsId() == ClsId_Linea)
+	{
+
+	}
+	else if (infoFigura->GetClsId() == ClsId_TiraDeLinea)
+	{
+
+	}
+	else if (infoFigura->GetClsId() == ClsId_CurvaBezier)
+	{
+		
+	}
 	
 	float posX = infoFigura->infoFig->getPosition().x;
 	float posY = infoFigura->infoFig->getPosition().y;
