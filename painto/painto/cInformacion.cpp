@@ -19,7 +19,7 @@ void cInformacion::update() {
 	//tamaño de ventanoa (1024, 60) posicion  660
 	// debe de mostrar que figura su posicion, color en rgb del relleno y de la linea
 	// ademas imprimir la informacion de cada figura info()
-	if (documento->figuraActual == 0 || documento->figuraActual->infoFig)
+	if (documento->figuraActual == 0)
 	{
 		return;
 	}
@@ -47,7 +47,7 @@ void cInformacion::update() {
 
 		string line1 = "Pos X = " + PosTxtX + "						  R: " + ColTxtR;
 		string line2 = "Pos Y = " + PosTxtY + "	Col. Relleno  G: " + ColTxtG;
-		string line3 = "										 					B: " + ColTxtB;
+		string line3 = "										 				B: " + ColTxtB;
 
 		string lineFull0 = line1 + "\n" + line2 + "\n" + line3;
 
