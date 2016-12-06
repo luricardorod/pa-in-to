@@ -45,16 +45,16 @@ bool cTiraDeLinea::hitTest(Point mouseCoords)
 
 void cTiraDeLinea::Guardar(ofstream &salida)
 {
-	salida << tamano << endl;
+	salida << to_string(tamano) << endl;
 	for (int i = 0; i < tamano; i++)
 	{
-		salida << (vertices[i].position).x << endl;
-		salida << (vertices[i].position).y << endl;
+		salida << to_string((vertices[i].position).x) << endl;
+		salida << to_string((vertices[i].position).y) << endl;
 	}
-	salida << vertices[0].color.r << endl;
-	salida << vertices[0].color.g << endl;
-	salida << vertices[0].color.b << endl;
-	salida << vertices[0].color.a << endl;
+	salida << to_string(vertices[0].color.r) << endl;
+	salida << to_string(vertices[0].color.g) << endl;
+	salida << to_string(vertices[0].color.b) << endl;
+	salida << to_string(vertices[0].color.a) << endl;
 }
 
 void cTiraDeLinea::Cargar(ifstream &entrada)
@@ -68,7 +68,6 @@ void cTiraDeLinea::Cargar(ifstream &entrada)
 
 	tamano = stof(str);
 
-	vertices.resize(tamano);
 
 	for (int i = 0; i < tamano; i++)
 	{
@@ -76,7 +75,6 @@ void cTiraDeLinea::Cargar(ifstream &entrada)
 		nuevo.position.x = stof(str);
 		getline(entrada, str);
 		nuevo.position.y = stof(str);
-
 		vertices.append(nuevo);
 	}
 	sf::Color colorin;

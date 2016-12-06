@@ -101,22 +101,23 @@ bool cCurvaBezier::hitTest(Point mouseCoords)
 
 void cCurvaBezier::Guardar(ofstream &salida)
 {
-	salida << pInicio.x << endl;
-	salida << pInicio.y << endl;
 
-	salida << pFinal.x << endl;
-	salida << pFinal.y << endl;
+	salida << to_string(pInicio.x) << endl;
+	salida << to_string(pInicio.y) << endl;
 
-	salida << pAnclaje1.x << endl;
-	salida << pAnclaje1.y << endl;
+	salida << to_string(pFinal.x) << endl;
+	salida << to_string(pFinal.y) << endl;
 
-	salida << pAnclaje2.x << endl;
-	salida << pAnclaje2.y << endl;
+	salida << to_string(pAnclaje1.x) << endl;
+	salida << to_string(pAnclaje1.y) << endl;
 
-	salida << vertices[0].color.r << endl;
-	salida << vertices[0].color.g << endl;
-	salida << vertices[0].color.b << endl;
-	salida << vertices[0].color.a << endl;
+	salida << to_string(pAnclaje2.x) << endl;
+	salida << to_string(pAnclaje2.y) << endl;
+
+	salida << to_string(vertices[0].color.r) << endl;
+	salida << to_string(vertices[0].color.g) << endl;
+	salida << to_string(vertices[0].color.b) << endl;
+	salida << to_string(vertices[0].color.a) << endl;
 }
 
 void cCurvaBezier::Cargar(ifstream &entrada)

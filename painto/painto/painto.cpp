@@ -361,7 +361,6 @@ int main()
 				cordenadas.x = mousePointer.getPosition().x;
 				cordenadas.y = mousePointer.getPosition().y;
 				chemonky.checarClick(cordenadas);
-				cout << "hola modi" << endl;
 
 			}
 		}
@@ -372,8 +371,26 @@ int main()
 			{
 				for (int i = 0; i < 10; i++) //Buscar a que "boton" le dio clic
 				{
-					if (spriteBotones[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
+					if (spriteBotones[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y)) {
+						if (mousePointer.getAction() == 9)
+						{
+							if (txtFlag && ((cTexto*)(FiguraFlotante))->texto != "" )
+							{
+								canvas1.capaActual->Insertar(FiguraFlotante);
+								FiguraFlotante = NULL;
+								txtFlag = false;
+							}
+						}
+						if (mousePointer.getAction() == 8)
+						{
+							if (FiguraFlotante != NULL && ((cTiraDeLinea*)(FiguraFlotante))->tamano > 1)
+							{
+								canvas1.capaActual->Insertar(FiguraFlotante);
+								FiguraFlotante = NULL;
+							}
+						}
 						mousePointer.setAction(i);
+					}
 				}
 			}
 		}

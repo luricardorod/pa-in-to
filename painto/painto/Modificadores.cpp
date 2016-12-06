@@ -3,14 +3,26 @@
 
 void BotonActivado(int boton, cDocumento* Documento)
 {
-	if (Documento->figuraActual == NULL || !Documento->figuraActual->desbloqueado)
-		return;
-	bool linea = (Documento->figuraActual->GetClsId() >= 6 && Documento->figuraActual->GetClsId() <= 8);
-	bool txt = (Documento->figuraActual->GetClsId() == 9);
 	sf::Color ColorTemporal;
 	sf::Vector2f PosicionTemporal;
 	sf::Vector2f EscalaTemporal;
 	ofstream fOut;
+	if (boton == 28)
+	{
+		fOut.open("loquesea.txt", ios_base::out);
+		if (fOut.is_open())
+		{
+			Documento->Guardar(fOut);
+			fOut.close();
+		}
+		return;
+	}
+	
+	if (Documento->figuraActual == NULL || !Documento->figuraActual->desbloqueado)
+		return;
+	bool linea = (Documento->figuraActual->GetClsId() >= 6 && Documento->figuraActual->GetClsId() <= 8);
+	bool txt = (Documento->figuraActual->GetClsId() == 9);
+	
 	switch (boton)
 	{
 	case 0:
@@ -313,14 +325,6 @@ void BotonActivado(int boton, cDocumento* Documento)
 			else
 				ColorTemporal.g -= 5;
 			Documento->figuraActual->infoFig->setFillColor(ColorTemporal);
-		}
-		break;
-	case 28:
-		fOut.open("loquesea.txt", ios_base::out);
-		if (fOut.is_open())
-		{
-			Documento->Guardar(fOut);
-			fOut.close();
 		}
 		break;
 	default:

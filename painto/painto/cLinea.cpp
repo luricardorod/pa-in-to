@@ -41,16 +41,17 @@ bool cLinea::hitTest(Point mouseCoords)
 
 void cLinea::Guardar(ofstream &salida)
 {
-	salida << (vertices[0].position).x << endl;
-	salida << (vertices[0].position).y << endl;
+	salida << to_string((vertices[0].position).x) << endl;
+	salida << to_string((vertices[0].position).y) << endl;
 
-	salida << (vertices[1].position).x << endl;
-	salida << (vertices[1].position).y << endl;
+	salida << to_string((vertices[1].position).x) << endl;
+	salida << to_string((vertices[1].position).y) << endl;
 
-	salida << (vertices[1].color).r << endl;
-	salida << (vertices[1].color).g << endl;
-	salida << (vertices[1].color).b << endl;
-	salida << (vertices[1].color).a << endl;
+	salida << to_string((vertices[1].color).r) << endl;
+	salida << to_string((vertices[1].color).g) << endl;
+	salida << to_string((vertices[1].color).b) << endl;
+	salida << to_string((vertices[1].color).a) << endl;
+	
 }
 
 void cLinea::Cargar(ifstream &entrada)
@@ -74,16 +75,16 @@ void cLinea::Cargar(ifstream &entrada)
 	sf::Color Colorin;
 
 	getline(entrada, str);
-	Colorin.r = stof(str);
+	Colorin.r = stoul(str);
 
 	getline(entrada, str);
-	Colorin.g = stof(str);
+	Colorin.g = stoul(str);
 
 	getline(entrada, str);
-	Colorin.b = stof(str);
+	Colorin.b = stoul(str);
 
 	getline(entrada, str);
-	Colorin.a = stof(str);
+	Colorin.a = stoul(str);
 
 	vertices[0].color = Colorin;
 	vertices[1].color = Colorin;
