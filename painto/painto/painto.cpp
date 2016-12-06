@@ -185,7 +185,7 @@ int main()
 	//"Up";			El mouse no esta siendo presionado
 
 
-	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos.
+	window.setFramerateLimit(60); //Los usuarios de consola no podran creer que esta app tiene mas fps que sus juegos en consola.
 	cExplorador chemonky(&canvas1, &window);
 	cInformacion showInfo(&canvas1, &window);
 

@@ -192,6 +192,17 @@ void cDocumento::Dibujar(sf::RenderWindow &Ventana)
 		if((*it)->visible)
 			(*it)->Dibujar(Ventana);
 	}
+	if (figuraActual != NULL)
+	{
+		sf::RectangleShape figSec;
+		figSec.setSize(sf::Vector2f(figuraActual->infoFig->getGlobalBounds().width, figuraActual->infoFig->getGlobalBounds().height));
+		figSec.setOutlineThickness(3);
+		figSec.setOutlineColor(sf::Color::Blue);
+		figSec.setFillColor(sf::Color::Transparent);
+		figSec.setPosition(sf::Vector2f(figuraActual->infoFig->getGlobalBounds().left, figuraActual->infoFig->getGlobalBounds().top));
+		Ventana.draw(figSec);
+	}
+		
 }
 
 void cDocumento::cambiarSeleccionado(cSeleccionable * nuevaSeleccion)

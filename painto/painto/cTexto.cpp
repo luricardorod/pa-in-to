@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "cTexto.h"
 #include <string>
+#include<iostream>
 
 
 int cTexto::GetClsId()
@@ -49,55 +50,44 @@ bool cTexto::hitTest(Point mouseCoords)
 
 void cTexto::Guardar(ofstream &salida)
 {
-	salida << p1.x << endl;
-	salida << p1.y << endl;
-
-	salida << p2.x << endl;
-	salida << p2.y << endl;
-
-	salida << p3.x << endl;
-	salida << p3.y << endl;
-
-	salida << p4.x << endl;
-	salida << p4.y << endl;
+	salida << texto << endl;
+	salida << to_string(cajaTexto.getFillColor().r) << endl;
+	salida << to_string(cajaTexto.getFillColor().g) << endl;
+	salida << to_string(cajaTexto.getFillColor().b) << endl;
+	salida << to_string(cajaTexto.getPosition().x) << endl;
+	salida << to_string(cajaTexto.getPosition().y) << endl;
+	salida << to_string(cajaTexto.getScale().x) << endl;
+	salida << to_string(cajaTexto.getScale().y) << endl;
 }
 
 void cTexto::Cargar(ifstream &entrada)
 {
-	/*
-	entrada >> p1.x;
-	entrada >> p1.y;
-
-	entrada >> p2.x;
-	entrada >> p2.y;
-
-	entrada >> p3.x;
-	entrada >> p3.y;
-
-	entrada >> p4.x;
-	entrada >> p4.y;
-	*/
-
 	string str;
-	getline(entrada, str);
-	p1.x = stof(str);
-	getline(entrada, str);
-	p1.y = stof(str);
+	sf::Color colortemp;
+	sf::Vector2f posTemp;
 
 	getline(entrada, str);
-	p2.x = stof(str);
-	getline(entrada, str);
-	p2.y = stof(str);
+	texto = str;
 
 	getline(entrada, str);
-	p3.x = stof(str);
+	colortemp.r = stoul(str);
 	getline(entrada, str);
-	p3.y = stof(str);
+	colortemp.g = stoul(str);
+	getline(entrada, str);
+	colortemp.b = stoul(str);
+	cajaTexto.setFillColor(colortemp);
 
 	getline(entrada, str);
-	p4.x = stof(str);
+	posTemp.x = stof(str);
 	getline(entrada, str);
-	p4.y = stof(str);
+	posTemp.y = stof(str);
+	cajaTexto.setPosition(posTemp);
+
+	getline(entrada, str);
+	posTemp.x = stof(str);
+	getline(entrada, str);
+	posTemp.y = stof(str);
+	cajaTexto.setScale(posTemp);
 }
 
 string cTexto::info() {
@@ -112,6 +102,10 @@ void cTexto::setMove(float x, float y)
 void cTexto::setColor(sf::Color newColor)
 {
 	cajaTexto.setFillColor(newColor);
+}
+
+void cTexto::setScale(float scaleX, float scaleY) {
+	cajaTexto.setScale(cajaTexto.getScale() + sf::Vector2f(scaleX, scaleY));
 }
 
 sf::Color cTexto::getColor()
