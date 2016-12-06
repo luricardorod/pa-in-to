@@ -46,6 +46,11 @@ void cLinea::Guardar(ofstream &salida)
 
 	salida << (vertices[1].position).x << endl;
 	salida << (vertices[1].position).y << endl;
+
+	salida << (vertices[1].color).r << endl;
+	salida << (vertices[1].color).g << endl;
+	salida << (vertices[1].color).b << endl;
+	salida << (vertices[1].color).a << endl;
 }
 
 void cLinea::Cargar(ifstream &entrada)
@@ -65,6 +70,23 @@ void cLinea::Cargar(ifstream &entrada)
 	(vertices[1].position).x = stof(str);
 	getline(entrada, str);
 	(vertices[1].position).y = stof(str);
+
+	sf::Color Colorin;
+
+	getline(entrada, str);
+	Colorin.r = stof(str);
+
+	getline(entrada, str);
+	Colorin.g = stof(str);
+
+	getline(entrada, str);
+	Colorin.b = stof(str);
+
+	getline(entrada, str);
+	Colorin.a = stof(str);
+
+	vertices[0].color = Colorin;
+	vertices[1].color = Colorin;
 }
 
 string cLinea::info()

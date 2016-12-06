@@ -51,22 +51,51 @@ void cTiraDeLinea::Guardar(ofstream &salida)
 		salida << (vertices[i].position).x << endl;
 		salida << (vertices[i].position).y << endl;
 	}
+	salida << vertices[0].color.r << endl;
+	salida << vertices[0].color.g << endl;
+	salida << vertices[0].color.b << endl;
+	salida << vertices[0].color.a << endl;
 }
 
 void cTiraDeLinea::Cargar(ifstream &entrada)
 {
-	int sz;
-	entrada >> sz;
 	vertices.clear();
-	vertices.resize(sz);
-	tamano = sz;
+	vertices.setPrimitiveType(sf::LineStrip);
+
+	sf::Vertex nuevo;
+	string str;
+	getline(entrada, str);
+
+	tamano = stof(str);
+
+	vertices.resize(tamano);
+
 	for (int i = 0; i < tamano; i++)
 	{
-		string str;
 		getline(entrada, str);
-		vertices[i].position.x = stof(str);
+		nuevo.position.x = stof(str);
 		getline(entrada, str);
-		vertices[i].position.y = stof(str);
+		nuevo.position.y = stof(str);
+
+		vertices.append(nuevo);
+	}
+	sf::Color colorin;
+
+	getline(entrada, str);
+	colorin.r = stof(str);
+
+	getline(entrada, str);
+	colorin.g = stof(str);
+
+	getline(entrada, str);
+	colorin.b = stof(str);
+
+	getline(entrada, str);
+	colorin.a = stof(str);
+
+	for (int i = 0; i < tamano; i++)
+	{
+		vertices[i].color = colorin;
 	}
 }
 

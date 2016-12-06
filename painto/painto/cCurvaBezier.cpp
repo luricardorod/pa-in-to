@@ -112,23 +112,15 @@ void cCurvaBezier::Guardar(ofstream &salida)
 
 	salida << pAnclaje2.x << endl;
 	salida << pAnclaje2.y << endl;
+
+	salida << vertices[0].color.r << endl;
+	salida << vertices[0].color.g << endl;
+	salida << vertices[0].color.b << endl;
+	salida << vertices[0].color.a << endl;
 }
 
 void cCurvaBezier::Cargar(ifstream &entrada)
 {
-	/*
-	entrada >> pInicio.x;
-	entrada >> pInicio.y;
-
-	entrada >> pFinal.x;
-	entrada >> pFinal.y;
-
-	entrada >> pAnclaje1.x;
-	entrada >> pAnclaje1.y;
-
-	entrada >> pAnclaje2.x;
-	entrada >> pAnclaje2.y;
-	*/
 	string str;
 	getline(entrada, str);
 	pInicio.x = stof(str);
@@ -149,6 +141,38 @@ void cCurvaBezier::Cargar(ifstream &entrada)
 	pAnclaje2.x = stof(str);
 	getline(entrada, str);
 	pAnclaje2.y = stof(str);
+
+	vertices = sf::VertexArray(sf::LinesStrip, 0);
+
+	std::vector<sf::Vector2f> points;
+	points.clear();
+
+	if (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x == NULL && pAnclaje2.x == NULL)
+		points = CalcCubicBezier(pInicio, pFinal, pInicio, pFinal, 20);
+	else if (pInicio.x != NULL && pFinal.x != NULL && pAnclaje1.x != NULL && pAnclaje2.x == NULL)
+		points = CalcCubicBezier(pInicio, pFinal, pAnclaje1, pFinal, 20);
+	else
+		points = CalcCubicBezier(pInicio, pFinal, pAnclaje1, pAnclaje2, 20);
+
+	sf::Color Colorin;
+
+	getline(entrada, str);
+	Colorin.r = stof(str);
+
+	getline(entrada, str);
+	Colorin.g = stof(str);
+
+	getline(entrada, str);
+	Colorin.b = stof(str);
+
+	getline(entrada, str);
+	Colorin.a = stof(str);
+
+	tamano = points.size();
+
+	for (std::vector<sf::Vector2f>::const_iterator a = points.begin(); a != points.end(); ++a)
+		vertices.append(sf::Vertex(*a, Colorin));
+
 }
 
 string cCurvaBezier::info()
