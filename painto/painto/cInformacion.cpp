@@ -15,7 +15,8 @@ cInformacion::~cInformacion()
 {
 }
 
-void cInformacion::update() {
+void cInformacion::update()
+{
 	//tamaño de ventanoa (1024, 60) posicion  660
 	// debe de mostrar que figura su posicion, color en rgb del relleno y de la linea
 	// ademas imprimir la informacion de cada figura info()

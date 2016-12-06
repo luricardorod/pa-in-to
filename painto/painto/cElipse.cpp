@@ -66,7 +66,6 @@ void cElipse::Cargar(ifstream &entrada)
 {
 	string str;
 	Elipse.setOutlineThickness(2);
-	infoFig = &Elipse;
 	sf::Color colortemp;
 	sf::Vector2f posTemp;
 
@@ -107,6 +106,8 @@ void cElipse::Cargar(ifstream &entrada)
 	getline(entrada, str);
 	posTemp.y = stof(str);
 	Elipse.setScale(posTemp);
+
+	infoFig = &Elipse;
 }
 
 string cElipse::info() {
