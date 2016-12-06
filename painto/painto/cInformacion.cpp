@@ -32,12 +32,12 @@ void cInformacion::update()
 
 	if (infoFigura->GetClsId() == ClsId_Texto)
 	{
-		float posTxtX = ((sf::Text*)(infoFigura))->getPosition().x;
-		float posTxtY = ((sf::Text*)(infoFigura))->getPosition().y;
+		int posTxtX = ((cTexto*)(infoFigura))->cajaTexto.getPosition().x;
+		int posTxtY = ((cTexto*)(infoFigura))->cajaTexto.getPosition().y;
 
-		float colTxtR = ((sf::Text*)(infoFigura))->getFillColor().r;
-		float colTxtG = ((sf::Text*)(infoFigura))->getFillColor().g;
-		float colTxtB = ((sf::Text*)(infoFigura))->getFillColor().b;
+		int colTxtR = ((cTexto*)(infoFigura))->getColor().r;
+		int colTxtG = ((cTexto*)(infoFigura))->getColor().g;
+		int colTxtB = ((cTexto*)(infoFigura))->getColor().b;
 
 		string PosTxtX = to_string(posTxtX);
 		string PosTxtY = to_string(posTxtY);
@@ -46,14 +46,13 @@ void cInformacion::update()
 		string ColTxtG = to_string(colTxtG);
 		string ColTxtB = to_string(colTxtB);
 
-		string line1 = "Pos X = " + PosTxtX + "						  R: " + ColTxtR;
-		string line2 = "Pos Y = " + PosTxtY + "	Col. Relleno  G: " + ColTxtG;
-		string line3 = "										 				B: " + ColTxtB;
+		string line1 = "Pos. X: " + PosTxtX + "	  Color: R (" + ColTxtR + ")	G (" + ColTxtG + ")	B (" + ColTxtB + ")";
+		string line2 = "Pos. Y: " + PosTxtY;
 
-		string lineFull0 = line1 + "\n" + line2 + "\n" + line3;
+		string lineFull0 = line1 + "\n" + line2;
 
 		sf::Text totalInfo(lineFull0, fuente);
-		totalInfo.setCharacterSize(15);
+		totalInfo.setCharacterSize(20);
 		totalInfo.setPosition(4, 660);
 		totalInfo.setFillColor(sf::Color::Black);
 		window->draw(totalInfo);
@@ -68,10 +67,10 @@ void cInformacion::update()
 		string colorG = to_string(LineColorG);
 		string colorB = to_string(LineColorB);
 
-		string lineFull1 = "R: " + colorR + "\n" + "G: " + colorG + "\n" + "B: " + colorB;
+		string lineFull1 = "Color: R (" + colorR + ")	G (" + colorG + ")	B (" + colorB + ")";
 
 		sf::Text totalInfo(lineFull1, fuente);
-		totalInfo.setCharacterSize(15);
+		totalInfo.setCharacterSize(20);
 		totalInfo.setPosition(4, 660);
 		totalInfo.setFillColor(sf::Color::Black);
 		window->draw(totalInfo);
@@ -86,10 +85,10 @@ void cInformacion::update()
 		string colorG = to_string(LineColorG);
 		string colorB = to_string(LineColorB);
 
-		string lineFull2 = "R: " + colorR + "\n" + "G: " + colorG + "\n" + "B: " + colorB;
+		string lineFull2 = "Color: R (" + colorR + ")	G (" + colorG + ")	B (" + colorB + ")"; + "B: " + colorB;
 
 		sf::Text totalInfo(lineFull2, fuente);
-		totalInfo.setCharacterSize(15);
+		totalInfo.setCharacterSize(20);
 		totalInfo.setPosition(4, 660);
 		totalInfo.setFillColor(sf::Color::Black);
 		window->draw(totalInfo);
@@ -104,26 +103,26 @@ void cInformacion::update()
 		string colorG = to_string(LineColorG);
 		string colorB = to_string(LineColorB);
 
-		string lineFull3 = "R: " + colorR + "\n" + "G: " + colorG + "\n" + "B: " + colorB;
+		string lineFull3 = "Color: R (" + colorR +  ")	G (" + colorG + ")	B (" + colorB + ")";
 
 		sf::Text totalInfo(lineFull3, fuente);
-		totalInfo.setCharacterSize(15);
+		totalInfo.setCharacterSize(20);
 		totalInfo.setPosition(4, 660);
 		totalInfo.setFillColor(sf::Color::Black);
 		window->draw(totalInfo);
 	}
 	else
 	{
-		float posX = infoFigura->infoFig->getPosition().x;
-		float posY = infoFigura->infoFig->getPosition().y;
+		int posX = infoFigura->infoFig->getPosition().x;
+		int posY = infoFigura->infoFig->getPosition().y;
 
-		float colRr = infoFigura->infoFig->getFillColor().r;
-		float colRg = infoFigura->infoFig->getFillColor().g;
-		float colRb = infoFigura->infoFig->getFillColor().b;
+		int colRr = infoFigura->infoFig->getFillColor().r;
+		int colRg = infoFigura->infoFig->getFillColor().g;
+		int colRb = infoFigura->infoFig->getFillColor().b;
 
-		float colLr = infoFigura->infoFig->getOutlineColor().r;
-		float colLg = infoFigura->infoFig->getOutlineColor().g;
-		float colLb = infoFigura->infoFig->getOutlineColor().b;
+		int colLr = infoFigura->infoFig->getOutlineColor().r;
+		int colLg = infoFigura->infoFig->getOutlineColor().g;
+		int colLb = infoFigura->infoFig->getOutlineColor().b;
 
 		string PosX = to_string(posX);
 		string PosY = to_string(posY);
@@ -136,14 +135,13 @@ void cInformacion::update()
 		string ColLg = to_string(colLg);
 		string ColLb = to_string(colLb);
 
-		string Linea1 = "Pos X = " + PosX + "						  R: " + ColRr + "					  R: " + ColLr;
-		string Linea2 = "Pos Y = " + PosY + "	Col. Relleno  G: " + ColRg + "	Col. Linea  G: " + ColLg;
-		string Linea3 = "										 					B: " + ColRb + "					   B: " + ColLb;
+		string Linea1 = "Pos X = " + PosX + "	Col. Linea: R (" + ColLr + ")	 G (" + ColLg + ")	B (" + ColLb + ")";
+		string Linea2 = "Pos Y = " + PosY + "	Col. Relleno: R (" + ColLg + ")    G (" + ColRg + ")	  B (" + ColRb + ")";
 
-		string info1 = Linea1 + "\n" + Linea2 + "\n" + Linea3;
+		string info1 = Linea1 + "\n" + Linea2;
 
 		sf::Text totalInfo(info1, fuente);
-		totalInfo.setCharacterSize(15);
+		totalInfo.setCharacterSize(20);
 		totalInfo.setPosition(4, 660);
 		totalInfo.setFillColor(sf::Color::Black);
 		window->draw(totalInfo);
