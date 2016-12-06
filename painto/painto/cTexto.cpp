@@ -17,6 +17,7 @@ cTexto::cTexto(Point position, string tex)
 	cajaTexto.setPosition(position.x, position.y);
 	cajaTexto.setFillColor(sf::Color::Black);
 	texto = tex;
+
 }
 
 cTexto::cTexto()
