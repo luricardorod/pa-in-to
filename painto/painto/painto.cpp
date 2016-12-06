@@ -5,7 +5,7 @@
 #include "cMouse.h"
 #include "cInformacion.h"
 #include "Modificadores.h"
-
+#include "canvasSelect.h"
 using namespace std;
 
 int main()
@@ -228,7 +228,11 @@ int main()
 		{
 			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 			{
-				cout << "canvas hola" << endl;
+				if (mousePointer.getAction() == 0)
+				{
+					cout << "holiscraayoly" << endl;
+					selectFigureCanvas(&canvas1, &window, mousePointer.getPosition().x, mousePointer.getPosition().y);
+				}
 				if (mousePointer.getAction() >= 1 && mousePointer.getAction() <= 5)
 				{
 					pos1.x = mousePointer.getPosition().x;
@@ -367,29 +371,32 @@ int main()
 		//Si el mouse esta dentro de la seccion de Tools
 		else if (tools.getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y))
 		{
-			if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
+			if (canvas1.capaActual != NULL)
 			{
-				for (int i = 0; i < 10; i++) //Buscar a que "boton" le dio clic
+				if (mousePointer.getLeftState() == "Pressed") //Si hizo clic izquierdo
 				{
-					if (spriteBotones[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y)) {
-						if (mousePointer.getAction() == 9)
-						{
-							if (txtFlag && ((cTexto*)(FiguraFlotante))->texto != "" )
+					for (int i = 0; i < 10; i++) //Buscar a que "boton" le dio clic
+					{
+						if (spriteBotones[i].getGlobalBounds().contains(mousePointer.getPosition().x, mousePointer.getPosition().y)) {
+							if (mousePointer.getAction() == 9)
 							{
-								canvas1.capaActual->Insertar(FiguraFlotante);
-								FiguraFlotante = NULL;
-								txtFlag = false;
+								if (txtFlag && ((cTexto*)(FiguraFlotante))->texto != "" )
+								{
+									canvas1.capaActual->Insertar(FiguraFlotante);
+									FiguraFlotante = NULL;
+									txtFlag = false;
+								}
 							}
-						}
-						if (mousePointer.getAction() == 8)
-						{
-							if (FiguraFlotante != NULL && ((cTiraDeLinea*)(FiguraFlotante))->tamano > 1)
+							if (mousePointer.getAction() == 8)
 							{
-								canvas1.capaActual->Insertar(FiguraFlotante);
-								FiguraFlotante = NULL;
+								if (FiguraFlotante != NULL && ((cTiraDeLinea*)(FiguraFlotante))->tamano > 1)
+								{
+									canvas1.capaActual->Insertar(FiguraFlotante);
+									FiguraFlotante = NULL;
+								}
 							}
+							mousePointer.setAction(i);
 						}
-						mousePointer.setAction(i);
 					}
 				}
 			}

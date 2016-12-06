@@ -161,6 +161,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="canvasSelect.h" />
     <ClInclude Include="cCapa.h" />
     <ClInclude Include="cCurvaBezier.h" />
     <ClInclude Include="CDibujable.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="canvasSelect.cpp" />
     <ClCompile Include="cCapa.cpp" />
     <ClCompile Include="cCurvaBezier.cpp" />
     <ClCompile Include="cDocumento.cpp" />
