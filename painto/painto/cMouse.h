@@ -13,7 +13,7 @@ private:
 	string mouseLeftState = "Up";
 	string mouseRightState = "Up";
 
-	int action = 1;
+	int action = 0;
 public:
 	cMouse();
 	~cMouse();
